@@ -4,8 +4,26 @@
 
     
   <url>
-    <loc>https://zengwei123.github.io/2016/09/04/123/</loc>
-    <lastmod>2018-08-06T02:32:20.748Z</lastmod>
+    <loc>https://zengwei123.github.io/2016/09/02/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-08-06T07:16:01.561Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo搭建博客</title>
+        <pubTime>2016-09-02T15:15:04.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Hexo" url="https://zengwei123.github.io/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://zengwei123.github.io/2016/09/04/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2018-08-06T02:57:06.613Z</lastmod>
     <data>
         <display>
         <title>Hexo常用命令</title>
@@ -24,19 +42,4 @@
     
     
     
-    
-  <url>
-    <loc>https://zengwei123.github.io/2018/08/04/hello-world/</loc>
-    <lastmod>2017-10-28T00:39:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2018-08-04T03:12:54.713Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>

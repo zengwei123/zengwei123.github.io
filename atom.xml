@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zengwei123.github.io/"/>
-  <updated>2017-10-28T00:39:58.000Z</updated>
+  <updated>2018-08-06T02:57:06.613Z</updated>
   <id>https://zengwei123.github.io/</id>
   
   <author>
@@ -17,32 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://zengwei123.github.io/2018/08/04/hello-world/"/>
-    <id>https://zengwei123.github.io/2018/08/04/hello-world/</id>
-    <published>2018-08-04T03:12:54.713Z</published>
-    <updated>2017-10-28T00:39:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hexo常用命令</title>
-    <link href="https://zengwei123.github.io/2016/09/04/123/"/>
-    <id>https://zengwei123.github.io/2016/09/04/123/</id>
+    <link href="https://zengwei123.github.io/2016/09/04/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://zengwei123.github.io/2016/09/04/hexo常用命令/</id>
     <published>2016-09-04T08:25:04.000Z</published>
-    <updated>2018-08-06T02:32:20.748Z</updated>
+    <updated>2018-08-06T02:57:06.613Z</updated>
     
     <content type="html"><![CDATA[<h4 id="1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址-folder-可以随意命名，如：blog"><a href="#1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址-folder-可以随意命名，如：blog" class="headerlink" title="1.新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址,[folder]可以随意命名，如：blog"></a>1.新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址,[folder]可以随意命名，如：blog</h4><blockquote><p>$ hexo init [folder]   </p></blockquote><p><br><br></p><h4 id="2-创建一篇文章，-layout-为博客文章布局，可以设置为下面三种布局之一-title-随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致"><a href="#2-创建一篇文章，-layout-为博客文章布局，可以设置为下面三种布局之一-title-随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致" class="headerlink" title="2.创建一篇文章，[layout]为博客文章布局，可以设置为下面三种布局之一 title 随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致"></a>2.创建一篇文章，[layout]为博客文章布局，可以设置为下面三种布局之一 title 随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致</h4><ul><li><h5 id="·-post-nbsp-nbsp-我一般都用post，默认就是这个"><a href="#·-post-nbsp-nbsp-我一般都用post，默认就是这个" class="headerlink" title="· post&nbsp;&nbsp;我一般都用post，默认就是这个"></a>· post&nbsp;&nbsp;我一般都用post，默认就是这个</h5></li><li><h5 id="·-page"><a href="#·-page" class="headerlink" title="· page"></a>· page</h5></li><li><h5 id="·-draft"><a href="#·-draft" class="headerlink" title="· draft"></a>· draft</h5></li></ul><blockquote><p>$ hexo new [layout] <title></title></p></blockquote><hr><p>文章建立之后，在你的网站文件夹中<span style="color:#ff0000"> <strong>\source\_posts</strong> </span> 路径下面可以找到创建的文章文件，是 <strong>markdown</strong> 格式的，文件后缀名为 <strong>.md</strong>, <strong>Front-matter</strong> 是文件最上方以 — 分隔的区域，用于指定个别文件的变量,以下是预先定义的参数，您可在模板中使用这些参数值并加以利用。</p><ul><li><strong>·</strong> layout 布局</li><li><strong>·</strong> title 标题</li><li><strong>·</strong> date 建立日期</li><li><strong>·</strong> updated 更新日期</li><li><strong>·</strong> comments 开启文章的评论功能</li><li><strong>·</strong> tags 标签</li><li><strong>·</strong> categories 分类</li><li><strong>·</strong> permalink 覆盖文章网址<br><br><br><h4 id="3-将更改上传到github-每次更新完博客输入这条命令，就能将文章跟新到博客了"><a href="#3-将更改上传到github-每次更新完博客输入这条命令，就能将文章跟新到博客了" class="headerlink" title="3. 将更改上传到github,每次更新完博客输入这条命令，就能将文章跟新到博客了"></a>3. 将更改上传到github,每次更新完博客输入这条命令，就能将文章跟新到博客了</h4><blockquote><p>$ hexo g -d</p></blockquote></li></ul><p><br><br></p><h4 id="4-启动本地服务-可以在写完文章后查看效果"><a href="#4-启动本地服务-可以在写完文章后查看效果" class="headerlink" title="4.启动本地服务,可以在写完文章后查看效果"></a>4.启动本地服务,可以在写完文章后查看效果</h4><blockquote><p>$ hexo s</p></blockquote><p><br><br></p><h4 id="5-有时候博客写完，上传giehub无效果，那么试试清除缓存"><a href="#5-有时候博客写完，上传giehub无效果，那么试试清除缓存" class="headerlink" title="5.有时候博客写完，上传giehub无效果，那么试试清除缓存"></a>5.有时候博客写完，上传giehub无效果，那么试试清除缓存</h4><blockquote><p>$ hexo clean</p></blockquote><p><br><br><br>基本的hexo编写博客的使用就到这里了，使用上面几条命令就能够创建编写上传你的文章到博客去。其他的一些操作可以去hexo官网查看官方文档<br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">HEXO官方文档</a> </p>]]></content>
     
@@ -51,6 +30,30 @@
       
       
         &lt;h4 id=&quot;1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址-folder-可以随意命名，如：blog&quot;&gt;&lt;a href=&quot;#1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://zengwei123.github.io/categories/Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo搭建博客</title>
+    <link href="https://zengwei123.github.io/2016/09/02/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://zengwei123.github.io/2016/09/02/hexo搭建博客/</id>
+    <published>2016-09-02T15:15:04.000Z</published>
+    <updated>2018-08-06T07:16:01.561Z</updated>
+    
+    <content type="html"><![CDATA[<p>花了个半天时间把个博客搭建好了，不容易，第一篇博客就写怎么拿Hexo搭建博客吧！</p><p>   Hexo是建立在Git和Node.js的基础上的，所以在搭建博客的时候需要有这两个环境，MAC跟Windows搭建都一样，都是在git下面所以不会存在什么因为系统的原因导致配置不一样，我是windows所有</p><blockquote><h4 id="1-安装git与node-js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的"><a href="#1-安装git与node-js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的" class="headerlink" title="1.安装git与node.js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的"></a>1.安装git与node.js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的</h4></blockquote><p>安装git、node.js，首先官网去下载安装包，如果是mac一行命令的事情，然后一直下一步下一步下一步就ok,没有什么其他的出问题百度吧，这里就不多说了，下面贴上两个东西的下载地址<br><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git下找地址</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js下找地址</a></p><blockquote><h4 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h4></blockquote><p>安装好Git后，桌面右击会增加两个东西 <strong><em>Git GUI here</em></strong> 、<strong><em>Git Bash here</em></strong> 这两个东西，点击Bash,就进入了Git的终端命令的界面了，你就可以快乐的敲命令了，输入 </p><p><span style="color:red"><strong>npm install -g hexo-cli</strong><br></span></p><p>刷刷刷，然后Hexo就安装好了，你就可以搭建你的博客了</p><blockquote><h4 id="3-建站"><a href="#3-建站" class="headerlink" title="3.建站"></a>3.建站</h4></blockquote><p>首先先创建你的网站，在git命令终端用下面这个命令</p><p></p><p><span style="color:red"><strong>hexo init folder</strong></span></p><p>folder可以自己随意命名，也可以随意指定路径，然后等待一会就把网站给你创建好了，在创建的命令信息中你可以看到自己创建的网站路径，记住这个路径，然后你可以输入</p><p><span style="color:red"><strong>hexo s</strong></span></p><p>这个命令启动服务来本地运行网站，浏览器输入：127.0.0.1:4000 就能够看到Hexo默认的主题我网站，这样我们就已经建好站了</p><blockquote><h4 id="4-配置到Github"><a href="#4-配置到Github" class="headerlink" title="4.配置到Github"></a>4.配置到Github</h4></blockquote><p>首先在github上面创建一个仓库名字叫做：用户名.github.io,注意用户名一定要跟自己的github账户相同<center><img src="/2016/09/02/hexo搭建博客/s.jpg"></center><br>创建仓库<br><center><img src="/2016/09/02/hexo搭建博客/2.jpg"></center><br><br>创建好仓库之后拿到他的ssh地址或者Https地址<br><center><img src="/2016/09/02/hexo搭建博客/3.jpg"></center><br><br>这样我们就吧hexo对应的github仓库建立好了，然后来到博客根路径下，打开_config.yml这个文件夹<br>找到下面这一段，将repository的内容替换成你自己刚刚拿到的ssh或HTTPs地址<br><center><img src="/2016/09/02/hexo搭建博客/4.png"></center><br>然后在再到下面这段，将里面的url换成你自己的：用户名.github.io(注意：这个url就是你以后博客的地址)<br><br><center><img src="/2016/09/02/hexo搭建博客/6.png"></center><br><br>到这里我们基本上就跟github关联起来了，但是为了以后更加方便，我们配置一下SSH</p><blockquote><h4 id="5-配置SSH"><a href="#5-配置SSH" class="headerlink" title="5.配置SSH"></a>5.配置SSH</h4></blockquote><p>首先，终端中输入cd ~/.ssh 查看有没有SSH如果有就删除吧，然后输入ssh-keygen -t rsa -C “你的邮箱”<br>，后面会要你输入密码，这个不用管，一直回车，最后如果出现下面这个图的样子，就是成功了<br><center><img src="/2016/09/02/hexo搭建博客/7.png"></center><br><br>然后到类似于：C:\Users\13085.ssh这种的目录下找到一个叫id_rsa.pub的文件，打开将里面的东西全部复制，进入GitHub<br><center><img src="/2016/09/02/hexo搭建博客/8.png"></center><br><br><center><img src="/2016/09/02/hexo搭建博客/9.png"></center><br><br>到这里，SSH就全部配置完了</p><blockquote><h4 id="6-上传网站"><a href="#6-上传网站" class="headerlink" title="6.上传网站"></a>6.上传网站</h4></blockquote><p>输入命令hexo g，此时若出现如下报错：<br>ERROR Local hexo not found in ~/blog<br>ERROR Try runing: ‘npm install hexo –save’<br>则执行命令：<br><span style="color:red"><strong>npm install hexo –save</strong></span><br>若无报错，自行忽略此步骤。</p><p>然后输入hexo d,若执行命令hexo deploy仍然报错：无法连接git或找不到git，则执行如下命令来安装hexo-deployer-git：<br><span style="color:red"><strong>npm install hexo-deployer-git –save</strong></span></p><blockquote><h4 id="7-查看网站"><a href="#7-查看网站" class="headerlink" title="7.查看网站"></a>7.查看网站</h4></blockquote><p> 打开浏览器输入：https://你的用户名.github.io，就能够看到你的网站了，跟前面本地看到的效果是一样的</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;花了个半天时间把个博客搭建好了，不容易，第一篇博客就写怎么拿Hexo搭建博客吧！&lt;/p&gt;
+&lt;p&gt;   Hexo是建立在Git和Node.js的基础上的，所以在搭建博客的时候需要有这两个环境，MAC跟Windows搭建都一样，都是在git下面所以不会存在什么因为系统的原因导致
       
     
     </summary>
