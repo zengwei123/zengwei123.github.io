@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zengwei123.github.io/"/>
-  <updated>2018-08-06T02:57:06.613Z</updated>
+  <updated>2018-08-06T12:04:18.540Z</updated>
   <id>https://zengwei123.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Api总结（持续跟新）</title>
+    <link href="https://zengwei123.github.io/2018/08/06/Api/"/>
+    <id>https://zengwei123.github.io/2018/08/06/Api/</id>
+    <published>2018-08-06T08:53:29.000Z</published>
+    <updated>2018-08-06T12:04:18.540Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里我将一些网络上找到的Api接口总结起来，方便以后使用，这里声明：所有Api，本人皆从网络获取，并非本人抓取</p><hr><p>每日一文：<a href="https://interface.meiriyiwen.com/article/today?dev=1" target="_blank" rel="noopener">https://interface.meiriyiwen.com/article/today?dev=1</a><br>wc：字数(word count)<br>特定某天一文：<a href="https://interface.meiriyiwen.com/article/day?dev=1&amp;date=" target="_blank" rel="noopener">https://interface.meiriyiwen.com/article/day?dev=1&amp;date=</a> + 日期<br>随机一文：<a href="https://interface.meiriyiwen.com/article/random?dev=1" target="_blank" rel="noopener">https://interface.meiriyiwen.com/article/random?dev=1</a><br>解析：<br>&nbsp;&nbsp;&nbsp;&nbsp;date：日期<br>&nbsp;&nbsp;&nbsp;&nbsp;curr：今日日期，yyyyMMdd 格式<br>&nbsp;&nbsp;&nbsp;&nbsp;prev：昨日日期，yyyyMMdd 格式<br>&nbsp;&nbsp;&nbsp;&nbsp;next：明日日期，yyyyMMdd 格式<br>&nbsp;&nbsp;&nbsp;&nbsp;author：作者<br>&nbsp;&nbsp;&nbsp;&nbsp;titile：标题<br>&nbsp;&nbsp;&nbsp;&nbsp;digest：首段<br>&nbsp;&nbsp;&nbsp;&nbsp;content：正文内容</p><hr><p>金山翻译：<a href="http://fy.iciba.com/ajax.php" target="_blank" rel="noopener">http://fy.iciba.com/ajax.php</a><br>url 示例：<a href="http://fy.iciba.com/ajax.php?a=fy&amp;f=auto&amp;t=auto&amp;w=hello%20world" target="_blank" rel="noopener">http://fy.iciba.com/ajax.php?a=fy&amp;f=auto&amp;t=auto&amp;w=hello%20world</a><br>拼接参数：<br>a：固定值 fy<br>f：原文内容类型，日语取 ja，中文取 zh，英语取 en，韩语取 ko，德语取 de，西班牙语取 es，法语取 fr，自动则取 auto<br>t：译文内容类型，日语取 ja，中文取 zh，英语取 en，韩语取 ko，德语取 de，西班牙语取 es，法语取 fr，自动则取 auto<br>w：查询内容</p><p>解析：<br>&nbsp;&nbsp;&nbsp;&nbsp;status：请求成功时则取 1<br>&nbsp;&nbsp;&nbsp;&nbsp;content：内容信息<br>&nbsp;&nbsp;&nbsp;&nbsp;from：原文内容类型<br>&nbsp;&nbsp;&nbsp;&nbsp;to：译文内容类型<br>&nbsp;&nbsp;&nbsp;&nbsp;vendor：来源平台<br>&nbsp;&nbsp;&nbsp;&nbsp;out：译文内容<br>&nbsp;&nbsp;&nbsp;&nbsp;err_no：请求成功时取 0</p><hr><p>必应图片：<a href="https://www.dujin.org/sys/bing/1920.php" target="_blank" rel="noopener">https://www.dujin.org/sys/bing/1920.php</a></p><hr><p>美女图片福利：<a href="http://gank.io/api/data/福利/10/1" target="_blank" rel="noopener">http://gank.io/api/data/福利/10/1</a><br>10和1可以是其他数字，自己去试区间</p><hr><p>一言： <a href="https://v1.hitokoto.cn/c=下面中的一个" target="_blank" rel="noopener">https://v1.hitokoto.cn/c=下面中的一个</a><br>a： 动画<br>b： 漫画<br>c： 游戏<br>d： 小说<br>e： 原创<br>f： 来自网络<br>g： 其他<br>其他不存在参数    任意类型随机取得</p><p>解析<br>id：本条一言的id。<br>hitokoto：一言正文。编码方式unicode。使用utf-8。<br>type：类型。请参考第三节参数的表格。<br>from：一言的出处。<br>creator：添加者。<br>created_at：添加时间。</p><hr><p>历史上的今天：<a href="http://www.ipip5.com/today/api.php?type=json" target="_blank" rel="noopener">http://www.ipip5.com/today/api.php?type=json</a></p><hr><p>美图接口api:<a href="https://pixabay.com/api/docs/" target="_blank" rel="noopener">https://pixabay.com/api/docs/</a><br>官网：<a href="https://pixabay.com/zh/" target="_blank" rel="noopener">https://pixabay.com/zh/</a> </p><hr><p>新闻API：<a href="https://fenfa.shuwen.com" target="_blank" rel="noopener">https://fenfa.shuwen.com</a></p><hr><p>更多Api:<a href="https://github.com/jokermonn/-Api" target="_blank" rel="noopener">https://github.com/jokermonn/-Api</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这里我将一些网络上找到的Api接口总结起来，方便以后使用，这里声明：所有Api，本人皆从网络获取，并非本人抓取&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;每日一文：&lt;a href=&quot;https://interface.meiriyiwen.com/article/today?dev=1&quot; t
+      
+    
+    </summary>
+    
+      <category term="Api" scheme="https://zengwei123.github.io/categories/Api/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hexo常用命令</title>
