@@ -38,13 +38,20 @@
   </entry>
   
   <entry>
-    <title>123</title>
+    <title>Hexo常用命令</title>
     <link href="https://zengwei123.github.io/2016/09/04/123/"/>
     <id>https://zengwei123.github.io/2016/09/04/123/</id>
     <published>2016-09-04T08:25:04.000Z</published>
-    <updated>2018-08-06T00:39:33.979Z</updated>
+    <updated>2018-08-06T02:32:20.748Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址-folder-可以随意命名，如：blog"><a href="#1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址-folder-可以随意命名，如：blog" class="headerlink" title="1.新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址,[folder]可以随意命名，如：blog"></a>1.新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址,[folder]可以随意命名，如：blog</h4><blockquote><p>$ hexo init [folder]   </p></blockquote><p><br><br></p><h4 id="2-创建一篇文章，-layout-为博客文章布局，可以设置为下面三种布局之一-title-随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致"><a href="#2-创建一篇文章，-layout-为博客文章布局，可以设置为下面三种布局之一-title-随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致" class="headerlink" title="2.创建一篇文章，[layout]为博客文章布局，可以设置为下面三种布局之一 title 随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致"></a>2.创建一篇文章，[layout]为博客文章布局，可以设置为下面三种布局之一 title 随意取名，会作为你的文章的文件的名字，同时也会作为文章标题，可以在里面修改，不一定要一致</h4><ul><li><h5 id="·-post-nbsp-nbsp-我一般都用post，默认就是这个"><a href="#·-post-nbsp-nbsp-我一般都用post，默认就是这个" class="headerlink" title="· post&nbsp;&nbsp;我一般都用post，默认就是这个"></a>· post&nbsp;&nbsp;我一般都用post，默认就是这个</h5></li><li><h5 id="·-page"><a href="#·-page" class="headerlink" title="· page"></a>· page</h5></li><li><h5 id="·-draft"><a href="#·-draft" class="headerlink" title="· draft"></a>· draft</h5></li></ul><blockquote><p>$ hexo new [layout] <title></title></p></blockquote><hr><p>文章建立之后，在你的网站文件夹中<span style="color:#ff0000"> <strong>\source\_posts</strong> </span> 路径下面可以找到创建的文章文件，是 <strong>markdown</strong> 格式的，文件后缀名为 <strong>.md</strong>, <strong>Front-matter</strong> 是文件最上方以 — 分隔的区域，用于指定个别文件的变量,以下是预先定义的参数，您可在模板中使用这些参数值并加以利用。</p><ul><li><strong>·</strong> layout 布局</li><li><strong>·</strong> title 标题</li><li><strong>·</strong> date 建立日期</li><li><strong>·</strong> updated 更新日期</li><li><strong>·</strong> comments 开启文章的评论功能</li><li><strong>·</strong> tags 标签</li><li><strong>·</strong> categories 分类</li><li><strong>·</strong> permalink 覆盖文章网址<br><br><br><h4 id="3-将更改上传到github-每次更新完博客输入这条命令，就能将文章跟新到博客了"><a href="#3-将更改上传到github-每次更新完博客输入这条命令，就能将文章跟新到博客了" class="headerlink" title="3. 将更改上传到github,每次更新完博客输入这条命令，就能将文章跟新到博客了"></a>3. 将更改上传到github,每次更新完博客输入这条命令，就能将文章跟新到博客了</h4><blockquote><p>$ hexo g -d</p></blockquote></li></ul><p><br><br></p><h4 id="4-启动本地服务-可以在写完文章后查看效果"><a href="#4-启动本地服务-可以在写完文章后查看效果" class="headerlink" title="4.启动本地服务,可以在写完文章后查看效果"></a>4.启动本地服务,可以在写完文章后查看效果</h4><blockquote><p>$ hexo s</p></blockquote><p><br><br></p><h4 id="5-有时候博客写完，上传giehub无效果，那么试试清除缓存"><a href="#5-有时候博客写完，上传giehub无效果，那么试试清除缓存" class="headerlink" title="5.有时候博客写完，上传giehub无效果，那么试试清除缓存"></a>5.有时候博客写完，上传giehub无效果，那么试试清除缓存</h4><blockquote><p>$ hexo clean</p></blockquote><p><br><br><br>基本的hexo编写博客的使用就到这里了，使用上面几条命令就能够创建编写上传你的文章到博客去。其他的一些操作可以去hexo官网查看官方文档<br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">HEXO官方文档</a> </p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地址-folder-可以随意命名，如：blog&quot;&gt;&lt;a href=&quot;#1-新建一个网站，如果没有指定路径的文件夹，那么将会在默认路径下面建立网站，在建立的时候可以看到地
+      
     
     </summary>
     
