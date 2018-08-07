@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zengwei123.github.io/"/>
-  <updated>2018-08-06T13:08:46.648Z</updated>
+  <updated>2018-08-07T02:25:21.151Z</updated>
   <id>https://zengwei123.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android四大组件之Activity</title>
+    <link href="https://zengwei123.github.io/2017/09/15/Android%E5%9B%9B%E5%A4%A7%E7%BB%84%E4%BB%B6%E4%B9%8BActivity/"/>
+    <id>https://zengwei123.github.io/2017/09/15/Android四大组件之Activity/</id>
+    <published>2017-09-15T01:09:23.000Z</published>
+    <updated>2018-08-07T02:25:21.151Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><h4 id="1-正常的周期"><a href="#1-正常的周期" class="headerlink" title="1.正常的周期"></a>1.正常的周期</h4></blockquote><p>OnCreate: 生命周期的第一个方法，可以做一些初始化的操作<br>onRestart: 表示activit正在重新启动，这一般是当activity从不可见变成可见时调用，一般是由用户行为导致<br>OnStart:这是说明activity正在被启动，即将开始。<br>OnResume:表示activity已经可以看见了，并且出现在前台，已经与用户进行交互了。在这里OnStart和OnResume都是出现已经可见了，但是OnStart还在后台而OnResume已经出现在了前台<br>OnPause:表示activity正在停止，这个时候OnStop马上回被调用，在这里已经进行一些数据存储，动画显示等不耗时的操作，因为OnPause要执行完才能执行其他activity的OnResume。<br>OnStop:表示activity即将停止，在这里可以做一些资源比较有重量的回收，但是也不能太过耗时。<br>OnDestroy:最后一个方法，表示activity活到头了，在这里可以做一些回收工作和资源释放</p><p>OnStart和OnResume、OnPause和OnStop这两对方法没有什么实质性的不同，OnResume是可见周期的最后一个方法已经结束了，OnStart是还正在启动，OnPauses要执行完之后才能执行新activity的方法，OnStop是结束周期中简的一个</p><blockquote><h4 id="2-异常的生命周期"><a href="#2-异常的生命周期" class="headerlink" title="2.异常的生命周期"></a>2.异常的生命周期</h4></blockquote><p>1、资源相关的系统配置发生改变导致<strong>activity</strong>被杀死重建<br>竖屏时变成横屏，由于设置了不同资源图片，<strong>activity</strong>会销毁重建。他会执行<br><strong>onPause</strong>→<strong>onSaveInstanceState</strong>→<strong>onStop</strong>→<strong>onDestroy</strong><br>然后<br><strong>onCreate</strong>→<strong>onStart</strong>→<strong>onResume</strong><br><strong>onSaceInstanceState</strong>是在异常结束<strong>activity</strong>时才会执行的方法，他会保存当前<strong>activity</strong>的状态同时会在新创建的<strong>activity</strong>调用<strong>onRestoreInstanceState</strong>方法并且将<strong>onSaceInstanceState</strong>方法保存的bundle传递给<strong>onCreate</strong>。我们可以在<strong>onSaceInstanceState</strong>中存储一些数据，在<strong>onRestoreInstanceState</strong>或者<strong>onCreate</strong>中读取，有一点<strong>onRestoreInstanceState</strong>如果执行那么<strong>Bundle</strong>是不会为空的，但是<strong>onCreate</strong>中就不知道了</p><p>2、资源不足导致优先级低的<strong>activity</strong>被杀死<br>优先级：前台<strong>activity</strong><br>        可见非前台<strong>activit</strong>（比如弹出一个对话框）<br>        后台<strong>activit</strong><br>杀死activity后，就会在有内存的时候通过<strong>onSaceInstanceState</strong> 保存<strong>onRestoreInstanceState</strong>恢复<br>可以通过设置<strong>android：configChanges=”orientation”</strong>  静止重建</p><blockquote><h4 id="3-Activity启动模式"><a href="#3-Activity启动模式" class="headerlink" title="3.Activity启动模式"></a>3.Activity启动模式</h4></blockquote><p>1、存在的意义：<br>多次启动同一个<strong>activity</strong>，多次创建同一个实例，这是很傻的行为<br>1.<strong>standard</strong>（默认）每次启动<strong>activity</strong>都会重新创建实例<br>2.<strong>singleTop</strong>（栈顶复用模式）  判断<strong>activity</strong>是否在任务栈顶，如果在直接引用，同时调用<strong>onNewIntent</strong>方法，如果不在就创建新的实例。<br>3.<strong>singleTask</strong>（栈内复用模式） 判断栈中是否有这个实例，如果有那么就使用这个实例，如果没有那么就创建一个，这个<strong>activity</strong>会调用<strong>onNewIntent</strong><br>4.<strong>singleInstance</strong>（单实例模式）这个是 <strong>singleTask</strong> 模式的加强版，它除了具有 <strong>singleTask</strong> 模式的所有特性外，它还有一点独特的特性，那就是此模式的 <strong>Activity</strong> 只能单独地位于一个任务栈，不与其他 <strong>Activity</strong> 共存于同一个任务栈。</p><p>2、什么是任务栈：<br>这是一个<strong>activity</strong>的参数<strong>TaskAffinity</strong>,这个参数标识了<strong>activity</strong>所需要的任务栈，默认情况下任务栈的名字为包名，我们可以给每个<strong>activity</strong>命一个名字，同名的是名字就是在一个任务栈，它主要是和<strong>singleTask</strong>或者<strong>allowTaskReparenting</strong>结合使用。<br>在<strong>TaskAffinity</strong>和<strong>allowTaskRepaernting</strong>一起使用且<strong>allowTaskRepaernting</strong>为<strong>true</strong>的时候如果当一个应用A的<strong>activity</strong>启动了一个应用B的<strong>activity</strong>，那么这个B应用的<strong>activity</strong>会直接从A的任务栈跑到B的任务栈。当返回桌面，点击应用B，他不会启动住<strong>activity</strong>，而会显示应用A启动的<strong>acitivity</strong></p><p>设置启动模式有两种方法：<br>1.通过<strong>launchMode</strong>指定<br>2.通过<strong>Intent.addFlage</strong>指定<br>第二种的优先级比第一种要高，第二种无法指定为第四种模式</p><p>3、Activity隐式调用<br>隐式调用能够设置一些过滤信息，如果不匹配将无法启动<strong>activity</strong>。<br>需要匹配：<strong>action、category、data</strong><br>Action：是一个字符串，这里指定匹配是字符串相同，在xml文件中如过指定了<strong>action</strong>，如果在<strong>intent</strong>中没有设置，那么是无法匹配成功的，想要匹配必须<strong>intent</strong>中的字符串与<strong>action</strong>的字符串相同。<br><strong>Category：Category</strong>中必须要有一个<strong>android.intent.Category.DEFAULT</strong>,而且intent可以不指定<strong>Category</strong>。<br>Date:规则跟action一样，如果定义了那么就要指定，Date主要是一个规则，用来放置url</p><p>我们还可以在配置文件的activity中设置android:screenOrientation属性来设置他的横竖屏显示portrait（竖屏），landscape （横屏）</p><p>全屏的 Activity<br>要使一个 Activity 全屏运行，可以在其 onCreate()方法中添加如下代码实现：</p><pre><code>// 设置全屏模式getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); // 去除标题栏requestWindowFeature(Window.FEATURE_NO_TITLE);</code></pre><blockquote><h4 id="4-使用-Intent-通信"><a href="#4-使用-Intent-通信" class="headerlink" title="4.使用 Intent 通信"></a>4.使用 Intent 通信</h4></blockquote><p>在 Android 中，不同的 Activity 实例可能运行在一个进程中，也可能运行在不同的进程中。因此我们需要一种特别的机制帮助我们在 Activity 之间传递消息。Android 中通过 Intent 对象来表示一条消息，一个 Intent 对象不仅包含有这个消息的目的地，还可以包含消息的内容，这好比一封 Email，其中不仅应该包含收件地址，还可以包含具体的内容。对于一个 Intent 对象，消息“目的地”是必须的，而内容则是可选项。</p><p>在上面的实例中通过 Activity. startActivity(intent)启动另外一个 Activity 的时候，我们在 Intent 类的构造器中指定了“收件人地址”。</p><p>如果我们想要给“收件人”Activity 说点什么的话，那么可以通过下面这封“e-mail”来将我们消息传递出去：</p><pre><code>Intent intent =new Intent(CurrentActivity.this,OtherActivity.class); // 创建一个带“收件人地址”的 email Bundle bundle =new Bundle();// 创建 email 内容bundle.putBoolean(&quot;boolean_key&quot;, true);// 编写内容bundle.putString(&quot;string_key&quot;, &quot;string_value&quot;); intent.putExtra(&quot;key&quot;, bundle);// 封装 email startActivity(intent);// 启动新的 Activity</code></pre><p>那么“收件人”该如何收信呢？在 OtherActivity类的 onCreate()或者其它任何地方使用下面的代码就可以打开这封“e-mail”阅读其中的信息：</p><pre><code>Intent intent =getIntent();// 收取 email Bundle bundle =intent.getBundleExtra(&quot;key&quot;);// 打开 email bundle.getBoolean(&quot;boolean_key&quot;);// 读取内容bundle.getString(&quot;string_key&quot;);</code></pre><p>上面我们通过 bundle对象来传递信息，bundle维护了一个 HashMap&lt;String, Object&gt;对象，将我们的数据存贮在这个 HashMap 中来进行传递。但是像上面这样的代码稍显复杂，因为 Intent 内部为我们准备好了一个 bundle，所以我们也可以使用这种更为简便的方法：</p><pre><code>Intent intent =new Intent(EX06.this,OtherActivity.class);  intent.putExtra(&quot;boolean_key&quot;, true);  intent.putExtra(&quot;string_key&quot;, &quot;string_value&quot;);  startActivity(intent);</code></pre><p>接收：</p><pre><code>Intent intent=getIntent();  intent.getBooleanExtra(&quot;boolean_key&quot;,false);  intent.getStringExtra(&quot;string_key&quot;);</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;h4 id=&quot;1-正常的周期&quot;&gt;&lt;a href=&quot;#1-正常的周期&quot; class=&quot;headerlink&quot; title=&quot;1.正常的周期&quot;&gt;&lt;/a&gt;1.正常的周期&lt;/h4&gt;&lt;/blockquote&gt;
+&lt;p&gt;OnCreate: 生命周期的第一个方法，可以
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://zengwei123.github.io/categories/Android/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Api总结（持续跟新）</title>
