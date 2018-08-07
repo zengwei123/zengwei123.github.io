@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zengwei123.github.io/"/>
-  <updated>2018-08-06T13:08:46.648Z</updated>
+  <updated>2018-08-07T07:20:41.621Z</updated>
   <id>https://zengwei123.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android侧滑布局-DrawerLayout</title>
+    <link href="https://zengwei123.github.io/2018/08/07/Android%E4%BE%A7%E6%BB%91%E5%B8%83%E5%B1%80-DrawerLayout/"/>
+    <id>https://zengwei123.github.io/2018/08/07/Android侧滑布局-DrawerLayout/</id>
+    <published>2018-08-07T03:54:14.000Z</published>
+    <updated>2018-08-07T07:20:41.621Z</updated>
+    
+    <content type="html"><![CDATA[<p>DrawerLayout是谷歌官方推出的侧滑菜单,DrawerLayout最好为界面的根布局，否则可能会出现触摸事件被屏蔽的问题；主内容区的布局代码要放在侧滑菜单布局的前面, 因为 XML 顺序意味着按 z序（层叠顺序）排序，并且抽屉式导航栏必须位于内容顶部；侧滑菜单部分的布局必须设置<strong>layout_gravity</strong>属性，他表示侧滑菜单是在左边还是右边，而且如果不设置在的时候会报错，设置了<strong>layout_gravity=”start/left”</strong>的视图才会被认为是侧滑菜单,<strong>同时侧滑的布局必须放在最下面</strong>，不然无法响应侧滑控件的的事件，只会点击之后就关闭侧滑<br><br><center><img src="/2018/08/07/Android侧滑布局-DrawerLayout/1.png"></center><br><br>drawerLayout左侧菜单（或者右侧）的展开与隐藏可以被DrawerLayout.DrawerListener的实现监听<br><br><center><img src="/2018/08/07/Android侧滑布局-DrawerLayout/2.png"></center><br><br>我们还可以通过按钮显示侧边栏<br><br><center><img src="/2018/08/07/Android侧滑布局-DrawerLayout/3.png"></center><br><br>侧滑的布局可以写在fragment,这里<strong>name</strong>属性就是用来对应的Fragment的<br><br><center><img src="/2018/08/07/Android侧滑布局-DrawerLayout/4.png"></center><br><br><br><center><img src="/2018/08/07/Android侧滑布局-DrawerLayout/5.png"></center><br><br>经过这几步我们就吧侧滑菜单写出来了<br>在这里 <code>drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED,Gravity.END);</code> 锁定右面的侧滑菜单，不能通过手势关闭或者打开，只能通过代码打开！<br>如果DrawerLayout侧滑菜单中的控件点击事件能穿透到底部,那么可以在菜单的布局文件中设置<code>clickable=&quot;true&quot;</code>如果想实现QQ那种底部布局跟则动的效果就在addDrawerListener事件中的onDrawerSlide()添加下面的代码,就能跟随移动了</p><pre><code>//mDrawerLayout为你的DrawerLayoutView content = mDrawerLayout.getChildAt(0);int offset = (int) (drawerView.getWidth() * slideOffset);content.setTranslationX(offset);</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;DrawerLayout是谷歌官方推出的侧滑菜单,DrawerLayout最好为界面的根布局，否则可能会出现触摸事件被屏蔽的问题；主内容区的布局代码要放在侧滑菜单布局的前面, 因为 XML 顺序意味着按 z序（层叠顺序）排序，并且抽屉式导航栏必须位于内容顶部；侧滑菜单部分的
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://zengwei123.github.io/categories/Android/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Api总结（持续跟新）</title>
