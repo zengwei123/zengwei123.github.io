@@ -17,27 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Android四大组件之Service | zengwei</title>
-  <meta name="description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+  <title>Android随笔-Fragment | zengwei</title>
+  <meta name="description" content="一.Fragment简介：Android在3.0中引入了Fragments的概念，主要目的是用在大屏幕设备上–例如平板电脑上，支持更加动态和灵活的UI设计。平板电脑的屏幕要比手机的大得多，有更多的空间来放更多的UI组件,并且这些组件之间会产生更多的交互。Fragment允许这样的一种设计，而不需要你亲自来管理View Hierarchy的复杂变化。通过将Activity的布局分散到Fragmen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android四大组件之Service">
-<meta property="og:url" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+<meta property="og:title" content="Android随笔-Fragment">
+<meta property="og:url" content="https://zengwei123.github.io/2016/10/18/Android-Fragment/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+<meta property="og:description" content="一.Fragment简介：Android在3.0中引入了Fragments的概念，主要目的是用在大屏幕设备上–例如平板电脑上，支持更加动态和灵活的UI设计。平板电脑的屏幕要比手机的大得多，有更多的空间来放更多的UI组件,并且这些组件之间会产生更多的交互。Fragment允许这样的一种设计，而不需要你亲自来管理View Hierarchy的复杂变化。通过将Activity的布局分散到Fragmen">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/2.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/3.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/4.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/5.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/6.png">
-<meta property="og:updated_time" content="2018-08-07T03:38:39.593Z">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/18/Android-Fragment/cycle.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/18/Android-Fragment/comparison.png">
+<meta property="og:updated_time" content="2018-08-13T06:55:18.036Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android四大组件之Service">
-<meta name="twitter:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
-<meta name="twitter:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
+<meta name="twitter:title" content="Android随笔-Fragment">
+<meta name="twitter:description" content="一.Fragment简介：Android在3.0中引入了Fragments的概念，主要目的是用在大屏幕设备上–例如平板电脑上，支持更加动态和灵活的UI设计。平板电脑的屏幕要比手机的大得多，有更多的空间来放更多的UI组件,并且这些组件之间会产生更多的交互。Fragment允许这样的一种设计，而不需要你亲自来管理View Hierarchy的复杂变化。通过将Activity的布局分散到Fragmen">
+<meta name="twitter:image" content="https://zengwei123.github.io/2016/10/18/Android-Fragment/cycle.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2016/10/18/Android-Fragment/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -295,14 +291,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Android四大组件之Service" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Android-Fragment" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Android四大组件之Service
+      Android随笔-Fragment
     </h1>
   
 
@@ -310,8 +306,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2016/09/19/Android四大组件之Service/" class="article-date">
-	  <time datetime="2016-09-19T02:58:12.000Z" itemprop="datePublished">2016-09-19</time>
+	<a href="/2016/10/18/Android-Fragment/" class="article-date">
+	  <time datetime="2016-10-18T08:09:07.000Z" itemprop="datePublished">2016-10-18</time>
 	</a>
 </span>
         
@@ -324,13 +320,13 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/09/19/Android四大组件之Service/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/10/18/Android-Fragment/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 776(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,028(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
@@ -338,26 +334,40 @@
     <div class="article-entry markdown-body" itemprop="articleBody">
       
         <blockquote>
-<h4 id="1-Service作用："><a href="#1-Service作用：" class="headerlink" title="1.Service作用："></a>1.Service作用：</h4></blockquote>
-<p>提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。</p>
+<h4 id="一-Fragment简介："><a href="#一-Fragment简介：" class="headerlink" title="一.Fragment简介："></a>一.Fragment简介：</h4><p>Android在3.0中引入了Fragments的概念，主要目的是用在大屏幕设备上–例如平板电脑上，支持更加动态和灵活的UI设计。平板电脑的屏幕要比手机的大得多，有更多的空间来放更多的UI组件,并且这些组件之间会产生更多的交互。Fragment允许这样的一种设计，而不需要你亲自来管理View Hierarchy的复杂变化。通过将Activity的布局分散到Fragment中，你可以在运行时修改Activity的外观，并在由Activity管理的Back Stack中保存那些变化。</p>
+</blockquote>
+<p><strong>其实这只是比较官方一点的说法,其实通俗易懂点说就是,一个可以将activity拆分成几个完全独立封装的可重用的组件，每个组件有自己的生命周期和ui布局。它可以表示Activity中的行为或用户界面部分。我们可以在一个Activity中用多个Fragment组合来构建多窗格的UI，以及在多个Activity中重复使用某个Fragment。它有自己的生命周期，能接受自己的输入，并且可以在 Activity 运行时添加或删除Fragment（有点像在不同 Activity 中重复使用的“子 Activity”）。</strong></p>
 <blockquote>
-<h4 id="2-Service分类："><a href="#2-Service分类：" class="headerlink" title="2.Service分类："></a>2.Service分类：</h4></blockquote>
-<p><strong>本地</strong>：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。<br><strong>远程</strong>：运行在独立进程，常驻在后台，不受其他Activity影响但是非常消耗资源，通讯需要比较复杂，主要使用在系统级别的服务。<br><strong>前台</strong>：通知栏可以显示出来，用户可以看到，主要使用在需要让用户只要并进行相关操作，如音乐播放。<br><strong>后台</strong>：主要是用户无法看到，主要使用在不需要让用户知道的一些操作，跟新数据，同步数据等</p>
+<h4 id="二-Fragment生命周期："><a href="#二-Fragment生命周期：" class="headerlink" title="二.Fragment生命周期："></a>二.Fragment生命周期：</h4><ul>
+<li>onAttach() : Fragment和Activity建立关联的时候调用，被附加到Activity中去。</li>
+<li>onCreate() : 系统会在创建Fragment时调用此方法。可以初始化一段资源文件等等。</li>
+<li>onCreateView() : 系统会在Fragment首次绘制其用户界面时调用此方法。要想为Fragment绘制UI，从该方法中返回的View必须是Fragment布局的根视图。如果Fragment未提供UI，您可以返回null。</li>
+<li>onViewCreated() : 在Fragment被绘制后，调用此方法，可以初始化控件资源。</li>
+<li>onActivityCreated() : 当onCreate onCreateView()，onViewCreated()方法执行完后调用，也就是Activity被渲染绘制出来后。</li>
+<li>onStart() : 当系统调用该方法的时候，fragment已经显示在ui上，但还不能进行互动，因为onResume方法还没执行完。</li>
+<li>onResume() : 该方法为fragment从创建到显示Android系统调用的最后一个生命周期方法，调用完该方法时候，fragment就可以与用户互动了。</li>
+<li>onPause() : 系统将此方法作为用户离开Fragment的第一个信号（但并不总是意味着此Fragment会被销毁）进行调用。 通常可以在此方法内确认在当前用户会话结束后仍然有效的任何更改（因为用户可能不会返回）。</li>
+<li>onStop() : 当onStop返回的时候，fragment将从屏幕上消失。</li>
+<li>onDestoryView() : 该方法的调用意味着在 onCreateView 中创建的视图都将被移除。</li>
+<li>onDestroy() : Android在Fragment不再使用时会调用该方法，要注意的是这时Fragment还和Activity相关联的！并且可以获得Fragment对象，但无法对获得的Fragment进行任何操作。</li>
+<li>onDetach() : 为Fragment生命周期中的最后一个方法，当该方法执行完后，Fragment与Activity不再有关联。</li>
+</ul>
+</blockquote>
+<p>顺序如图下：<br><br><center><img src="/2016/10/18/Android-Fragment/cycle.png"></center><br></p>
 <blockquote>
-<h4 id="3-生命周期"><a href="#3-生命周期" class="headerlink" title="3.生命周期"></a>3.生命周期</h4></blockquote>
-<p><strong>·</strong> 如果Service是第一次启动先会执行 <strong>onCreate(),onStartCommand()</strong><br><strong>·</strong> 当次启动Service调用，将只执行<strong>onStartCommand()</strong>，因为此时Service已经创建了，无需执行<strong>onCreate()</strong>回调。无论多少次的启动Service，只需要一次<strong>stopService()</strong>即可将此Service终止，执行<strong>onDestroy()</strong>函数。<br><strong>· onStartCommand(..)</strong>可以多次被调用，<strong>onDestroy()与onCreate()</strong>相匹配，当用户强制kill掉进程时，<strong>onDestroy()</strong>是不会执行的。<br><strong>· startService(Intent serviceIntent)</strong>，其中的intent既可以是显式Intent，也可以是隐式Intent，当Client与Service同处于一个App时，一般推荐使用显示Intent。当处于不同App时，只能使用隐式Intent。<br><strong>·</strong> 当Service需要运行在单独的进程中，<strong>AndroidManifest.xml</strong>声明时需要通过<strong>android:process</strong>指明此进程名称，当此Service需要对其他App开放时，<strong>android:exported</strong>属性值需要设置为true.</p>
+<h4 id="三-Fragment与Activity关系："><a href="#三-Fragment与Activity关系：" class="headerlink" title="三.Fragment与Activity关系："></a>三.Fragment与Activity关系：</h4><p>总的来说，Fragment和Activity的生命周期类似。需要注意的是，它相比于Activity，多了onAttach(), onCreateView(), onActivityCreate)和onDestoryView()、onDetach()这几个回调函数；但是，却少了onRestart()。</p>
+<ul>
+<li>onAttach(Activity) : 当Fragment和Activity发生关联时使用</li>
+<li>onCreateView(LayoutInflater, ViewGroup, Bundle) : 创建该Fragment的视图</li>
+<li>onActivityCreate(Bundle) : 当Activity的onCreate方法返回时调用</li>
+<li>onDestoryView() : 与onCreateView相对应，当该Fragment的视图被移除时调用</li>
+<li>onDetach() : 与onAttach相对应，当Fragment与Activity关联被取消时调用</li>
+</ul>
+</blockquote>
+<p>关系图如下：<br><br><center><img src="/2016/10/18/Android-Fragment/comparison.png"></center><br><br><strong>注意：除了onCreateView，其他的所有方法如果你重写了，必须调用父类对于该方法的实现。</strong></p>
 <blockquote>
-<h4 id="4-通讯"><a href="#4-通讯" class="headerlink" title="4.通讯"></a>4.通讯</h4></blockquote>
-<ol>
-<li>简单通信<br>直接通过Intent进行传值，我们在启动一个Service的时候通过Intent的对象向Service进行传值，这种方式传递值比较不方便，性能不是很高。<br>传值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/1.png"></center><br><br>获取值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/2.png"></center><br></li>
-</ol>
-<p>2．绑定服务传输数据<br>    在Service中编写Binder的内部类，自定义方法进行数据传输。<br>活动类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/3.png"></center><br><br>服务类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/4.png"></center><br></p>
-<ol start="3">
-<li>通过使用Messenger方式（可以在不同进程间通讯）<br>服务端：<br><br><center><img src="/2016/09/19/Android四大组件之Service/5.png"></center><br><br>客户端<br><br><center><img src="/2016/09/19/Android四大组件之Service/6.png"></center><br></li>
-</ol>
-<blockquote>
-<h4 id="5-服务单独运行在进程"><a href="#5-服务单独运行在进程" class="headerlink" title="5.服务单独运行在进程"></a>5.服务单独运行在进程</h4></blockquote>
-<p>在XML文件中给Service添加process属性，有两种赋值方式，一种是[:xxxxx],一种是[com.pw.xxx.xxx]  第一种赋值是一种简写，完整的写法是[com.xxx.xxx:xxxx]这样的进程是应用的私有进程，其他应用不会跟它跑到同一个地方去。而第二种就是一种全局进程，其他的应用程序可以通过ShareUID跑进去。<br>多进程的使用地方，可以使用在一些需要保活的地方，音乐后台播放，在退出activity后还能继续播放、加载大图、推送服务，能够在程序退出后继续的向用户推送东西。将功能独立的分开来，减少程序崩溃</p>
+<h4 id="四-总结："><a href="#四-总结：" class="headerlink" title="四.总结："></a>四.总结：</h4><p><strong>在用法的代码部分参考郭神的博客，感觉郭神在代码讲解部分通俗易懂，看起来也方便。总之，在使用Fragment也有一些注意事项，不是那么完美的，虽然谷歌推荐我们用Fragment来代替Activity来使用，我们也确实这做了，现在基本主流的APP也都是少量Activity+很多Fragment，但也需要避免有些坑慎入。</strong></p>
+</blockquote>
 
       
     </div>
@@ -367,7 +377,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/" title="Android四大组件之Service" target="_blank" rel="external">https://zengwei123.github.io/2016/09/19/Android四大组件之Service/</a>
+      <a href="https://zengwei123.github.io/2016/10/18/Android-Fragment/" title="Android随笔-Fragment" target="_blank" rel="external">https://zengwei123.github.io/2016/10/18/Android-Fragment/</a>
     </li>
     
     
@@ -410,12 +420,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2016/09/26/Android侧滑布局-DrawerLayout/" title="Android侧滑布局-DrawerLayout"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2016/09/15/Android四大组件之Activity/" title="Android四大组件之Activity"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2016/10/13/Android消息机制-Handler/" title="Android消息机制-Handler"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

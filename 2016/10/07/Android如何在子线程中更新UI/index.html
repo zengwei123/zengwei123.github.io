@@ -17,20 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>关于 | zengwei</title>
-  <meta name="description" content="曾伟的个人简介">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="https://zengwei123.github.io/about/index.html">
+  <title>Android随笔-如何在子线程中更新UI | zengwei</title>
+  <meta name="description" content="一.前言：项目开发中会涉及到一些耗时操作，这个时候就会开启一个子线程，将耗时操作放到子线程中取操作，操作完毕后，往往还要同步更新ui，这个时候如果直接在子线程中更新ui，将会导致程序的闪退，同时还会看到如下报错  android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that crea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android随笔-如何在子线程中更新UI">
+<meta property="og:url" content="https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="曾伟的个人简介">
+<meta property="og:description" content="一.前言：项目开发中会涉及到一些耗时操作，这个时候就会开启一个子线程，将耗时操作放到子线程中取操作，操作完毕后，往往还要同步更新ui，这个时候如果直接在子线程中更新ui，将会导致程序的闪退，同时还会看到如下报错  android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that crea">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-04T10:18:03.566Z">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/toupdate.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/toupdate_1.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/toupdate_2.png">
+<meta property="og:updated_time" content="2018-08-13T08:39:22.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于">
-<meta name="twitter:description" content="曾伟的个人简介">
+<meta name="twitter:title" content="Android随笔-如何在子线程中更新UI">
+<meta name="twitter:description" content="一.前言：项目开发中会涉及到一些耗时操作，这个时候就会开启一个子线程，将耗时操作放到子线程中取操作，操作完毕后，往往还要同步更新ui，这个时候如果直接在子线程中更新ui，将会导致程序的闪退，同时还会看到如下报错  android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that crea">
+<meta name="twitter:image" content="https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/toupdate.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/about/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -285,172 +289,191 @@
 </aside>
 
   
-  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-    <div class="widget">
-      <h3 class="widget-title">个人链接</h3>
-      <div class="widget-body">
-        <ul class="link-list lh-2x">
-          
-          <li>
-            Github:
-            <a href="https://github.com/zengwei123" target="_blank">https://github.com/zengwei123</a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">技能</h3>
-      <div class="widget-body">
-        <ul class="skill-list lh-2x">
-          
-          <li class="clearfix">
-            <span>java</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>ssm</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Spring Boot</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Android</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>OkHttp</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>EvenBus</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Gson</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Gilde</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Rxjava</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Javascript</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>HTML+CSS</span>
-            <span class="pull-right"></span>
-          </li>
-          
-          <li class="clearfix">
-            <span>JQurey</span>
-            <span class="pull-right"></span>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">个人标签</h3>
-      <div class="widget-body">
-        
-        <span class="label label-default mb">Android</span>
-        
-        <span class="label label-default mb">后端开发</span>
-        
-        <span class="label label-default mb">Web前端</span>
-        
-        <span class="label label-default mb">产品设计</span>
-        
-        <span class="label label-default mb">帅</span>
-        
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">个人作品</h3>
-      <div class="widget-body">
-        <ul class="work-list lh-2x">
-          
-          <li class="clearfix">
-            <a href="" target="_blank" title="小说App">
-              <span>小说App</span>
-              <span class="pull-right text-muted">2018</span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">个人项目</h3>
-      <div class="widget-body">
-        <ul class="project-list list-square lh-2x">
-          
-          <li class="public source">
-            <a href="https://github.com/zengwei123" target="_blank" title="Github">
-              <span class="repo-icon octicon octicon-repo"></span>
-              <span class="repo-and-owner css-truncate-target">Github</span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</aside>
+  
 <main class="main" role="main">
-  <article class="article archives-about article-type-normal" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">关于</h1>
+  <div class="content">
+  <article id="post-Android如何在子线程中更新UI" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    <p class="text-muted">曾伟的个人简介</p>
-    
-  </header>
-  <div class="article-body">
-    <blockquote>
-<p>敲自己喜欢的代码，过自己想要的人生</p>
-</blockquote>
-<p><br><br> 性别：男</p>
-<p> 年龄：97年12月</p>
-<p> 技能：能写java，能写前端，Android最强</p>
-<p> 爱好：看小说、听歌、打游戏、敲安卓</p>
-<p> 城市：哪都想去哪都去不了，现居湖南长沙</p>
-<p> 学历：菜鸡大专</p>
-<p> 专业：软件工程</p>
-<p> 邮箱：<a href="mailto:13085486819@163.com" target="_blank" rel="noopener">13085486819@163.com</a></p>
-<hr>
-<p> 那天，我做了一个发财的梦，真香！</p>
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android随笔-如何在子线程中更新UI
+    </h1>
+  
 
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2016/10/07/Android如何在子线程中更新UI/" class="article-date">
+	  <time datetime="2016-10-07T01:27:16.000Z" itemprop="datePublished">2016-10-07</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/10/07/Android如何在子线程中更新UI/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 202(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <blockquote>
+<h4 id="一-前言："><a href="#一-前言：" class="headerlink" title="一.前言："></a>一.前言：</h4><p>项目开发中会涉及到一些耗时操作，这个时候就会开启一个子线程，将耗时操作放到子线程中取操作，操作完毕后，往往还要同步更新ui，这个时候如果直接在子线程中更新ui，将会导致程序的闪退，同时还会看到如下报错</p>
+</blockquote>
+<p><strong>android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views.</strong><br>意思是：只有创建视图层次结构的原始线程才能触及它的视图，其实说白了就是在子线程不能做更新UI的操作。</p>
+<blockquote>
+<h4 id="二-解决方法："><a href="#二-解决方法：" class="headerlink" title="二.解决方法："></a>二.解决方法：</h4><ul>
+<li>第一种方式 : runOnUiThread</li>
+<li>第二种方式 : view.post();</li>
+<li>第三种方式 : Handler.post();</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>第一种方式 : runOnUiThread </strong><br><br><center><img src="/2016/10/07/Android如何在子线程中更新UI/toupdate.png"></center><br></p>
+</blockquote>
+<blockquote>
+<p><strong>第二种方式 : view.post(); </strong><br><br><center><img src="/2016/10/07/Android如何在子线程中更新UI/toupdate_1.png"></center><br></p>
+</blockquote>
+<blockquote>
+<p><strong>第三种方式 : Handler.post(); </strong><br><br><center><img src="/2016/10/07/Android如何在子线程中更新UI/toupdate_2.png"></center><br></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/" title="Android随笔-如何在子线程中更新UI" target="_blank" rel="external">https://zengwei123.github.io/2016/10/07/Android如何在子线程中更新UI/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
   </div>
-</article>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2016/10/13/Android消息机制-Handler/" title="Android消息机制-Handler"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2016/09/26/Android侧滑布局-DrawerLayout/" title="Android侧滑布局-DrawerLayout"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 </main>
 
@@ -493,6 +516,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
     
     
+        
+
+
+    
+    
+        
     
     
 

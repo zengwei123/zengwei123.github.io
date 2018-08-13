@@ -17,27 +17,27 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Android四大组件之Service | zengwei</title>
-  <meta name="description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+  <title>Android消息机制-Handler | zengwei</title>
+  <meta name="description" content="安卓中的消息机制说的其实就不同线程间的通讯，就是Handler。   为什么安卓中要有消息机制？ 因为在安卓中更新UI是必须在子线程中，UI控件部署线程安全的，如果多线程并发访问就会出现问题。   你可能要问为什么不给UI控件加上锁呢？ 这是因为上锁之后会让UI变得复杂同时效率变低，还会阻塞某些进程的执行，所以UI采用单线程模式，这对开发者也不是很麻烦，只要通过Handler就能够解决。  下面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android四大组件之Service">
-<meta property="og:url" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+<meta property="og:title" content="Android消息机制-Handler">
+<meta property="og:url" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+<meta property="og:description" content="安卓中的消息机制说的其实就不同线程间的通讯，就是Handler。   为什么安卓中要有消息机制？ 因为在安卓中更新UI是必须在子线程中，UI控件部署线程安全的，如果多线程并发访问就会出现问题。   你可能要问为什么不给UI控件加上锁呢？ 这是因为上锁之后会让UI变得复杂同时效率变低，还会阻塞某些进程的执行，所以UI采用单线程模式，这对开发者也不是很麻烦，只要通过Handler就能够解决。  下面">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/2.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/3.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/4.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/5.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/6.png">
-<meta property="og:updated_time" content="2018-08-07T03:38:39.593Z">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/GIF1.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/1.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/2.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/3.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/4.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/5.png">
+<meta property="og:updated_time" content="2018-08-13T08:38:29.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android四大组件之Service">
-<meta name="twitter:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
-<meta name="twitter:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
+<meta name="twitter:title" content="Android消息机制-Handler">
+<meta name="twitter:description" content="安卓中的消息机制说的其实就不同线程间的通讯，就是Handler。   为什么安卓中要有消息机制？ 因为在安卓中更新UI是必须在子线程中，UI控件部署线程安全的，如果多线程并发访问就会出现问题。   你可能要问为什么不给UI控件加上锁呢？ 这是因为上锁之后会让UI变得复杂同时效率变低，还会阻塞某些进程的执行，所以UI采用单线程模式，这对开发者也不是很麻烦，只要通过Handler就能够解决。  下面">
+<meta name="twitter:image" content="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/GIF1.gif">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -295,14 +295,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Android四大组件之Service" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Android消息机制-Handler" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Android四大组件之Service
+      Android消息机制-Handler
     </h1>
   
 
@@ -310,8 +310,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2016/09/19/Android四大组件之Service/" class="article-date">
-	  <time datetime="2016-09-19T02:58:12.000Z" itemprop="datePublished">2016-09-19</time>
+	<a href="/2016/10/13/Android消息机制-Handler/" class="article-date">
+	  <time datetime="2016-10-13T06:53:50.000Z" itemprop="datePublished">2016-10-13</time>
 	</a>
 </span>
         
@@ -324,40 +324,41 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/09/19/Android四大组件之Service/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/10/13/Android消息机制-Handler/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 776(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,384(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <blockquote>
-<h4 id="1-Service作用："><a href="#1-Service作用：" class="headerlink" title="1.Service作用："></a>1.Service作用：</h4></blockquote>
-<p>提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。</p>
-<blockquote>
-<h4 id="2-Service分类："><a href="#2-Service分类：" class="headerlink" title="2.Service分类："></a>2.Service分类：</h4></blockquote>
-<p><strong>本地</strong>：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。<br><strong>远程</strong>：运行在独立进程，常驻在后台，不受其他Activity影响但是非常消耗资源，通讯需要比较复杂，主要使用在系统级别的服务。<br><strong>前台</strong>：通知栏可以显示出来，用户可以看到，主要使用在需要让用户只要并进行相关操作，如音乐播放。<br><strong>后台</strong>：主要是用户无法看到，主要使用在不需要让用户知道的一些操作，跟新数据，同步数据等</p>
-<blockquote>
-<h4 id="3-生命周期"><a href="#3-生命周期" class="headerlink" title="3.生命周期"></a>3.生命周期</h4></blockquote>
-<p><strong>·</strong> 如果Service是第一次启动先会执行 <strong>onCreate(),onStartCommand()</strong><br><strong>·</strong> 当次启动Service调用，将只执行<strong>onStartCommand()</strong>，因为此时Service已经创建了，无需执行<strong>onCreate()</strong>回调。无论多少次的启动Service，只需要一次<strong>stopService()</strong>即可将此Service终止，执行<strong>onDestroy()</strong>函数。<br><strong>· onStartCommand(..)</strong>可以多次被调用，<strong>onDestroy()与onCreate()</strong>相匹配，当用户强制kill掉进程时，<strong>onDestroy()</strong>是不会执行的。<br><strong>· startService(Intent serviceIntent)</strong>，其中的intent既可以是显式Intent，也可以是隐式Intent，当Client与Service同处于一个App时，一般推荐使用显示Intent。当处于不同App时，只能使用隐式Intent。<br><strong>·</strong> 当Service需要运行在单独的进程中，<strong>AndroidManifest.xml</strong>声明时需要通过<strong>android:process</strong>指明此进程名称，当此Service需要对其他App开放时，<strong>android:exported</strong>属性值需要设置为true.</p>
-<blockquote>
-<h4 id="4-通讯"><a href="#4-通讯" class="headerlink" title="4.通讯"></a>4.通讯</h4></blockquote>
-<ol>
-<li>简单通信<br>直接通过Intent进行传值，我们在启动一个Service的时候通过Intent的对象向Service进行传值，这种方式传递值比较不方便，性能不是很高。<br>传值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/1.png"></center><br><br>获取值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/2.png"></center><br></li>
-</ol>
-<p>2．绑定服务传输数据<br>    在Service中编写Binder的内部类，自定义方法进行数据传输。<br>活动类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/3.png"></center><br><br>服务类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/4.png"></center><br></p>
-<ol start="3">
-<li>通过使用Messenger方式（可以在不同进程间通讯）<br>服务端：<br><br><center><img src="/2016/09/19/Android四大组件之Service/5.png"></center><br><br>客户端<br><br><center><img src="/2016/09/19/Android四大组件之Service/6.png"></center><br></li>
-</ol>
-<blockquote>
-<h4 id="5-服务单独运行在进程"><a href="#5-服务单独运行在进程" class="headerlink" title="5.服务单独运行在进程"></a>5.服务单独运行在进程</h4></blockquote>
-<p>在XML文件中给Service添加process属性，有两种赋值方式，一种是[:xxxxx],一种是[com.pw.xxx.xxx]  第一种赋值是一种简写，完整的写法是[com.xxx.xxx:xxxx]这样的进程是应用的私有进程，其他应用不会跟它跑到同一个地方去。而第二种就是一种全局进程，其他的应用程序可以通过ShareUID跑进去。<br>多进程的使用地方，可以使用在一些需要保活的地方，音乐后台播放，在退出activity后还能继续播放、加载大图、推送服务，能够在程序退出后继续的向用户推送东西。将功能独立的分开来，减少程序崩溃</p>
+        <p> 安卓中的消息机制说的其实就不同线程间的通讯，就是Handler。<br>  <br><br> <strong>为什么安卓中要有消息机制？</strong><br> 因为在安卓中更新UI是必须在子线程中，UI控件部署线程安全的，如果多线程并发访问就会出现问题。<br>  <br><br> <strong>你可能要问为什么不给UI控件加上锁呢</strong>？<br> 这是因为上锁之后会让UI变得复杂同时效率变低，还会阻塞某些进程的执行，所以UI采用单线程模式，这对开发者也不是很麻烦，只要通过Handler就能够解决。<br> <br></p>
+<h3 id="下面就是Handler的基本用法，在子线程中跟新UI"><a href="#下面就是Handler的基本用法，在子线程中跟新UI" class="headerlink" title="下面就是Handler的基本用法，在子线程中跟新UI"></a>下面就是Handler的基本用法，在子线程中跟新UI</h3><p> <br><center><img src="/2016/10/13/Android消息机制-Handler/GIF1.gif"></center><br><br> <br><center><img src="/2016/10/13/Android消息机制-Handler/1.png"></center><br><br> 这个就是Handler的基本用法。<br>  <br></p>
+<h3 id="消息机制的分析"><a href="#消息机制的分析" class="headerlink" title="消息机制的分析"></a>消息机制的分析</h3><p>  安卓的消息机制就是Handler机制，在handler机制中有两个很重要的东西，一个是Looper、另一个是MessageQueue,这两个东西和Handler凑成了Android中的非常重要的消息机制。<br>  <br><br>  他的原理是这样的：<br>  1、Handler创建一个消息，将这个消息插入到MessageQueue中。<br>  2、Looper不断轮询MessageQueue的next方法。<br>  3、Looper发现有消息（Message）了,就调用回调方法handlerMessage。<br>  我们常常用Handler来进行更新UI但是这并不是说它只能够跟新UI，如同读取文件，网络请求等耗时操作都可以在Handler里面来进行的。<br><br><br>通过上面的原理我们了解需要有一个消息队列MessageQueue，那么这个消息队列是从哪里来的呢？这里我们就要看到Looper，这个类的构造方法中创建了MessageQueue,然后将当前线程的对象保存起来。<br> <br><center><img src="/2016/10/13/Android消息机制-Handler/2.png"></center><br><br> 而我们的Handler的创建也不能离开Looper,如果new一个Handler但是他没有Looper的话就会报错，可能你这里你就有疑问了，我们在上面的更新UI的实例中并没有看到哪里有Looper,<strong>这是因为我们的UI线程在创建的时候就会创建一个Looper</strong>,当我们如果在子线程new一个Handle就会出现保存，所以我们要主动去创建一个Lopper。<br> <br><br> Lopper的几个方法<br> 1、Looper.prepare():为当前线程创建一个Looper<br> 2、Looper.loop():开启消息轮询<br> 3、Looper.myLooper.quit():直接退出Looper<br> 4、Looper.myLooper.quitSafely():设定一个标记，只有当目前已有的消息处理完才会执行退出操作。<br> 当Looper退出之后，Handler就无法发送消息，当Looper退出后，Handler就无法发送消息，send出去的消息会返回false；当我们在子线程中创建了Looper并且所有的消息都处理完毕的时候，要记得调用quit方法，不让这个Looper就一直处于阻塞状态一直那么等待下去，同时主线程的Looper是无法退出的。<br>  <br><br> 我们看看Looper的loop()方法的源码<br> <br><center><img src="/2016/10/13/Android消息机制-Handler/3.png"></center><br><br> 通过代码我们知道：looper方法是一个死循环，唯一跳出的循环的方式是MessageQueue的next方法返回null，但是基本上是不可能的。如果我们不手动调用quit或者quitSafely方法的话，MessageQueue的next方法是不可能返回null的。因为当MessageQueue没有消息时，next方法会一直阻塞在那里，因为MessageQueue的next方法阻塞了，就导致Looper的loop方法也一直在阻塞了。这里我们那一分为二的谈，loop轮询不到消息：那么处于阻塞状态，然后就没有然后了，除了又轮询到了新的消息loop轮到了新的消息：Looper就会处理消息1、msg.target.dispatchMessage(msg)，这里的 msg.targe就是指Handler对象2、一圈下来，Handler发送的消息有交给了自己的dispatchMessage方法来处理了。（这个dispatchMessage方法不是Handler自己调用时，是与Handler相相关的Looper简介调用的），这样下来，就成功地将逻辑切换到指定的线程当中去了<br>  <br><br>  Handler的主要工作就是接受和发送<br>  下面是发送的方法，主要有两种post,send;<br>   <br><center><img src="/2016/10/13/Android消息机制-Handler/4.png"></center><br><br><br><center><img src="/2016/10/13/Android消息机制-Handler/5.png"></center><br><br>而我们接收的方法：<br>dispatchMessage方法<br>dispatchMessage会判断三种情况</p>
+<p>1、如果是post发送来的message，那么就让这个message所持有的Runnable执行run方法，非常简单。<br>Message的Callback 是一个Runnable对象，Handler的post的重载的函数不管参数多少，肯定都是有Runnable的。</p>
+<pre><code>private static void handleCallback(Message message) {
+    message.callback.run();
+}
+</code></pre><p>2、如果是利用Handler(Callback callback) 构造函数实例化的Handler，也就是构造函数里面传入了一个CallBack的对象，那么就执行这个Callback的handlerMessage。<br>利用这个接口和Handler的一个构造函数，我们可以这么创建Handler handler=new Handler(callback)来创建Handler;备注写明了这个接口的作用：可以创建一个Handler的实例但是不需要派生Handler的子类。对比我们日常中最经常做的，就是派生一个Handler的子类，复写handleMessage方法，而通过上面的代码，我们有了一种新的创建Handler方式，那就是不派生子类，而是通过Callback来实现。</p>
+<p>这种方式非常少用。</p>
+<p>看一下Handler里面的Callback这个接口的设计</p>
+<pre><code>public interface Callback {
+    public boolean handleMessage(Message msg);
+}
+</code></pre><p>3、如果是send方法发送的，那么就执行handleMessage，这个方法我们非常熟悉了，google的给的备注的也说了，子类必须实现方法以接受这些Message。这也就是我们最常见的最常用的方式了。</p>
+<pre><code>/**
+ * Subclasses must implement this to receive messages.
+ */
+public void handleMessage(Message msg) {
+}
+</code></pre><blockquote>
+<p>参考：<a href="https://www.jianshu.com/p/9e4d1fab0f36" target="_blank" rel="noopener">https://www.jianshu.com/p/9e4d1fab0f36</a></p>
+</blockquote>
 
       
     </div>
@@ -367,7 +368,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/" title="Android四大组件之Service" target="_blank" rel="external">https://zengwei123.github.io/2016/09/19/Android四大组件之Service/</a>
+      <a href="https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/" title="Android消息机制-Handler" target="_blank" rel="external">https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/</a>
     </li>
     
     
@@ -410,12 +411,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2016/09/26/Android侧滑布局-DrawerLayout/" title="Android侧滑布局-DrawerLayout"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2016/10/18/Android-Fragment/" title="Android随笔-Fragment"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2016/09/15/Android四大组件之Activity/" title="Android四大组件之Activity"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2016/10/07/Android如何在子线程中更新UI/" title="Android随笔-如何在子线程中更新UI"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
