@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Android常用控件-ViewPage | zengwei</title>
+  <meta name="description" content="ViewPage是我们非常常用的控件，他的功能就是多视图的切换  ViewPage    · ViewPage他继承了ViewGroup,所以他是一个容器类，可以在其中添加其他的View。    · ViewPage需要一个Adatper来给他提供数据    · ViewPage经常与Fragment和TabLayout一起使用  使用ViewPage+TabLayout首先看看布局,这个就是一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android常用控件-ViewPage">
+<meta property="og:url" content="https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/index.html">
+<meta property="og:site_name" content="zengwei">
+<meta property="og:description" content="ViewPage是我们非常常用的控件，他的功能就是多视图的切换  ViewPage    · ViewPage他继承了ViewGroup,所以他是一个容器类，可以在其中添加其他的View。    · ViewPage需要一个Adatper来给他提供数据    · ViewPage经常与Fragment和TabLayout一起使用  使用ViewPage+TabLayout首先看看布局,这个就是一个">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/1.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/GIF.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/GIF1.gif">
+<meta property="og:updated_time" content="2018-08-13T11:52:00.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android常用控件-ViewPage">
+<meta name="twitter:description" content="ViewPage是我们非常常用的控件，他的功能就是多视图的切换  ViewPage    · ViewPage他继承了ViewGroup,所以他是一个容器类，可以在其中添加其他的View。    · ViewPage需要一个Adatper来给他提供数据    · ViewPage经常与Fragment和TabLayout一起使用  使用ViewPage+TabLayout首先看看布局,这个就是一个">
+<meta name="twitter:image" content="https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zengwei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ZengWei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">我要加鸡腿！！</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 长沙, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Api/">Api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Api/">Api</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/08/06/Api/" class="title">Api总结（持续跟新）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/10/29/Android常用控件-ViewPage/" class="title">Android常用控件-ViewPage</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-10-29T10:07:03.000Z" itemprop="datePublished">2016-10-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/10/18/Android-Fragment/" class="title">Android随笔-Fragment</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-10-18T08:09:07.000Z" itemprop="datePublished">2016-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/10/13/Android消息机制-Handler/" class="title">Android消息机制-Handler</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-10-13T06:53:50.000Z" itemprop="datePublished">2016-10-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/10/07/Android如何在子线程中更新UI/" class="title">Android-如何在子线程中更新UI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-10-07T01:27:16.000Z" itemprop="datePublished">2016-10-07</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Android常用控件-ViewPage" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android常用控件-ViewPage
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2016/10/29/Android常用控件-ViewPage/" class="article-date">
+	  <time datetime="2016-10-29T10:07:03.000Z" itemprop="datePublished">2016-10-29</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/10/29/Android常用控件-ViewPage/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,255(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <p>ViewPage是我们非常常用的控件，他的功能就是多视图的切换</p>
+<blockquote>
+<p>ViewPage<br>    <strong>·</strong> ViewPage他继承了ViewGroup,所以他是一个容器类，可以在其中添加其他的View。<br>    <strong>·</strong> ViewPage需要一个Adatper来给他提供数据<br>    <strong>·</strong> ViewPage经常与Fragment和TabLayout一起使用</p>
+</blockquote>
+<p>使用ViewPage+TabLayout<br>首先看看布局,这个就是一个最基本的ViewPage+TabLayout的布局了，可能TabLayout需要额外导入<strong>compile ‘com.android.support:design:26.1.0’</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    </span><br><span class="line">	android:layout_width=&quot;match_parent&quot;    </span><br><span class="line">	android:layout_height=&quot;match_parent&quot;&gt;    </span><br><span class="line">		&lt;android.support.design.widget.TabLayout        </span><br><span class="line">			android:layout_width=&quot;match_parent&quot;        </span><br><span class="line">			android:layout_height=&quot;wrap_content&quot;        </span><br><span class="line">			android:id=&quot;@+id/tabLayout&quot;&gt;</span><br><span class="line">		&lt;/android.support.design.widget.TabLayout&gt;    </span><br><span class="line">		&lt;android.support.v4.view.ViewPager        </span><br><span class="line">			android:id=&quot;@+id/viewpager&quot;        </span><br><span class="line">			android:layout_width=&quot;match_parent&quot;        </span><br><span class="line">			android:layout_height=&quot;match_parent&quot;        </span><br><span class="line">			android:layout_below=&quot;@+id/tabLayout&quot;&gt;    </span><br><span class="line">		&lt;/android.support.v4.view.ViewPager&gt;</span><br><span class="line">&lt;/RelativeLayout&gt;</span><br></pre></td></tr></table></figure>
+<p>然后看看Fragment的代码，很简单的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        View view=inflater.inflate(R.layout.activity_main,<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后编写ViewPage的适配器，注意重写<strong>getPageTitle(int position)</strong>这个方法是用来设置TabLayout的title的，因为TabLayout是跟ViewPager绑定起来的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">myViewPageAdatper</span> <span class="keyword">extends</span> <span class="title">FragmentPagerAdapter</span> </span>&#123;    </span><br><span class="line">	<span class="keyword">private</span> List&lt;MyFragment&gt; myFragments;    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">myViewPageAdatper</span><span class="params">(FragmentManager fm, List&lt;MyFragment&gt; fragments)</span> </span>&#123;        </span><br><span class="line">		<span class="keyword">super</span>(fm);        </span><br><span class="line">		<span class="keyword">this</span>.myFragments=fragments;    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span>    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> Fragment <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;        </span><br><span class="line">		<span class="keyword">return</span> myFragments.get(position);    </span><br><span class="line">	&#125;   </span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span>    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;        </span><br><span class="line">		<span class="keyword">return</span> myFragments.size();    </span><br><span class="line">	&#125;    </span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span>    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> CharSequence <span class="title">getPageTitle</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;        </span><br><span class="line">		<span class="keyword">return</span> <span class="string">"标题："</span>+position;    </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面是ViewPage的设置<br><br><center><img src="/2016/10/29/Android常用控件-ViewPage/1.png"></center><br><br>最后的效果<br><br><center><img src="/2016/10/29/Android常用控件-ViewPage/GIF.gif"></center><br><br>对于ViewPage我们的程序有各种各样的需求，有时候我们需要他不能够滑动<br>这是我们可以设置setOnTouchListener()返回值为true，根据事件分发机制，在onTouch中的DOWN事件时候，将事件拦截。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">viewpager.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View view, MotionEvent motionEvent)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></p>
+<p>这样子是可以实现，但是如果ViewPager的Fragment里面有可以滑动的控件，比如又一个ViewPager,这样我们上面的那种办法就没有用了viewPager还是可以被拖出来，对于这种情况我们只有继承ViewPager来重新分发它的事件，禁止它的滑动<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZwViewPage</span> <span class="keyword">extends</span> <span class="title">ViewPager</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isScroll;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ZwViewPage</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ZwViewPage</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1.dispatchTouchEvent一般情况不做处理</span></span><br><span class="line"><span class="comment">     *,如果修改了默认的返回值,子孩子都无法收到事件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.dispatchTouchEvent(ev);   <span class="comment">// return true;不行</span></span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否拦截</span></span><br><span class="line"><span class="comment">     * 拦截:会走到自己的onTouchEvent方法里面来</span></span><br><span class="line"><span class="comment">     * 不拦截:事件传递给子孩子</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// return false;//可行,不拦截事件,</span></span><br><span class="line">        <span class="comment">// return true;//不行,孩子无法处理事件</span></span><br><span class="line">        <span class="comment">//return super.onInterceptTouchEvent(ev);//不行,会有细微移动</span></span><br><span class="line">        <span class="keyword">if</span> (isScroll)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.onInterceptTouchEvent(ev);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	 <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否消费事件</span></span><br><span class="line"><span class="comment">     * 消费:事件就结束</span></span><br><span class="line"><span class="comment">     * 不消费:往父控件传</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent ev)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//return false;// 可行,不消费,传给父控件</span></span><br><span class="line">        <span class="comment">//return true;// 可行,消费,拦截事件</span></span><br><span class="line">        <span class="comment">//super.onTouchEvent(ev); //不行,</span></span><br><span class="line">        <span class="comment">//虽然onInterceptTouchEvent中拦截了,</span></span><br><span class="line">        <span class="comment">//但是如果viewpage里面子控件不是viewgroup,还是会调用这个方法.</span></span><br><span class="line">        <span class="keyword">if</span> (isScroll)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.onTouchEvent(ev);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">// 可行,消费,拦截事件</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setScroll</span><span class="params">(<span class="keyword">boolean</span> scroll)</span> </span>&#123;</span><br><span class="line">        isScroll = scroll;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样子我们就实现了禁止ViewPager的滑动，下面我们来说说ViewPager的预加载。<br>ViewPager会默认加载当前页和当前页的左右两页。<br>一开始当前页是下标0，所以一开始默认加载第0页（指下标，下同）和第1页。<br>当你向右滑动，当前页为第1页时，ViewPager会加载第2页，这时一共有3页存在（第0,1,2页）。<br>再向右滑动，当前页为第2页时，会移除第0页，加载第3页，同理向左滑动当前页为第1页时，会移除第3页。<br>我们可以设置下面的这个方法来预加载多个页面。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewpager.setOffscreenPageLimit(<span class="keyword">int</span> i);</span><br></pre></td></tr></table></figure></p>
+<p>但是如果我们不想要他预加呢？当每个fragment都需要去联网加载网络数据或者做一些耗时的操作，而且有其他的fragment并不是必须的，用户不一定会打开。<br>这样的话如果还预加载的话将会浪费资源，用户体验也不好。<br>虽然可以通过setOffscreenPageLimit(0)来设置不提前预加载，但这样的设置没有效果。通过研究ViewPager的源码，可以设置该类默认的DEFAULT_OFFSCREEN_PAGES = 0，来预防预加载。<br>还有一直办法就是判断fragment的位置是否为当前显示ViewPager，如果是就加载，不是的话就不给加载<br><br><br>设置ViewPager默认显示的页面,通过这个方法就可以通过代码设置页面的切换了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ViewPager.setCurrentItem(2)</span><br></pre></td></tr></table></figure></p>
+<p>如果想要下面这种效果<br><br><center><img src="/2016/10/29/Android常用控件-ViewPage/GIF1.gif"></center><br><br>在布局文件中色湖之<strong>ClipToPadding=“false”</strong>然后设置padding,就可以实现了</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/" title="Android常用控件-ViewPage" target="_blank" rel="external">https://zengwei123.github.io/2016/10/29/Android常用控件-ViewPage/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2016/10/18/Android-Fragment/" title="Android随笔-Fragment"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
