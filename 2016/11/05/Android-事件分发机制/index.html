@@ -17,27 +17,32 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Android四大组件之Service | zengwei</title>
-  <meta name="description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+  <title>Android-事件分发机制 | zengwei</title>
+  <meta name="description" content="事件分发主要分为2部分，View分发与ViewGroup，在了解事件分发的之前首先了解一下View与ViewGroup,View是没有子控件的，如Button,TextView等，但是ViewGroup是有子控件的，如ViewPager,RelativeLayout。  首先看看View的事件分发，主要是两个方法dispatchTouchEvent和OnTouchEvent，从流程是从Activ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android四大组件之Service">
-<meta property="og:url" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+<meta property="og:title" content="Android-事件分发机制">
+<meta property="og:url" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+<meta property="og:description" content="事件分发主要分为2部分，View分发与ViewGroup，在了解事件分发的之前首先了解一下View与ViewGroup,View是没有子控件的，如Button,TextView等，但是ViewGroup是有子控件的，如ViewPager,RelativeLayout。  首先看看View的事件分发，主要是两个方法dispatchTouchEvent和OnTouchEvent，从流程是从Activ">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/2.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/3.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/4.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/5.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/6.png">
-<meta property="og:updated_time" content="2018-08-07T03:38:39.593Z">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/2.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/3.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/4.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/1.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/5.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/6.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/7.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/8.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/9.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/10.png">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/11.png">
+<meta property="og:updated_time" content="2018-08-14T07:16:10.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android四大组件之Service">
-<meta name="twitter:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
-<meta name="twitter:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
+<meta name="twitter:title" content="Android-事件分发机制">
+<meta name="twitter:description" content="事件分发主要分为2部分，View分发与ViewGroup，在了解事件分发的之前首先了解一下View与ViewGroup,View是没有子控件的，如Button,TextView等，但是ViewGroup是有子控件的，如ViewPager,RelativeLayout。  首先看看View的事件分发，主要是两个方法dispatchTouchEvent和OnTouchEvent，从流程是从Activ">
+<meta name="twitter:image" content="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/2.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -295,14 +300,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Android四大组件之Service" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Android-事件分发机制" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Android四大组件之Service
+      Android-事件分发机制
     </h1>
   
 
@@ -310,8 +315,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2016/09/19/Android四大组件之Service/" class="article-date">
-	  <time datetime="2016-09-19T02:58:12.000Z" itemprop="datePublished">2016-09-19</time>
+	<a href="/2016/11/05/Android-事件分发机制/" class="article-date">
+	  <time datetime="2016-11-05T02:28:00.000Z" itemprop="datePublished">2016-11-05</time>
 	</a>
 </span>
         
@@ -324,13 +329,13 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/09/19/Android四大组件之Service/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/11/05/Android-事件分发机制/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 776(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 653(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
@@ -338,26 +343,21 @@
     <div class="article-entry markdown-body" itemprop="articleBody">
       
         <blockquote>
-<h4 id="1-Service作用："><a href="#1-Service作用：" class="headerlink" title="1.Service作用："></a>1.Service作用：</h4></blockquote>
-<p>提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。</p>
+<p>事件分发主要分为2部分，View分发与ViewGroup，在了解事件分发的之前首先了解一下View与ViewGroup,View是没有子控件的，如Button,TextView等，但是ViewGroup是有子控件的，如ViewPager,RelativeLayout。</p>
+</blockquote>
+<p>首先看看View的事件分发，主要是两个方法dispatchTouchEvent和OnTouchEvent，从流程是从Activity-View，Activity的dispatchTouchEvent是事件分发的第一入口。<br><br><br>我们继承一个Button重写他的dispatchTouchEvent和OnTouchEvent<br><br><center><img src="/2016/11/05/Android-事件分发机制/2.png"></center><br><br>调用button的setOnTouchListener和setOnClickListener<br><br><center><img src="/2016/11/05/Android-事件分发机制/3.png"></center><br><br>重写activity的dispatchTouchEvent和OnTouchEvent<br><br><center><img src="/2016/11/05/Android-事件分发机制/4.png"></center><br><br>点击button,我们会看到下面这个Log打印顺序<br><br><center><img src="/2016/11/05/Android-事件分发机制/1.png"></center><br></p>
 <blockquote>
-<h4 id="2-Service分类："><a href="#2-Service分类：" class="headerlink" title="2.Service分类："></a>2.Service分类：</h4></blockquote>
-<p><strong>本地</strong>：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。<br><strong>远程</strong>：运行在独立进程，常驻在后台，不受其他Activity影响但是非常消耗资源，通讯需要比较复杂，主要使用在系统级别的服务。<br><strong>前台</strong>：通知栏可以显示出来，用户可以看到，主要使用在需要让用户只要并进行相关操作，如音乐播放。<br><strong>后台</strong>：主要是用户无法看到，主要使用在不需要让用户知道的一些操作，跟新数据，同步数据等</p>
+<p>在这里你可能会奇怪为什么Activity的OnTouchEvent为什么没有调用，这是因为我们的Button在OnTouchEvent中已经处理了事件，最后执行的click，当我们将Button的OnTouchEvent返回值改为false,我们会看到下面的这中情况。<br>这时候Activity的OnTouchEvent就被调用了，因为我们在button的OnTouchEvent不处理事件，这样最后没人处理我们只能将事件返回给Activity，这样Activity的OnTouchEvent就会被调用</p>
+</blockquote>
+<p><br><center><img src="/2016/11/05/Android-事件分发机制/5.png"></center><br><br>这里我们看到最后没有执行click事件，并且UP也没有执行了，这是因为button在Down后没有处理事件，最后到了activity那里处理<br><br><center><img src="/2016/11/05/Android-事件分发机制/6.png"></center><br><br>如果我们在up的时候不处理，返回一个false<br><br><center><img src="/2016/11/05/Android-事件分发机制/7.png"></center><br><br>这样我们的Down和Up都执行但是最后的click没有执行，因为button没有处理事件，所以事件最后就到了Activity哪里，执行了OnTouchEvent<br><br><center><img src="/2016/11/05/Android-事件分发机制/8.png"></center><br><br>最后看书：<br><br><center><img src="/2016/11/05/Android-事件分发机制/9.png"></center><br><br><br><center><img src="/2016/11/05/Android-事件分发机制/10.png"></center><br><br><br><center><img src="/2016/11/05/Android-事件分发机制/11.png"></center><br></p>
 <blockquote>
-<h4 id="3-生命周期"><a href="#3-生命周期" class="headerlink" title="3.生命周期"></a>3.生命周期</h4></blockquote>
-<p><strong>·</strong> 如果Service是第一次启动先会执行 <strong>onCreate(),onStartCommand()</strong><br><strong>·</strong> 当次启动Service调用，将只执行<strong>onStartCommand()</strong>，因为此时Service已经创建了，无需执行<strong>onCreate()</strong>回调。无论多少次的启动Service，只需要一次<strong>stopService()</strong>即可将此Service终止，执行<strong>onDestroy()</strong>函数。<br><strong>· onStartCommand(..)</strong>可以多次被调用，<strong>onDestroy()与onCreate()</strong>相匹配，当用户强制kill掉进程时，<strong>onDestroy()</strong>是不会执行的。<br><strong>· startService(Intent serviceIntent)</strong>，其中的intent既可以是显式Intent，也可以是隐式Intent，当Client与Service同处于一个App时，一般推荐使用显示Intent。当处于不同App时，只能使用隐式Intent。<br><strong>·</strong> 当Service需要运行在单独的进程中，<strong>AndroidManifest.xml</strong>声明时需要通过<strong>android:process</strong>指明此进程名称，当此Service需要对其他App开放时，<strong>android:exported</strong>属性值需要设置为true.</p>
-<blockquote>
-<h4 id="4-通讯"><a href="#4-通讯" class="headerlink" title="4.通讯"></a>4.通讯</h4></blockquote>
-<ol>
-<li>简单通信<br>直接通过Intent进行传值，我们在启动一个Service的时候通过Intent的对象向Service进行传值，这种方式传递值比较不方便，性能不是很高。<br>传值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/1.png"></center><br><br>获取值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/2.png"></center><br></li>
-</ol>
-<p>2．绑定服务传输数据<br>    在Service中编写Binder的内部类，自定义方法进行数据传输。<br>活动类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/3.png"></center><br><br>服务类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/4.png"></center><br></p>
-<ol start="3">
-<li>通过使用Messenger方式（可以在不同进程间通讯）<br>服务端：<br><br><center><img src="/2016/09/19/Android四大组件之Service/5.png"></center><br><br>客户端<br><br><center><img src="/2016/09/19/Android四大组件之Service/6.png"></center><br></li>
-</ol>
-<blockquote>
-<h4 id="5-服务单独运行在进程"><a href="#5-服务单独运行在进程" class="headerlink" title="5.服务单独运行在进程"></a>5.服务单独运行在进程</h4></blockquote>
-<p>在XML文件中给Service添加process属性，有两种赋值方式，一种是[:xxxxx],一种是[com.pw.xxx.xxx]  第一种赋值是一种简写，完整的写法是[com.xxx.xxx:xxxx]这样的进程是应用的私有进程，其他应用不会跟它跑到同一个地方去。而第二种就是一种全局进程，其他的应用程序可以通过ShareUID跑进去。<br>多进程的使用地方，可以使用在一些需要保活的地方，音乐后台播放，在退出activity后还能继续播放、加载大图、推送服务，能够在程序退出后继续的向用户推送东西。将功能独立的分开来，减少程序崩溃</p>
+<p>下面来说说ViewGroup的分发事件，其实原理跟View差不多，只不过它多了一个onInterceptTouchEvent这个方法是用来控制事件是给自己消费还是分发给子控件。</p>
+</blockquote>
+<p><br><br>1.默认的onInterceptTouchEvent总是返回false的，就是不拦截touch事件，直接分发给了子控件。所以假如我们自定义了组合控件，譬如image+文字的组合控件，并且在activity里面注册监听期待点击它的时候会产生响应，那么我们就需要重写onInterceptTouchEvent了让它返回true，将事件拦截下来。</p>
+<p>2.如果触摸的时候，我们只想出发ontouch监听，想屏蔽onclick监听的话，就需要在ontouch里面返回true就可以了</p>
+<p>3.android事件分发是先传递到viewgroup，然后才传递到view的</p>
+<p>4.子view如果将传递的事件消费处理掉，viewgroup当中是接收不到任何事件的</p>
+<p>5.简单来讲，dispatchTouchEvent方法是为了onTouch监听的，onTouchEvent是为了onClick监听的。如果ontouch监听返回false，事件会传递到onTouchEvent当中触发onClick，如果是true的话就不会继续往下传递了。</p>
 
       
     </div>
@@ -367,7 +367,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/" title="Android四大组件之Service" target="_blank" rel="external">https://zengwei123.github.io/2016/09/19/Android四大组件之Service/</a>
+      <a href="https://zengwei123.github.io/2016/11/05/Android-事件分发机制/" title="Android-事件分发机制" target="_blank" rel="external">https://zengwei123.github.io/2016/11/05/Android-事件分发机制/</a>
     </li>
     
     
@@ -410,12 +410,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2016/09/26/Android侧滑布局-DrawerLayout/" title="Android侧滑布局-DrawerLayout"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2016/09/15/Android四大组件之Activity/" title="Android四大组件之Activity"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2016/10/29/Android常用控件-ViewPage/" title="Android常用控件-ViewPage"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

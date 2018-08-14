@@ -17,27 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Android四大组件之Service | zengwei</title>
-  <meta name="description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android四大组件之Service">
-<meta property="og:url" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+  <title>zengwei</title>
+  <meta name="description" content="曾伟 个人博客 java Android">
+<meta property="og:type" content="website">
+<meta property="og:title" content="zengwei">
+<meta property="og:url" content="https://zengwei123.github.io/page/2/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+<meta property="og:description" content="曾伟 个人博客 java Android">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/2.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/3.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/4.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/5.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/6.png">
-<meta property="og:updated_time" content="2018-08-07T03:38:39.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android四大组件之Service">
-<meta name="twitter:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
-<meta name="twitter:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
+<meta name="twitter:title" content="zengwei">
+<meta name="twitter:description" content="曾伟 个人博客 java Android">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/page/2/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -292,17 +284,18 @@
 </aside>
 
   
+  <main class="main" role="main">
   
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-Android四大组件之Service" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <div class="content">
+  <article id="post-hexo搭建博客" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
-    <h1 class="article-title" itemprop="name">
-      Android四大组件之Service
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/02/hexo搭建博客/">Hexo搭建博客</a>
     </h1>
   
 
@@ -310,24 +303,24 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2016/09/19/Android四大组件之Service/" class="article-date">
-	  <time datetime="2016-09-19T02:58:12.000Z" itemprop="datePublished">2016-09-19</time>
+	<a href="/2016/09/02/hexo搭建博客/" class="article-date">
+	  <time datetime="2016-09-02T15:15:04.000Z" itemprop="datePublished">2016-09-02</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Android/">Android</a>
+    <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
   </span>
 
         
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/09/19/Android四大组件之Service/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/09/02/hexo搭建博客/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 776(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 927(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
@@ -337,27 +330,32 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <blockquote>
-<h4 id="1-Service作用："><a href="#1-Service作用：" class="headerlink" title="1.Service作用："></a>1.Service作用：</h4></blockquote>
-<p>提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。</p>
+        <p>花了个半天时间把个博客搭建好了，不容易，第一篇博客就写怎么拿Hexo搭建博客吧！</p>
+<p>   Hexo是建立在Git和Node.js的基础上的，所以在搭建博客的时候需要有这两个环境，MAC跟Windows搭建都一样，都是在git下面所以不会存在什么因为系统的原因导致配置不一样，我是windows所有</p>
+
 <blockquote>
-<h4 id="2-Service分类："><a href="#2-Service分类：" class="headerlink" title="2.Service分类："></a>2.Service分类：</h4></blockquote>
-<p><strong>本地</strong>：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。<br><strong>远程</strong>：运行在独立进程，常驻在后台，不受其他Activity影响但是非常消耗资源，通讯需要比较复杂，主要使用在系统级别的服务。<br><strong>前台</strong>：通知栏可以显示出来，用户可以看到，主要使用在需要让用户只要并进行相关操作，如音乐播放。<br><strong>后台</strong>：主要是用户无法看到，主要使用在不需要让用户知道的一些操作，跟新数据，同步数据等</p>
+<h4 id="1-安装git与node-js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的"><a href="#1-安装git与node-js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的" class="headerlink" title="1.安装git与node.js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的"></a>1.安装git与node.js，这两个环境为搭建博客的基础，如果没有的话是搭建不了的</h4></blockquote>
+<p>安装git、node.js，首先官网去下载安装包，如果是mac一行命令的事情，然后一直下一步下一步下一步就ok,没有什么其他的出问题百度吧，这里就不多说了，下面贴上两个东西的下载地址<br><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git下找地址</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js下找地址</a></p>
 <blockquote>
-<h4 id="3-生命周期"><a href="#3-生命周期" class="headerlink" title="3.生命周期"></a>3.生命周期</h4></blockquote>
-<p><strong>·</strong> 如果Service是第一次启动先会执行 <strong>onCreate(),onStartCommand()</strong><br><strong>·</strong> 当次启动Service调用，将只执行<strong>onStartCommand()</strong>，因为此时Service已经创建了，无需执行<strong>onCreate()</strong>回调。无论多少次的启动Service，只需要一次<strong>stopService()</strong>即可将此Service终止，执行<strong>onDestroy()</strong>函数。<br><strong>· onStartCommand(..)</strong>可以多次被调用，<strong>onDestroy()与onCreate()</strong>相匹配，当用户强制kill掉进程时，<strong>onDestroy()</strong>是不会执行的。<br><strong>· startService(Intent serviceIntent)</strong>，其中的intent既可以是显式Intent，也可以是隐式Intent，当Client与Service同处于一个App时，一般推荐使用显示Intent。当处于不同App时，只能使用隐式Intent。<br><strong>·</strong> 当Service需要运行在单独的进程中，<strong>AndroidManifest.xml</strong>声明时需要通过<strong>android:process</strong>指明此进程名称，当此Service需要对其他App开放时，<strong>android:exported</strong>属性值需要设置为true.</p>
+<h4 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2.安装Hexo"></a>2.安装Hexo</h4></blockquote>
+<p>安装好Git后，桌面右击会增加两个东西 <strong><em>Git GUI here</em></strong> 、<strong><em>Git Bash here</em></strong> 这两个东西，点击Bash,就进入了Git的终端命令的界面了，你就可以快乐的敲命令了，输入 </p><p><span style="color:red"><strong>npm install -g hexo-cli</strong><br></span></p><p>刷刷刷，然后Hexo就安装好了，你就可以搭建你的博客了</p>
 <blockquote>
-<h4 id="4-通讯"><a href="#4-通讯" class="headerlink" title="4.通讯"></a>4.通讯</h4></blockquote>
-<ol>
-<li>简单通信<br>直接通过Intent进行传值，我们在启动一个Service的时候通过Intent的对象向Service进行传值，这种方式传递值比较不方便，性能不是很高。<br>传值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/1.png"></center><br><br>获取值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/2.png"></center><br></li>
-</ol>
-<p>2．绑定服务传输数据<br>    在Service中编写Binder的内部类，自定义方法进行数据传输。<br>活动类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/3.png"></center><br><br>服务类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/4.png"></center><br></p>
-<ol start="3">
-<li>通过使用Messenger方式（可以在不同进程间通讯）<br>服务端：<br><br><center><img src="/2016/09/19/Android四大组件之Service/5.png"></center><br><br>客户端<br><br><center><img src="/2016/09/19/Android四大组件之Service/6.png"></center><br></li>
-</ol>
+<h4 id="3-建站"><a href="#3-建站" class="headerlink" title="3.建站"></a>3.建站</h4></blockquote>
+<p>首先先创建你的网站，在git命令终端用下面这个命令</p>
+<p></p><p><span style="color:red"><strong>hexo init folder</strong></span></p><p>folder可以自己随意命名，也可以随意指定路径，然后等待一会就把网站给你创建好了，在创建的命令信息中你可以看到自己创建的网站路径，记住这个路径，然后你可以输入</p><p><span style="color:red"><strong>hexo s</strong></span></p><p>这个命令启动服务来本地运行网站，浏览器输入：127.0.0.1:4000 就能够看到Hexo默认的主题我网站，这样我们就已经建好站了</p>
 <blockquote>
-<h4 id="5-服务单独运行在进程"><a href="#5-服务单独运行在进程" class="headerlink" title="5.服务单独运行在进程"></a>5.服务单独运行在进程</h4></blockquote>
-<p>在XML文件中给Service添加process属性，有两种赋值方式，一种是[:xxxxx],一种是[com.pw.xxx.xxx]  第一种赋值是一种简写，完整的写法是[com.xxx.xxx:xxxx]这样的进程是应用的私有进程，其他应用不会跟它跑到同一个地方去。而第二种就是一种全局进程，其他的应用程序可以通过ShareUID跑进去。<br>多进程的使用地方，可以使用在一些需要保活的地方，音乐后台播放，在退出activity后还能继续播放、加载大图、推送服务，能够在程序退出后继续的向用户推送东西。将功能独立的分开来，减少程序崩溃</p>
+<h4 id="4-配置到Github"><a href="#4-配置到Github" class="headerlink" title="4.配置到Github"></a>4.配置到Github</h4></blockquote>
+<p>首先在github上面创建一个仓库名字叫做：用户名.github.io,注意用户名一定要跟自己的github账户相同<center><img src="/2016/09/02/hexo搭建博客/s.jpg"></center><br>创建仓库<br><center><img src="/2016/09/02/hexo搭建博客/2.jpg"></center><br><br>创建好仓库之后拿到他的ssh地址或者Https地址<br><center><img src="/2016/09/02/hexo搭建博客/3.jpg"></center><br><br>这样我们就吧hexo对应的github仓库建立好了，然后来到博客根路径下，打开_config.yml这个文件夹<br>找到下面这一段，将repository的内容替换成你自己刚刚拿到的ssh或HTTPs地址<br><center><img src="/2016/09/02/hexo搭建博客/4.png"></center><br>然后在再到下面这段，将里面的url换成你自己的：用户名.github.io(注意：这个url就是你以后博客的地址)<br><br><center><img src="/2016/09/02/hexo搭建博客/6.png"></center><br><br>到这里我们基本上就跟github关联起来了，但是为了以后更加方便，我们配置一下SSH</p>
+<blockquote>
+<h4 id="5-配置SSH"><a href="#5-配置SSH" class="headerlink" title="5.配置SSH"></a>5.配置SSH</h4></blockquote>
+<p>首先，终端中输入cd ~/.ssh 查看有没有SSH如果有就删除吧，然后输入ssh-keygen -t rsa -C “你的邮箱”<br>，后面会要你输入密码，这个不用管，一直回车，最后如果出现下面这个图的样子，就是成功了<br><center><img src="/2016/09/02/hexo搭建博客/7.png"></center><br><br>然后到类似于：C:\Users\13085.ssh这种的目录下找到一个叫id_rsa.pub的文件，打开将里面的东西全部复制，进入GitHub<br><center><img src="/2016/09/02/hexo搭建博客/8.png"></center><br><br><center><img src="/2016/09/02/hexo搭建博客/9.png"></center><br><br>到这里，SSH就全部配置完了</p>
+<blockquote>
+<h4 id="6-上传网站"><a href="#6-上传网站" class="headerlink" title="6.上传网站"></a>6.上传网站</h4></blockquote>
+<p>输入命令hexo g，此时若出现如下报错：<br>ERROR Local hexo not found in ~/blog<br>ERROR Try runing: ‘npm install hexo –save’<br>则执行命令：<br><span style="color:red"><strong>npm install hexo –save</strong></span><br>若无报错，自行忽略此步骤。</p>
+<p>然后输入hexo d,若执行命令hexo deploy仍然报错：无法连接git或找不到git，则执行如下命令来安装hexo-deployer-git：<br><span style="color:red"><strong>npm install hexo-deployer-git –save</strong></span></p>
+<blockquote>
+<h4 id="7-查看网站"><a href="#7-查看网站" class="headerlink" title="7.查看网站"></a>7.查看网站</h4></blockquote>
+<p> 打开浏览器输入：https://你的用户名.github.io，就能够看到你的网站了，跟前面本地看到的效果是一样的</p>
 
       
     </div>
@@ -367,7 +365,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/" title="Android四大组件之Service" target="_blank" rel="external">https://zengwei123.github.io/2016/09/19/Android四大组件之Service/</a>
+      <a href="https://zengwei123.github.io/2016/09/02/hexo搭建博客/" title="Hexo搭建博客" target="_blank" rel="external">https://zengwei123.github.io/2016/09/02/hexo搭建博客/</a>
     </li>
     
     
@@ -395,90 +393,37 @@
     </div>
   </article>
   
-    
-  <section id="comments">
-  	
-  </section>
-
-
-  
 </div>
 
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
   
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2016/09/26/Android侧滑布局-DrawerLayout/" title="Android侧滑布局-DrawerLayout"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2016/09/15/Android四大组件之Activity/" title="Android四大组件之Activity"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
+
   
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
     
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>感谢您的支持，我会继续努力的!</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
-              </li>
-            </ul>
-          </div>
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev">
+                <a href="/">
+                    <i class="icon icon-angle-left"></i>
+                    上一页
+                </a>
+            </li>
+            
+            
+            <li class="next disabled">
+                <a href="javascript:;">
+                    下一页
+                    <i class="icon icon-angle-right"></i>                    
+                </a>
+            </li>
+            
+        </ul>
+        <div class="total-article bar-right">Page 2 of 2</div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+    </nav>
+    
+ 
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -524,8 +469,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
     
-    
-        
     
     
 
