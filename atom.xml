@@ -46,7 +46,7 @@
     <link href="https://zengwei123.github.io/2016/11/05/Android-%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6/"/>
     <id>https://zengwei123.github.io/2016/11/05/Android-事件分发机制/</id>
     <published>2016-11-05T02:28:00.000Z</published>
-    <updated>2018-08-14T07:42:12.022Z</updated>
+    <updated>2018-08-14T07:47:55.037Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>事件分发主要分为2部分，View分发与ViewGroup，在了解事件分发的之前首先了解一下View与ViewGroup,View是没有子控件的，如Button,TextView等，但是ViewGroup是有子控件的，如ViewPager,RelativeLayout。</p></blockquote><p>首先看看View的事件分发，主要是两个方法dispatchTouchEvent和OnTouchEvent，从流程是从Activity-View，Activity的dispatchTouchEvent是事件分发的第一入口。<br><br><br>我们继承一个Button重写他的dispatchTouchEvent和OnTouchEvent<br><br><center><img src="/2016/11/05/Android-事件分发机制/2.png"></center><br><br>调用button的setOnTouchListener和setOnClickListener<br><br><center><img src="/2016/11/05/Android-事件分发机制/3.png"></center><br><br>重写activity的dispatchTouchEvent和OnTouchEvent<br><br><center><img src="/2016/11/05/Android-事件分发机制/4.png"></center><br><br>点击button,我们会看到下面这个Log打印顺序<br><br><center><img src="/2016/11/05/Android-事件分发机制/1.png"></center><br></p><blockquote><p>在这里你可能会奇怪为什么Activity的OnTouchEvent为什么没有调用，这是因为我们的Button在OnTouchEvent中已经处理了事件，最后执行的click，当我们将Button的OnTouchEvent返回值改为false,我们会看到下面的这中情况。<br>这时候Activity的OnTouchEvent就被调用了，因为我们在button的OnTouchEvent不处理事件，这样最后没人处理我们只能将事件返回给Activity，这样Activity的OnTouchEvent就会被调用</p></blockquote><p><br><center><img src="/2016/11/05/Android-事件分发机制/5.png"></center><br><br>这里我们看到最后没有执行click事件，并且UP也没有执行了，这是因为button在Down后没有处理事件，最后到了activity那里处理<br><br><center><img src="/2016/11/05/Android-事件分发机制/6.png"></center><br><br>如果我们在up的时候不处理，返回一个false<br><br><center><img src="/2016/11/05/Android-事件分发机制/7.png"></center><br><br>这样我们的Down和Up都执行但是最后的click没有执行，因为button没有处理事件，所以事件最后就到了Activity哪里，执行了OnTouchEvent<br><br><center><img src="/2016/11/05/Android-事件分发机制/8.png"></center><br><br>最后看书：<br><br><center><img src="/2016/11/05/Android-事件分发机制/9.png"></center><br><br><br><center><img src="/2016/11/05/Android-事件分发机制/10.png"></center><br><br><br><center><img src="/2016/11/05/Android-事件分发机制/11.png"></center><br></p><blockquote><p>下面来说说ViewGroup的分发事件，其实原理跟View差不多，只不过它多了一个onInterceptTouchEvent这个方法是用来控制事件是给自己消费还是分发给子控件。</p></blockquote><p><br><br>1.默认的onInterceptTouchEvent总是返回false的，就是不拦截touch事件，直接分发给了子控件。所以假如我们自定义了组合控件，譬如image+文字的组合控件，并且在activity里面注册监听期待点击它的时候会产生响应，那么我们就需要重写onInterceptTouchEvent了让它返回true，将事件拦截下来。</p><p>2.如果触摸的时候，我们只想出发ontouch监听，想屏蔽onclick监听的话，就需要在ontouch里面返回true就可以了</p><p>3.android事件分发是先传递到viewgroup，然后才传递到view的</p><p>4.子view如果将传递的事件消费处理掉，viewgroup当中是接收不到任何事件的</p><p>5.简单来讲，dispatchTouchEvent方法是为了onTouch监听的，onTouchEvent是为了onClick监听的。如果ontouch监听返回false，事件会传递到onTouchEvent当中触发onClick，如果是true的话就不会继续往下传递了。</p>]]></content>
     
@@ -60,7 +60,7 @@
     
     </summary>
     
-      <category term="Androidasd" scheme="https://zengwei123.github.io/categories/Androidasd/"/>
+      <category term="Android" scheme="https://zengwei123.github.io/categories/Android/"/>
     
     
   </entry>
