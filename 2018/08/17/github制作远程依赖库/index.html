@@ -17,26 +17,30 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Android侧滑布局-DrawerLayout | zengwei</title>
-  <meta name="description" content="DrawerLayout是谷歌官方推出的侧滑菜单,DrawerLayout最好为界面的根布局，否则可能会出现触摸事件被屏蔽的问题；主内容区的布局代码要放在侧滑菜单布局的前面, 因为 XML 顺序意味着按 z序（层叠顺序）排序，并且抽屉式导航栏必须位于内容顶部；侧滑菜单部分的布局必须设置layout_gravity属性，他表示侧滑菜单是在左边还是右边，而且如果不设置在的时候会报错，设置了layout">
+  <title>github制作远程依赖库 | zengwei</title>
+  <meta name="description" content="今天写了一个控件，然后把它弄成了一个开源库，然后记录一下制作成开源库的方法首先先创建一个库工程，注意这个库工程是建立在项目里面的然后配置这里将zengwei123改成你的github用户名apply plugin: ‘com.github.dcendents.android-maven’group=’com.github.zengwei123’classpath ‘com.github.dcen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android侧滑布局-DrawerLayout">
-<meta property="og:url" content="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/index.html">
+<meta property="og:title" content="github制作远程依赖库">
+<meta property="og:url" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="DrawerLayout是谷歌官方推出的侧滑菜单,DrawerLayout最好为界面的根布局，否则可能会出现触摸事件被屏蔽的问题；主内容区的布局代码要放在侧滑菜单布局的前面, 因为 XML 顺序意味着按 z序（层叠顺序）排序，并且抽屉式导航栏必须位于内容顶部；侧滑菜单部分的布局必须设置layout_gravity属性，他表示侧滑菜单是在左边还是右边，而且如果不设置在的时候会报错，设置了layout">
+<meta property="og:description" content="今天写了一个控件，然后把它弄成了一个开源库，然后记录一下制作成开源库的方法首先先创建一个库工程，注意这个库工程是建立在项目里面的然后配置这里将zengwei123改成你的github用户名apply plugin: ‘com.github.dcendents.android-maven’group=’com.github.zengwei123’classpath ‘com.github.dcen">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/1.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/2.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/3.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/4.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/5.png">
-<meta property="og:updated_time" content="2018-08-07T07:42:27.676Z">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/1.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/2.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/3.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/4.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/5.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/6.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/7.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/8.png">
+<meta property="og:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/9.png">
+<meta property="og:updated_time" content="2018-08-17T10:35:16.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android侧滑布局-DrawerLayout">
-<meta name="twitter:description" content="DrawerLayout是谷歌官方推出的侧滑菜单,DrawerLayout最好为界面的根布局，否则可能会出现触摸事件被屏蔽的问题；主内容区的布局代码要放在侧滑菜单布局的前面, 因为 XML 顺序意味着按 z序（层叠顺序）排序，并且抽屉式导航栏必须位于内容顶部；侧滑菜单部分的布局必须设置layout_gravity属性，他表示侧滑菜单是在左边还是右边，而且如果不设置在的时候会报错，设置了layout">
-<meta name="twitter:image" content="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/1.png">
+<meta name="twitter:title" content="github制作远程依赖库">
+<meta name="twitter:description" content="今天写了一个控件，然后把它弄成了一个开源库，然后记录一下制作成开源库的方法首先先创建一个库工程，注意这个库工程是建立在项目里面的然后配置这里将zengwei123改成你的github用户名apply plugin: ‘com.github.dcendents.android-maven’group=’com.github.zengwei123’classpath ‘com.github.dcen">
+<meta name="twitter:image" content="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -294,14 +298,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Android侧滑布局-DrawerLayout" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-github制作远程依赖库" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Android侧滑布局-DrawerLayout
+      github制作远程依赖库
     </h1>
   
 
@@ -309,24 +313,24 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2016/09/26/Android侧滑布局-DrawerLayout/" class="article-date">
-	  <time datetime="2016-09-26T03:54:14.000Z" itemprop="datePublished">2016-09-26</time>
+	<a href="/2018/08/17/github制作远程依赖库/" class="article-date">
+	  <time datetime="2018-08-17T09:58:13.000Z" itemprop="datePublished">2018-08-17</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Android/">Android</a>
+    <a class="article-category-link" href="/categories/GitHub-Git/">GitHub-Git</a>
   </span>
 
         
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/09/26/Android侧滑布局-DrawerLayout/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/08/17/github制作远程依赖库/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 408(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 250(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -336,12 +340,10 @@
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <p>DrawerLayout是谷歌官方推出的侧滑菜单,DrawerLayout最好为界面的根布局，否则可能会出现触摸事件被屏蔽的问题；主内容区的布局代码要放在侧滑菜单布局的前面, 因为 XML 顺序意味着按 z序（层叠顺序）排序，并且抽屉式导航栏必须位于内容顶部；侧滑菜单部分的布局必须设置<strong>layout_gravity</strong>属性，他表示侧滑菜单是在左边还是右边，而且如果不设置在的时候会报错，设置了<strong>layout_gravity=”start/left”</strong>的视图才会被认为是侧滑菜单,<strong>同时侧滑的布局必须放在最下面</strong>，不然无法响应侧滑控件的的事件，只会点击之后就关闭侧滑<br><br><center><img src="/2016/09/26/Android侧滑布局-DrawerLayout/1.png"></center><br><br>drawerLayout左侧菜单（或者右侧）的展开与隐藏可以被DrawerLayout.DrawerListener的实现监听<br><br><center><img src="/2016/09/26/Android侧滑布局-DrawerLayout/2.png"></center><br><br>我们还可以通过按钮显示侧边栏<br><br><center><img src="/2016/09/26/Android侧滑布局-DrawerLayout/3.png"></center><br><br>侧滑的布局可以写在fragment,这里<strong>name</strong>属性就是用来对应的Fragment的<br><br><center><img src="/2016/09/26/Android侧滑布局-DrawerLayout/4.png"></center><br><br><br><center><img src="/2016/09/26/Android侧滑布局-DrawerLayout/5.png"></center><br><br>经过这几步我们就吧侧滑菜单写出来了<br>在这里 <code>drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED,Gravity.END);</code> 锁定右面的侧滑菜单，不能通过手势关闭或者打开，只能通过代码打开！<br>如果DrawerLayout侧滑菜单中的控件点击事件能穿透到底部,那么可以在菜单的布局文件中设置<code>clickable=&quot;true&quot;</code>如果想实现QQ那种底部布局跟则动的效果就在addDrawerListener事件中的onDrawerSlide()添加下面的代码,就能跟随移动了</p>
-<pre><code>//mDrawerLayout为你的DrawerLayout
-View content = mDrawerLayout.getChildAt(0);
-int offset = (int) (drawerView.getWidth() * slideOffset);
-content.setTranslationX(offset);
-</code></pre>
+        <blockquote>
+<h4 id="今天写了一个控件，然后把它弄成了一个开源库，然后记录一下制作成开源库的方法"><a href="#今天写了一个控件，然后把它弄成了一个开源库，然后记录一下制作成开源库的方法" class="headerlink" title="今天写了一个控件，然后把它弄成了一个开源库，然后记录一下制作成开源库的方法"></a>今天写了一个控件，然后把它弄成了一个开源库，然后记录一下制作成开源库的方法</h4><p>首先先创建一个库工程，注意这个库工程是建立在项目里面的<br><br><center><img src="/2018/08/17/github制作远程依赖库/1.png"></center><br><br>然后配置<br><br><center><img src="/2018/08/17/github制作远程依赖库/2.png"></center><br><br>这里将zengwei123改成你的github用户名<br>apply plugin: ‘com.github.dcendents.android-maven’<br>group=’com.github.zengwei123’<br><br><center><img src="/2018/08/17/github制作远程依赖库/3.png"></center><br><br>classpath ‘com.github.dcendents:android-maven-gradle-plugin:2.1’<br><br><center><img src="/2018/08/17/github制作远程依赖库/4.png"></center><br><br>然后将你的项目上传github,上传之后点击<br><br><center><img src="/2018/08/17/github制作远程依赖库/5.png"></center><br><br>然后<br><br><center><img src="/2018/08/17/github制作远程依赖库/6.png"></center><br><br>输入信息<br><br><center><img src="/2018/08/17/github制作远程依赖库/7.png"></center><br><br>然后发布 ；<br>发布之后，打开网址 <a href="https://jitpack.io/" target="_blank" rel="noopener">https://jitpack.io/</a><br>在下面的输入框中输入你的仓库的url：如<a href="https://github.com/zengwei123/Curve" target="_blank" rel="noopener">https://github.com/zengwei123/Curve</a><br>如果你配置错了，那么就不是绿色的Get it。<br><br><center><img src="/2018/08/17/github制作远程依赖库/8.png"></center><br><br>滑到下面，会有一个这个<br><br><center><img src="/2018/08/17/github制作远程依赖库/9.png"></center><br><br>如果你一直是这一个样子的，那么就说明没有配置成功，他应该是：com.github.你的用户名:项目名:版本号，最后成功了，就可以在其他项目使用依赖的方式使用你的项目了</p>
+</blockquote>
+
       
     </div>
     <div class="article-footer">
@@ -350,7 +352,7 @@ content.setTranslationX(offset);
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/" title="Android侧滑布局-DrawerLayout" target="_blank" rel="external">https://zengwei123.github.io/2016/09/26/Android侧滑布局-DrawerLayout/</a>
+      <a href="https://zengwei123.github.io/2018/08/17/github制作远程依赖库/" title="github制作远程依赖库" target="_blank" rel="external">https://zengwei123.github.io/2018/08/17/github制作远程依赖库/</a>
     </li>
     
     
@@ -392,13 +394,9 @@ content.setTranslationX(offset);
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2016/10/07/Android如何在子线程中更新UI/" title="Android-如何在子线程中更新UI"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2016/09/19/Android四大组件之Service/" title="Android四大组件之Service"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
