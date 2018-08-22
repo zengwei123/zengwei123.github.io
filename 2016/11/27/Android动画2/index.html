@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Android动画2 | zengwei</title>
+  <meta name="description" content="安卓在5.0以后有一些新的动画： · Touch feedback（触摸反馈） · Reveal effect（揭露效果） · Activity transitions（Activity转换效果） · Curved motion（曲线运动） · View state changes（视图状态改变）   下面一个一个的来说  1.触摸反馈 顾名思义，触摸的时候给你一个反馈，最典型的就是Button">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android动画2">
+<meta property="og:url" content="https://zengwei123.github.io/2016/11/27/Android动画2/index.html">
+<meta property="og:site_name" content="zengwei">
+<meta property="og:description" content="安卓在5.0以后有一些新的动画： · Touch feedback（触摸反馈） · Reveal effect（揭露效果） · Activity transitions（Activity转换效果） · Curved motion（曲线运动） · View state changes（视图状态改变）   下面一个一个的来说  1.触摸反馈 顾名思义，触摸的时候给你一个反馈，最典型的就是Button">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/27/Android动画2/GIF1.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/27/Android动画2/GIF2.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/27/Android动画2/GIF3.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/27/Android动画2/GIF4.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2016/11/27/Android动画2/GIF5.gif">
+<meta property="og:updated_time" content="2018-08-22T07:43:05.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android动画2">
+<meta name="twitter:description" content="安卓在5.0以后有一些新的动画： · Touch feedback（触摸反馈） · Reveal effect（揭露效果） · Activity transitions（Activity转换效果） · Curved motion（曲线运动） · View state changes（视图状态改变）   下面一个一个的来说  1.触摸反馈 顾名思义，触摸的时候给你一个反馈，最典型的就是Button">
+<meta name="twitter:image" content="https://zengwei123.github.io/2016/11/27/Android动画2/GIF1.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zengwei123.github.io/2016/11/27/Android动画2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zengwei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ZengWei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">我要加鸡腿！！</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 长沙, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Api/">Api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Git/">GitHub-Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Api/">Api</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/08/06/Api/" class="title">Api总结（持续跟新）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/11/27/Android动画2/" class="title">Android动画2</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-11-27T01:16:27.000Z" itemprop="datePublished">2016-11-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/11/25/Android动画/" class="title">Android动画</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-11-25T09:20:52.000Z" itemprop="datePublished">2016-11-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/GitHub-Git/">GitHub-Git</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/11/17/github制作远程依赖库/" class="title">github制作远程依赖库</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-11-17T09:58:13.000Z" itemprop="datePublished">2016-11-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2016/11/05/Android-事件分发机制/" class="title">Android-事件分发机制</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2016-11-05T02:28:00.000Z" itemprop="datePublished">2016-11-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Android动画2" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android动画2
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2016/11/27/Android动画2/" class="article-date">
+	  <time datetime="2016-11-27T01:16:27.000Z" itemprop="datePublished">2016-11-27</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/11/27/Android动画2/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,856(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 8(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <blockquote>
+<h4 id="安卓在5-0以后有一些新的动画："><a href="#安卓在5-0以后有一些新的动画：" class="headerlink" title="安卓在5.0以后有一些新的动画："></a>安卓在5.0以后有一些新的动画：</h4><ul>
+<li><strong>·</strong> Touch feedback（触摸反馈）</li>
+<li><strong>·</strong> Reveal effect（揭露效果）</li>
+<li><strong>·</strong> Activity transitions（Activity转换效果）</li>
+<li><strong>·</strong> Curved motion（曲线运动）</li>
+<li><strong>·</strong> View state changes（视图状态改变）</li>
+</ul>
+</blockquote>
+<p>下面一个一个的来说</p>
+<blockquote>
+<h3 id="1-触摸反馈"><a href="#1-触摸反馈" class="headerlink" title="1.触摸反馈"></a>1.触摸反馈</h3></blockquote>
+<p>顾名思义，触摸的时候给你一个反馈，最典型的就是<strong>Button</strong>默认的水波纹了，当使用了Material主题之后，波纹动画会自动安装到所有的控件上面。当然，我们也可以设置了，上面的第一种是设置波纹有边界，第二种是设置波纹超出边界。第二种需要5.0以上才行。<br>这里注意：除了Button外，如果像TextView这些控件，需要给予点击事件才能够有效果。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:background=<span class="string">"?android:attr/selectableItemBackground"</span></span><br><span class="line">android:background=<span class="string">"?android:attr/selectableItemBackgroundBorderless"</span></span><br></pre></td></tr></table></figure></p>
+<p><br><center><img src="/2016/11/27/Android动画2/GIF1.gif"><img src="/2016/11/27/Android动画2/GIF2.gif"></center><br><br>如果你觉得默认的颜色丑，那么你还可以自己区设置颜色，在drawable创建一个ripple的xml文件，android：background=”在这里引用就行”;<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ripple xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span> android:color=<span class="string">"#ffff00"</span> android:radius=<span class="string">"200dp"</span>&gt;</span><br><span class="line">	 &lt;item android:drawable="@android:color/background_light"&gt;&lt;/item&gt;   &lt;!--把这个删除掉就是第二种无边框状态--&gt;</span><br><span class="line">&lt;/ripple&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<h3 id="2-视图状态改变"><a href="#2-视图状态改变" class="headerlink" title="2.视图状态改变"></a>2.视图状态改变</h3></blockquote>
+<p>除了这种水波纹之外，我们还可以定义自己的动画，使用android:stateListAnimator，这个东西，我们先看看效果：<br><br><center><img src="/2016/11/27/Android动画2/GIF3.gif"></center><br><br>像这个翻转动画就是我们自己定义的，使用这个也很简单，在animator下创建一个XML文件，看下面的代码你可会发现是一个objectAnimator，这个跟属性动画的xml编写是一样的，android:state_pressed=”true” 按下false为抬起。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_pressed</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">objectAnimator</span> <span class="attr">android:duration</span>=<span class="string">"500"</span> <span class="attr">android:propertyName</span>=<span class="string">"rotationX"</span> <span class="attr">android:valueTo</span>=<span class="string">"360"</span> <span class="attr">android:valueType</span>=<span class="string">"floatType"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:state_pressed</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">objectAnimator</span> <span class="attr">android:duration</span>=<span class="string">"500"</span> <span class="attr">android:propertyName</span>=<span class="string">"rotationX"</span> <span class="attr">android:valueTo</span>=<span class="string">"0"</span> <span class="attr">android:valueType</span>=<span class="string">"floatType"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们怎么使用这个动画呢？两种方法第一代码实现，第种二配置android:stateListAnimator=”@nimator/XXX.xml“<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">StateListAnimator stateListAnimator= AnimatorInflater.loadStateListAnimator(getApplicationContext(),R.animator.asd);</span><br><span class="line">textView.setStateListAnimator(stateListAnimator);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<h3 id="3-揭露效果"><a href="#3-揭露效果" class="headerlink" title="3.揭露效果"></a>3.揭露效果</h3></blockquote>
+<p><br><center><img src="/2016/11/27/Android动画2/GIF4.gif"></center><br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Animator animator = ViewAnimationUtils.createCircularReveal(textView,</span><br><span class="line">                        textView.getWidth()/<span class="number">2</span>,</span><br><span class="line">                        textView.getHeight()/<span class="number">2</span>,</span><br><span class="line">                        textView.getWidth(),<span class="number">0</span>);</span><br><span class="line">                animator.setInterpolator(<span class="keyword">new</span> AccelerateDecelerateInterpolator());</span><br><span class="line">                animator.setDuration(<span class="number">5000</span>);</span><br><span class="line">                animator.start();</span><br></pre></td></tr></table></figure></p>
+<p>方法的第一个参数是你要操作的view,第二个是原中心的X方向中点，第三个是圆Y方向的中点，第四个是原开始的半径，第五个是结束时候的半径。</p>
+<blockquote>
+<h3 id="4-曲线运动"><a href="#4-曲线运动" class="headerlink" title="4.曲线运动"></a>4.曲线运动</h3></blockquote>
+<p><br><center><img src="/2016/11/27/Android动画2/GIF5.gif"></center><br><br>曲线运动很容易，就是画一个贝塞尔曲线出来，然后沿着轨迹运动，他的使用方法跟属性动画一样。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Path path = <span class="keyword">new</span> Path();</span><br><span class="line">   path.moveTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">   path.quadTo(<span class="number">200</span>, <span class="number">200</span>,<span class="number">400</span>,<span class="number">0</span>);</span><br><span class="line">   ObjectAnimator mAnimator=ObjectAnimator.ofFloat(textView, View.X, View.Y, path);</span><br><span class="line">   mAnimator.setDuration(<span class="number">2000</span>);</span><br><span class="line">   mAnimator.setEvaluator(<span class="keyword">new</span> FloatEvaluator());</span><br><span class="line">   mAnimator.setRepeatCount(-<span class="number">1</span>);</span><br><span class="line">   mAnimator.setRepeatMode(ObjectAnimator.REVERSE);</span><br><span class="line">   mAnimator.start();</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<h3 id="5-Activity转换效果"><a href="#5-Activity转换效果" class="headerlink" title="5.Activity转换效果"></a>5.Activity转换效果</h3></blockquote>
+<p>在Android L之前，我们可以在startActivity之后调用overridePendingTransition来指定Activity的转场动画。现在Android L给我们带来了更绚丽的转场动画。<br>新的转场动画分为两大类，一种是普通的过渡动画，另一种是共享元素的过渡动画。 要想使用新的转场动画，可以继承Material Design主题后在style风格中指定：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"DefaultTheme"</span> <span class="attr">parent</span>=<span class="string">"android:Theme.Material"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 允许使用transitions --&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 指定进入、退出、返回、重新进入时的transitions --&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReturnTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowReenterTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- 指定进入、退出、返回、重新进入时的共享transitions --&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementEnterTransition"</span>&gt;</span>@transition/change<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementExitTransition"</span>&gt;</span>@transition/change<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementReturnTransition"</span>&gt;</span>@transition/change<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowSharedElementReenterTransition"</span>&gt;</span>@transition/change<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>也可以在activity的oncreate方法中进行代码设置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 允许使用transitions</span></span><br><span class="line">getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);</span><br><span class="line"><span class="comment">// 指定进入、退出、返回、重新进入时的transitions</span></span><br><span class="line">getWindow().setEnterTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setExitTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setExitTransition(<span class="keyword">new</span> Explode());</span><br><span class="line"><span class="comment">// 指定进入、退出、返回、重新进入时的共享transitions</span></span><br><span class="line">getWindow().setSharedElementEnterTransition(<span class="keyword">new</span> ChangeTransform());</span><br><span class="line">getWindow().setSharedElementExitTransition(<span class="keyword">new</span> ChangeTransform());</span><br><span class="line">getWindow().setSharedElementReturnTransition(<span class="keyword">new</span> ChangeTransform());</span><br><span class="line">getWindow().setSharedElementReenterTransition(<span class="keyword">new</span> ChangeTransform());</span><br></pre></td></tr></table></figure></p>
+<p>普通转场动画<br>所有继承自visibility类都可以作为进入、退出的过度动画。如果我们想自定义进入和退出时的动画效果，只需要继承Visibility，重载onAppear和onDisappear方法来定义进入喝退出的动画。系统提供了三种默认方式：</p>
+<ul>
+<li>explode 从屏幕中心移入或移出视图</li>
+<li>slide 从屏幕边缘移入或移出视图</li>
+<li>fade 改变视图的透明度<br>想在xml中指定自定义的进入、退出的过度动画需要先对动画进行定义：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition</span> <span class="attr">class</span>=<span class="string">"my.app.transition.CustomTransition"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：其中CustomTransition是你自定义的动画，它必须继承自Visibility。<br>想以普通转场动画的方式启动一个Activity，必须在startActivity函数中传递一个ActivityOptions的Bundle对象：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity);  </span><br><span class="line">startActivity(intent, options.toBundle());</span><br></pre></td></tr></table></figure></p>
+<p>如果想让返回也具备转场效果，那么在返回的Activity中不要再调用finish函数，而是应该使用finishAfterTransition来结束一个Activity，该函数会等待动画执行完毕才结束该Activity。</p>
+<p>共享转场动画<br>当两个Activity具备某些相遇的元素时，共享转场动画将是一个非常好的选择。使用转场动画需要将相同的元素通过android:transitionName或者view.setTransitionName设置为相同的名称，这样系统才能区分出相同的元素。</p>
+<p>共享转场动画支持以下共享元素：</p>
+<p>changeBounds 对目标视图的大小进行动画<br>changeClipBounds 对目标视图的剪裁大小进行动画<br>changeTransform 对目标视图进行缩放、旋转、位移动画<br>changeImageTransform 对目标图片进行缩放<br>通过下面的函数启动一个共享元素动画：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity, view, <span class="string">"name"</span>);  </span><br><span class="line">startActivity(intent, options.toBundle());</span><br></pre></td></tr></table></figure></p>
+<p>如果有多个共享元素，则可以通过Pair进行包装处理：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(activity,Pair.create(view1, <span class="string">"name1"</span>),Pair.create(view2, <span class="string">"name2"</span>));      </span><br><span class="line">startActivity(intent,.toBundle());</span><br></pre></td></tr></table></figure></p>
+<p>返回时如果需要具备转场动画，那么也需要用finish函数替代finishAfterTransition来结束一个Activity。</p>
+<p>共享转场动画通常可以根据指定的元素判断出合适的转场动画效果，不需要我们做额外的处理，也可以通过之前学习的方法进行指定共享元素转场动画效果。</p>
+<p>组合转场动画<br>我们可以把多个转场动画进行组合，作出更具个性的转场效果，在资源文件中通过以下方式：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transitionSet</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">explode</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">transition</span> <span class="attr">class</span>=<span class="string">"my.app.transition.CustomTransition"</span>/&gt;</span></span><br><span class="line">    &lt;&lt;changeImageTransform/&gt; </span><br><span class="line"><span class="tag">&lt;/<span class="name">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>代码中我们可以通过TransitionSet类组合多个转场动画：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TransitionSet transitionSet = <span class="keyword">new</span> TransitionSet();</span><br><span class="line">transitionSet.addTransition(<span class="keyword">new</span> Fade());</span><br><span class="line">transitionSet.addTransition(<span class="keyword">new</span> ChangeBounds());</span><br></pre></td></tr></table></figure></p>
+<p>组合可以同时针对普通转场动画和共享元素转场动画。</p>
+<p>转场动画也可以像普通动画一样设置持续时间，延期执行时间，速率插入器，以及动画的监听等。</p>
+<p>转场动画通常是对整个布局起作用，如果我们想对某个特定的view实施转场动画，可以把该view设置为转场动画的target，这样转场动画将只对特定的view起作用。共享元素的动画的target需要指定为transitionName</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2016/11/27/Android动画2/" title="Android动画2" target="_blank" rel="external">https://zengwei123.github.io/2016/11/27/Android动画2/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2016/11/25/Android动画/" title="Android动画"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
