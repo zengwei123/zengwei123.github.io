@@ -42,6 +42,30 @@
   </entry>
   
   <entry>
+    <title>AS模拟器root</title>
+    <link href="https://zengwei123.github.io/2017/01/09/AS%E6%A8%A1%E6%8B%9F%E5%99%A8root/"/>
+    <id>https://zengwei123.github.io/2017/01/09/AS模拟器root/</id>
+    <published>2017-01-09T04:27:06.000Z</published>
+    <updated>2018-08-31T04:30:35.205Z</updated>
+    
+    <content type="html"><![CDATA[<p>当我们在Android studio中打开Android device  monitor时，发现data目录不能打开，当我们去点击/data/目录时，发现什么都没有，这是怎么回事呢？</p><p>原因是我们权限不够，当前的用户没有权限访问data目录。<br>首先在sdk下找到，platform-tools目录，运行cmd，切换盘符到platform-tools目录。</p><p>1.输入<strong>adb shell</strong>命令</p><p>2.然后输入<strong>su</strong>，使得用户切换到root</p><p>3.输入<strong>chmod -R 777 /data/</strong> 这是将/data/目录的权限改为777(表示任何人都可以访问和修改)</p><p>4.刷新一下Android device monitor，发现data目录可以打开了</p><p>5.经过上面的操作已经可以打开/data/data/了，但是导出文件会出现</p><blockquote><p>transfer error: open failed: Permission denied<br>Failed to pull selection: open failed: Permission denied</p></blockquote><p>6.我们来到终端，输入<strong>adb root</strong>，一般情况下这样就可以导出文件了，但是如果遇见出现了下面这种情况，这说明有多个设备在运行。</p><blockquote><p>adb: unable to connect for root: more than one device/emulator</p></blockquote><p>7.首先要查一下，是不是真的有多个设备或模拟器。输入<strong>adb devices</strong>，发现有下面这种情况<br><br><center><img src="/2017/01/09/AS模拟器root/1.png"></center><br><br>8.那么我们就给他指定设备，运行<strong>adb -s emulator-5554 shell</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;当我们在Android studio中打开Android device  monitor时，发现data目录不能打开，当我们去点击/data/目录时，发现什么都没有，这是怎么回事呢？&lt;/p&gt;
+&lt;p&gt;原因是我们权限不够，当前的用户没有权限访问data目录。&lt;br&gt;首先在sdk
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://zengwei123.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Android动画2</title>
     <link href="https://zengwei123.github.io/2016/11/27/Android%E5%8A%A8%E7%94%BB2/"/>
     <id>https://zengwei123.github.io/2016/11/27/Android动画2/</id>
