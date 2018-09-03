@@ -42,6 +42,29 @@
   </entry>
   
   <entry>
+    <title>Android截图当前界面并且保存</title>
+    <link href="https://zengwei123.github.io/2017/01/11/Android%E6%88%AA%E5%9B%BE%E5%BD%93%E5%89%8D%E7%95%8C%E9%9D%A2%E5%B9%B6%E4%B8%94%E4%BF%9D%E5%AD%98/"/>
+    <id>https://zengwei123.github.io/2017/01/11/Android截图当前界面并且保存/</id>
+    <published>2017-01-11T06:19:47.000Z</published>
+    <updated>2018-09-03T06:21:49.607Z</updated>
+    
+    <content type="html"><![CDATA[<p>获取屏幕保存成图片，其实就是一个截图功能，只不过这个截图是截不到状态栏的。<br>看注释，通过下面的代码我们就得到了当前界面的Bitmap。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前屏幕的大小</span></span><br><span class="line"><span class="keyword">int</span> width = activity.getWindow().getDecorView().getRootView().getWidth();</span><br><span class="line"><span class="keyword">int</span> height = activity.getWindow().getDecorView().getRootView().getHeight();</span><br><span class="line"><span class="comment">//生成相同大小的图片</span></span><br><span class="line">Bitmap temBitmap = Bitmap.createBitmap( width, height, Bitmap.Config.ARGB_8888 );</span><br><span class="line"><span class="comment">//找到当前页面的跟布局</span></span><br><span class="line">View view =  activity.getWindow().getDecorView().getRootView();</span><br><span class="line"><span class="comment">//清除缓存</span></span><br><span class="line">view.destroyDrawingCache();</span><br><span class="line"><span class="comment">//设置缓</span></span><br><span class="line">view.setDrawingCacheEnabled(<span class="keyword">true</span>);</span><br><span class="line">view.buildDrawingCache();</span><br><span class="line"><span class="comment">//从缓存中获取当前屏幕的图片</span></span><br><span class="line">temBitmap = view.getDrawingCache();</span><br></pre></td></tr></table></figure></p><p>拿到Bitmap之后我们就可以进行一些保存操作<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">//保存路径，这个路径是项目的私有路径</span></span><br><span class="line">File file=<span class="keyword">new</span> File(context.getFilesDir().getPath()+<span class="string">"/disk.jpg"</span>);</span><br><span class="line">file.delete();</span><br><span class="line">FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line"><span class="comment">//图片，可以进行压缩，然后保存</span></span><br><span class="line">    temBitmap.compress(Bitmap.CompressFormat.JPEG, <span class="number">100</span>, fos);</span><br><span class="line">    <span class="comment">//清空并关闭</span></span><br><span class="line">fos.flush(); </span><br><span class="line">    fos.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;获取屏幕保存成图片，其实就是一个截图功能，只不过这个截图是截不到状态栏的。&lt;br&gt;看注释，通过下面的代码我们就得到了当前界面的Bitmap。&lt;br&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;p
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://zengwei123.github.io/categories/Android/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>AS模拟器root</title>
     <link href="https://zengwei123.github.io/2017/01/09/AS%E6%A8%A1%E6%8B%9F%E5%99%A8root/"/>
     <id>https://zengwei123.github.io/2017/01/09/AS模拟器root/</id>

@@ -17,27 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Android四大组件之Service | zengwei</title>
-  <meta name="description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+  <title>Android截图当前界面并且保存 | zengwei</title>
+  <meta name="description" content="获取屏幕保存成图片，其实就是一个截图功能，只不过这个截图是截不到状态栏的。看注释，通过下面的代码我们就得到了当前界面的Bitmap。1234567891011121314//获取当前屏幕的大小int width = activity.getWindow().getDecorView().getRootView().getWidth();int height = activity.getWindow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android四大组件之Service">
-<meta property="og:url" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+<meta property="og:title" content="Android截图当前界面并且保存">
+<meta property="og:url" content="https://zengwei123.github.io/2017/01/11/Android截图当前界面并且保存/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
+<meta property="og:description" content="获取屏幕保存成图片，其实就是一个截图功能，只不过这个截图是截不到状态栏的。看注释，通过下面的代码我们就得到了当前界面的Bitmap。1234567891011121314//获取当前屏幕的大小int width = activity.getWindow().getDecorView().getRootView().getWidth();int height = activity.getWindow">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/2.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/3.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/4.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/5.png">
-<meta property="og:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/6.png">
-<meta property="og:updated_time" content="2018-08-07T03:38:39.593Z">
+<meta property="og:updated_time" content="2018-09-03T06:21:49.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android四大组件之Service">
-<meta name="twitter:description" content="1.Service作用： 提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。  2.Service分类： 本地：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。远程：运行在独立进程，常驻在后台，不受其他Activity影响但是非">
-<meta name="twitter:image" content="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/1.png">
+<meta name="twitter:title" content="Android截图当前界面并且保存">
+<meta name="twitter:description" content="获取屏幕保存成图片，其实就是一个截图功能，只不过这个截图是截不到状态栏的。看注释，通过下面的代码我们就得到了当前界面的Bitmap。1234567891011121314//获取当前屏幕的大小int width = activity.getWindow().getDecorView().getRootView().getWidth();int height = activity.getWindow">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2017/01/11/Android截图当前界面并且保存/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -295,14 +288,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Android四大组件之Service" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Android截图当前界面并且保存" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Android四大组件之Service
+      Android截图当前界面并且保存
     </h1>
   
 
@@ -310,8 +303,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2016/09/19/Android四大组件之Service/" class="article-date">
-	  <time datetime="2016-09-19T02:58:12.000Z" itemprop="datePublished">2016-09-19</time>
+	<a href="/2017/01/11/Android截图当前界面并且保存/" class="article-date">
+	  <time datetime="2017-01-11T06:19:47.000Z" itemprop="datePublished">2017-01-11</time>
 	</a>
 </span>
         
@@ -324,40 +317,21 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2016/09/19/Android四大组件之Service/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/01/11/Android截图当前界面并且保存/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 776(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 261(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry markdown-body" itemprop="articleBody">
       
-        <blockquote>
-<h4 id="1-Service作用："><a href="#1-Service作用：" class="headerlink" title="1.Service作用："></a>1.Service作用：</h4></blockquote>
-<p>提供需要长期在后台长期运行的服务（如复杂计算、下载等），主要是因为它没有长的生命周期、没有用户界面、在后台运行。</p>
-<blockquote>
-<h4 id="2-Service分类："><a href="#2-Service分类：" class="headerlink" title="2.Service分类："></a>2.Service分类：</h4></blockquote>
-<p><strong>本地</strong>：运行在主线程，主线程终止后服务也会终止。但是能够节约资源，并且通信方便，由于在同一进程不需要IPC和AIDL，主要使用在需要依附某个进程的服务，音乐播放等。<br><strong>远程</strong>：运行在独立进程，常驻在后台，不受其他Activity影响但是非常消耗资源，通讯需要比较复杂，主要使用在系统级别的服务。<br><strong>前台</strong>：通知栏可以显示出来，用户可以看到，主要使用在需要让用户只要并进行相关操作，如音乐播放。<br><strong>后台</strong>：主要是用户无法看到，主要使用在不需要让用户知道的一些操作，跟新数据，同步数据等</p>
-<blockquote>
-<h4 id="3-生命周期"><a href="#3-生命周期" class="headerlink" title="3.生命周期"></a>3.生命周期</h4></blockquote>
-<p><strong>·</strong> 如果Service是第一次启动先会执行 <strong>onCreate(),onStartCommand()</strong><br><strong>·</strong> 当次启动Service调用，将只执行<strong>onStartCommand()</strong>，因为此时Service已经创建了，无需执行<strong>onCreate()</strong>回调。无论多少次的启动Service，只需要一次<strong>stopService()</strong>即可将此Service终止，执行<strong>onDestroy()</strong>函数。<br><strong>· onStartCommand(..)</strong>可以多次被调用，<strong>onDestroy()与onCreate()</strong>相匹配，当用户强制kill掉进程时，<strong>onDestroy()</strong>是不会执行的。<br><strong>· startService(Intent serviceIntent)</strong>，其中的intent既可以是显式Intent，也可以是隐式Intent，当Client与Service同处于一个App时，一般推荐使用显示Intent。当处于不同App时，只能使用隐式Intent。<br><strong>·</strong> 当Service需要运行在单独的进程中，<strong>AndroidManifest.xml</strong>声明时需要通过<strong>android:process</strong>指明此进程名称，当此Service需要对其他App开放时，<strong>android:exported</strong>属性值需要设置为true.</p>
-<blockquote>
-<h4 id="4-通讯"><a href="#4-通讯" class="headerlink" title="4.通讯"></a>4.通讯</h4></blockquote>
-<ol>
-<li>简单通信<br>直接通过Intent进行传值，我们在启动一个Service的时候通过Intent的对象向Service进行传值，这种方式传递值比较不方便，性能不是很高。<br>传值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/1.png"></center><br><br>获取值：<br><br><center><img src="/2016/09/19/Android四大组件之Service/2.png"></center><br></li>
-</ol>
-<p>2．绑定服务传输数据<br>    在Service中编写Binder的内部类，自定义方法进行数据传输。<br>活动类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/3.png"></center><br><br>服务类：<br><br><center><img src="/2016/09/19/Android四大组件之Service/4.png"></center><br></p>
-<ol start="3">
-<li>通过使用Messenger方式（可以在不同进程间通讯）<br>服务端：<br><br><center><img src="/2016/09/19/Android四大组件之Service/5.png"></center><br><br>客户端<br><br><center><img src="/2016/09/19/Android四大组件之Service/6.png"></center><br></li>
-</ol>
-<blockquote>
-<h4 id="5-服务单独运行在进程"><a href="#5-服务单独运行在进程" class="headerlink" title="5.服务单独运行在进程"></a>5.服务单独运行在进程</h4></blockquote>
-<p>在XML文件中给Service添加process属性，有两种赋值方式，一种是[:xxxxx],一种是[com.pw.xxx.xxx]  第一种赋值是一种简写，完整的写法是[com.xxx.xxx:xxxx]这样的进程是应用的私有进程，其他应用不会跟它跑到同一个地方去。而第二种就是一种全局进程，其他的应用程序可以通过ShareUID跑进去。<br>多进程的使用地方，可以使用在一些需要保活的地方，音乐后台播放，在退出activity后还能继续播放、加载大图、推送服务，能够在程序退出后继续的向用户推送东西。将功能独立的分开来，减少程序崩溃</p>
+        <p>获取屏幕保存成图片，其实就是一个截图功能，只不过这个截图是截不到状态栏的。<br>看注释，通过下面的代码我们就得到了当前界面的Bitmap。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前屏幕的大小</span></span><br><span class="line"><span class="keyword">int</span> width = activity.getWindow().getDecorView().getRootView().getWidth();</span><br><span class="line"><span class="keyword">int</span> height = activity.getWindow().getDecorView().getRootView().getHeight();</span><br><span class="line"><span class="comment">//生成相同大小的图片</span></span><br><span class="line">Bitmap temBitmap = Bitmap.createBitmap( width, height, Bitmap.Config.ARGB_8888 );</span><br><span class="line"><span class="comment">//找到当前页面的跟布局</span></span><br><span class="line">View view =  activity.getWindow().getDecorView().getRootView();</span><br><span class="line"><span class="comment">//清除缓存</span></span><br><span class="line">view.destroyDrawingCache();</span><br><span class="line"><span class="comment">//设置缓</span></span><br><span class="line">view.setDrawingCacheEnabled(<span class="keyword">true</span>);</span><br><span class="line">view.buildDrawingCache();</span><br><span class="line"><span class="comment">//从缓存中获取当前屏幕的图片</span></span><br><span class="line">temBitmap = view.getDrawingCache();</span><br></pre></td></tr></table></figure></p>
+<p>拿到Bitmap之后我们就可以进行一些保存操作<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">//保存路径，这个路径是项目的私有路径</span></span><br><span class="line">	File file=<span class="keyword">new</span> File(context.getFilesDir().getPath()+<span class="string">"/disk.jpg"</span>);</span><br><span class="line">	file.delete();</span><br><span class="line">	FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">	<span class="comment">//图片，可以进行压缩，然后保存</span></span><br><span class="line">    temBitmap.compress(Bitmap.CompressFormat.JPEG, <span class="number">100</span>, fos);</span><br><span class="line">    <span class="comment">//清空并关闭</span></span><br><span class="line">	fos.flush(); </span><br><span class="line">    fos.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -367,7 +341,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zengwei123.github.io/2016/09/19/Android四大组件之Service/" title="Android四大组件之Service" target="_blank" rel="external">https://zengwei123.github.io/2016/09/19/Android四大组件之Service/</a>
+      <a href="https://zengwei123.github.io/2017/01/11/Android截图当前界面并且保存/" title="Android截图当前界面并且保存" target="_blank" rel="external">https://zengwei123.github.io/2017/01/11/Android截图当前界面并且保存/</a>
     </li>
     
     
@@ -410,12 +384,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2016/09/26/Android侧滑布局-DrawerLayout/" title="Android侧滑布局-DrawerLayout"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2016/09/15/Android四大组件之Activity/" title="Android四大组件之Activity"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/01/09/AS模拟器root/" title="AS模拟器root"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
