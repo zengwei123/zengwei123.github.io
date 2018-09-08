@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>第三方库Glide | zengwei</title>
+  <meta name="description" content="glide是一个图片加载的库依赖 compile ‘com.github.bumptech.glide:glide:3.7.0’使用glide很简单就是简简单单的一句123Glide.with(this)  .load(&quot;http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg&quot;)  .into(image);  with(C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三方库Glide">
+<meta property="og:url" content="https://zengwei123.github.io/2018/09/08/第三方库Glide/index.html">
+<meta property="og:site_name" content="zengwei">
+<meta property="og:description" content="glide是一个图片加载的库依赖 compile ‘com.github.bumptech.glide:glide:3.7.0’使用glide很简单就是简简单单的一句123Glide.with(this)  .load(&quot;http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg&quot;)  .into(image);  with(C">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zengwei123.github.io/2018/09/08/第三方库Glide/1.png">
+<meta property="og:updated_time" content="2018-09-08T07:08:43.726Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第三方库Glide">
+<meta name="twitter:description" content="glide是一个图片加载的库依赖 compile ‘com.github.bumptech.glide:glide:3.7.0’使用glide很简单就是简简单单的一句123Glide.with(this)  .load(&quot;http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg&quot;)  .into(image);  with(C">
+<meta name="twitter:image" content="https://zengwei123.github.io/2018/09/08/第三方库Glide/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zengwei123.github.io/2018/09/08/第三方库Glide/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zengwei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ZengWei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">我要加鸡腿！！</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 长沙, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android第三方库/">Android第三方库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Api/">Api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Git/">GitHub-Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android第三方库/">Android第三方库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/09/08/第三方库Glide/" class="title">第三方库Glide</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-09-08T03:59:53.000Z" itemprop="datePublished">2018-09-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/GitHub-Git/">GitHub-Git</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/09/07/Git上传及命令大全/" class="title">Git上传及命令大全</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-09-07T03:52:03.000Z" itemprop="datePublished">2018-09-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Api/">Api</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/08/06/Api/" class="title">Api总结（持续跟新）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/01/11/Android截图当前界面并且保存/" class="title">Android截图当前界面并且保存</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-01-11T06:19:47.000Z" itemprop="datePublished">2017-01-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/工具/">工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/01/09/AS模拟器root/" class="title">AS模拟器root</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-01-09T04:27:06.000Z" itemprop="datePublished">2017-01-09</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-第三方库Glide" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第三方库Glide
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/09/08/第三方库Glide/" class="article-date">
+	  <time datetime="2018-09-08T03:59:53.000Z" itemprop="datePublished">2018-09-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Android第三方库/">Android第三方库</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/09/08/第三方库Glide/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,512(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h3 id="glide是一个图片加载的库"><a href="#glide是一个图片加载的库" class="headerlink" title="glide是一个图片加载的库"></a>glide是一个图片加载的库</h3><h4 id="依赖-compile-‘com-github-bumptech-glide-glide-3-7-0’"><a href="#依赖-compile-‘com-github-bumptech-glide-glide-3-7-0’" class="headerlink" title="依赖 compile ‘com.github.bumptech.glide:glide:3.7.0’"></a>依赖 compile ‘com.github.bumptech.glide:glide:3.7.0’</h4><p>使用glide很简单就是简简单单的一句<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .into(image);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>with(Context context)</strong>:Context支持 Activity Context Fragment FragmentActivity中四种类型<br><strong>load()</strong>:支持网络资源、assets资源、Resources资源、File资源、Uri资源、字节数组<br><strong>into()</strong>:在哪个imageview中显示</p>
+</blockquote>
+<p><br><br>glide可以加载的资源类型<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>).load(<span class="string">"http://pic9/258/a2.jpg"</span>).into(iv);    <span class="comment">//网络资源</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>).load(<span class="string">"file:///xxx.jpg"</span>).into(iv);	     <span class="comment">//file文件</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>).load(R.mipmap.ic_launcher).into(iv);        <span class="comment">//资源文件</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>).load(uri).into(iv);	                     <span class="comment">//uri资源</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>).load(<span class="keyword">byte</span>[]).into(iv); 	             <span class="comment">//byte数组</span></span><br></pre></td></tr></table></figure></p>
+<p>不仅如此glide还可以加载动静态的gif<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>).load(imageUrl).asBitmap().into(iv); <span class="comment">//静态gif  其实就是一张图片</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>).load(imageUrl).asGif().into(iv);    <span class="comment">//动态gif</span></span><br></pre></td></tr></table></figure></p>
+<p>还可以加载本地的一个视频<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String filePath = <span class="string">"/storage/emulated/0/Pictures/example_video.mp4"</span>;  <span class="comment">//视频路径</span></span><br><span class="line">Glide.with(context).load(Uri.fromFile(<span class="keyword">new</span> File( filePath))).into(iv);</span><br></pre></td></tr></table></figure></p>
+<p>我们有时候加载网络图片可能会失败，这时候我们可以设置一个加载失败的图片<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .error(<span class="string">"R.drawable.error"</span>)        <span class="comment">//加载错误的图片</span></span><br><span class="line">  .into(image)</span><br></pre></td></tr></table></figure></p>
+<p>当图片真在加载的时候如果什么都没有，会让用户感觉非常不好，这是我们可以设置一个正在加载时显示的图片<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .error(<span class="string">"R.drawable.error"</span>)        <span class="comment">//加载错误或失败后显示的图片</span></span><br><span class="line">  .placeholder(R.drawable.load)     <span class="comment">//正在加载时试显示的图片</span></span><br><span class="line">  .into(image)</span><br></pre></td></tr></table></figure></p>
+<p>还可以设置先加载缩略图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .error(<span class="string">"R.drawable.error"</span>)        <span class="comment">//加载错误或失败后显示的图片</span></span><br><span class="line">  .placeholder(R.drawable.load)     <span class="comment">//正在加载时试显示的图片</span></span><br><span class="line">  .thumbnail(<span class="number">0.1f</span>)                  <span class="comment">//加载缩略图</span></span><br><span class="line">  .into(image)</span><br></pre></td></tr></table></figure></p>
+<p>我们还可以设置加载的动画，这个动画默认是淡入淡出<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .error(<span class="string">"R.drawable.error"</span>)        <span class="comment">//加载错误或失败后显示的图片</span></span><br><span class="line">  .placeholder(R.drawable.load)     <span class="comment">//正在加载时试显示的图片</span></span><br><span class="line">  .thumbnail(<span class="number">0.1f</span>)					<span class="comment">//加载缩略图</span></span><br><span class="line">  .crossFade(<span class="number">1000</span>) <span class="comment">// 可设置时长，默认“300ms”</span></span><br><span class="line">  <span class="comment">//.animate(R.anim.fade_in)设置自定义的动画</span></span><br><span class="line">  <span class="comment">//.dontAnimate() 可以去除动画</span></span><br><span class="line">  .into(image)</span><br></pre></td></tr></table></figure></p>
+<p>有时候我们需要去设置图的大小,除了自己去设置，Glide还给我们提供了两种缩放方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .error(<span class="string">"R.drawable.error"</span>)        <span class="comment">//加载错误或失败后显示的图片</span></span><br><span class="line">  .placeholder(R.drawable.load)     <span class="comment">//正在加载时试显示的图片</span></span><br><span class="line">  .thumbnail(<span class="number">0.1f</span>)					<span class="comment">//加载缩略图</span></span><br><span class="line">  .override(width,height) <span class="comment">//图片显示的分辨率 ，像素值 可以转化为DP再设置</span></span><br><span class="line">  <span class="comment">//.centerCrop()  CenterCrop 即缩放图像至填充到 ImageView内,裁剪额外的部分。ImageView会完全填充，但图像可能不会显示不全</span></span><br><span class="line">  <span class="comment">//.fitCenter()  fitCenter() 图片会按照imageview长宽中最小的边界作为依据,按比例缩放图像。该图像将会完全显示，但可能不会填满整个 ImageView。</span></span><br><span class="line">  .into(image)</span><br></pre></td></tr></table></figure></p>
+<p>Glide还给我们提供了缓存的策略<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">.load(<span class="string">"http://nm/photo/1f/1f7a.jpg"</span>)</span><br><span class="line">.skipMemoryCache(<span class="keyword">true</span>)   <span class="comment">//跳过缓存</span></span><br><span class="line">.into(iv);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置缓存</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">.load(<span class="string">"http://nm/photo/1f/1f7a.jpg"</span>)</span><br><span class="line">.diskCacheStrategy(DiskCacheStrategy.ALL)</span><br><span class="line">.into(iv);</span><br><span class="line"><span class="comment">//DiskCacheStrategy.ALL  缓存源资源和转换后的资源</span></span><br><span class="line"><span class="comment">//DiskCacheStrategy.NONE   不做任何磁盘缓存</span></span><br><span class="line"><span class="comment">//DiskCacheStrategy.RESULT 缓存转换后的资源</span></span><br><span class="line"><span class="comment">//DiskCacheStrategy.SOURCE 缓存源资源</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**还提供了清理缓存的方法**/</span></span><br><span class="line">Glide.get(<span class="keyword">this</span>).clearDiskCache();<span class="comment">//在子线程中进行</span></span><br><span class="line">Glide.get(<span class="keyword">this</span>).clearMemory();<span class="comment">//可以在主线程</span></span><br><span class="line"><span class="comment">//获取文件缓存的路径，拿到路径之后我们就能够加载出缓存的图片</span></span><br><span class="line">Glide.with(context).load(imgUrl).downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get();</span><br></pre></td></tr></table></figure></p>
+<p>还可以自己设置缓存的路径<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlideModuleConfig</span> <span class="keyword">implements</span> <span class="title">GlideModule</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyOptions</span><span class="params">(Context context, GlideBuilder builder)</span> </span>&#123;</span><br><span class="line"><span class="comment">//内部存储/Android/data/包名/cache/glide-images</span></span><br><span class="line">builder.setDiskCache(<span class="keyword">new</span> ExternalCacheDiskCacheFactory(context, <span class="string">"glide-images"</span>, <span class="number">2</span> * <span class="number">1024</span> * <span class="number">1024</span>));   </span><br><span class="line"><span class="comment">//将默认的RGB_565效果转换到ARGB_8888</span></span><br><span class="line"> builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerComponents</span><span class="params">(Context context, Glide glide)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//不做处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后在配置文件中配置，application节点下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">     <span class="attr">android:name</span>=<span class="string">"包名.widget.GlideModuleConfig"</span></span></span><br><span class="line"><span class="tag">     <span class="attr">android:value</span>=<span class="string">"GlideModule"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>同时我们还可设置图片的模糊度，像下面这样，这时我们需要在另外导入一个依赖，这是一个模糊的依赖</p>
+<h4 id="依赖compile-‘jp-wasabeef-glide-transformations-2-0-1’"><a href="#依赖compile-‘jp-wasabeef-glide-transformations-2-0-1’" class="headerlink" title="依赖compile ‘jp.wasabeef:glide-transformations:2.0.1’"></a>依赖compile ‘jp.wasabeef:glide-transformations:2.0.1’</h4><p></p><p><center><img src="/2018/09/08/第三方库Glide/1.png"></center></p><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .error(<span class="string">"R.drawable.error"</span>)        <span class="comment">//加载错误或失败后显示的图片</span></span><br><span class="line">  .placeholder(R.drawable.load)     <span class="comment">//正在加载时试显示的图片</span></span><br><span class="line">  .thumbnail(<span class="number">0.1f</span>)</span><br><span class="line">  <span class="comment">// “23”：设置模糊度(在0.0到25.0之间)，默认”25";"4":图片缩放比例,默认“1”。</span></span><br><span class="line">  .bitmapTransform(<span class="keyword">new</span> BlurTransformation(context,<span class="number">23</span>,<span class="number">4</span>))   <span class="comment">//模糊</span></span><br><span class="line">  .into(image)</span><br></pre></td></tr></table></figure><p></p>
+<p>利用这个库还可以进行裁剪圆角等<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原图基础上变换设置圆形图</span></span><br><span class="line">Glide.with(context).load(url).bitmapTransform(<span class="keyword">new</span> CropCircleTransformation(<span class="keyword">this</span>)).into(iv);  </span><br><span class="line"><span class="comment">//原图基础上变换成圆图 +毛玻璃（高斯模糊）</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>).load(url).bitmapTransform(<span class="keyword">new</span> BlurTransformation(<span class="keyword">this</span>, <span class="number">25</span>), <span class="keyword">new</span> CropCircleTransformation(<span class="keyword">this</span>)).into(iv);</span><br><span class="line"><span class="comment">//y圆角</span></span><br><span class="line"><span class="comment">//如果是四周已经是圆角则RoundedCornersTransformation.CornerType.ALL</span></span><br><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">                .load(url)</span><br><span class="line">                .bitmapTransform(<span class="keyword">new</span> RoundedCornersTransformation(<span class="keyword">this</span>, <span class="number">30</span>, <span class="number">0</span>, RoundedCornersTransformation.CornerType.BOTTOM))</span><br><span class="line">                .into(iv);</span><br></pre></td></tr></table></figure></p>
+<p>同时我们还可以对加载进行监听,注意：如果需要加载完成后设置图片透明度为0，则不能设置.placeholder(R.drawable.url)，否则达不到你想要的效果。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>)</span><br><span class="line">  .load(<span class="string">"http://ww4.sinaimg.cn/large/610dc034gw1f96kp6faayj20u00jywg9.jpg"</span>)</span><br><span class="line">  .listener(<span class="keyword">new</span> RequestListener&lt;String, GlideDrawable&gt;() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onException</span><span class="params">(Exception e, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</span><br><span class="line">          Toast.makeText(getApplicationContext(),<span class="string">"资源加载异常"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//这个用于监听图片是否加载完成</span></span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, String model, Target&lt;GlideDrawable&gt; target, <span class="keyword">boolean</span> isFromMemoryCache, <span class="keyword">boolean</span> isFirstResource)</span> </span>&#123;</span><br><span class="line">          Toast.makeText(getApplicationContext(),<span class="string">"图片加载完成"</span>,Toast.LENGTH_SHORT).show();</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .into(image)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2018/09/08/第三方库Glide/" title="第三方库Glide" target="_blank" rel="external">https://zengwei123.github.io/2018/09/08/第三方库Glide/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/09/07/Git上传及命令大全/" title="Git上传及命令大全"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
