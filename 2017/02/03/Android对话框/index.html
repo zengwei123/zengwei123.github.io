@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Android对话框 | zengwei</title>
+  <meta name="description" content="对话框是我们在开发者经常会用到的东西，他通常在进行一些不可逆操作时候用来提示用户。1.普通对话框1234567891011121314151617181920AlertDialog dialog = new AlertDialog.Builder(this)        .setIcon(R.mipmap.icon)//设置标题的图片        .setTitle(&quot;我是对话框&quot;)//设置对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android对话框">
+<meta property="og:url" content="https://zengwei123.github.io/2017/02/03/Android对话框/index.html">
+<meta property="og:site_name" content="zengwei">
+<meta property="og:description" content="对话框是我们在开发者经常会用到的东西，他通常在进行一些不可逆操作时候用来提示用户。1.普通对话框1234567891011121314151617181920AlertDialog dialog = new AlertDialog.Builder(this)        .setIcon(R.mipmap.icon)//设置标题的图片        .setTitle(&quot;我是对话框&quot;)//设置对">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/03/Android对话框/1.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/03/Android对话框/2.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/03/Android对话框/3.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/03/Android对话框/4.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/03/Android对话框/5.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/03/Android对话框/6.png">
+<meta property="og:updated_time" content="2018-09-18T02:09:12.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android对话框">
+<meta name="twitter:description" content="对话框是我们在开发者经常会用到的东西，他通常在进行一些不可逆操作时候用来提示用户。1.普通对话框1234567891011121314151617181920AlertDialog dialog = new AlertDialog.Builder(this)        .setIcon(R.mipmap.icon)//设置标题的图片        .setTitle(&quot;我是对话框&quot;)//设置对">
+<meta name="twitter:image" content="https://zengwei123.github.io/2017/02/03/Android对话框/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zengwei123.github.io/2017/02/03/Android对话框/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zengwei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ZengWei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">我要加鸡腿！！</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 长沙, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android第三方库/">Android第三方库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Api/">Api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Git/">GitHub-Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Api/">Api</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/08/06/Api/" class="title">Api总结（持续跟新）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/03/Android对话框/" class="title">Android对话框</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-03T01:50:14.000Z" itemprop="datePublished">2017-02-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/01/Android6.0权限管/" class="title">Android6.0权限管理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-01T02:06:53.000Z" itemprop="datePublished">2017-02-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/01/Android6.0权限管理/" class="title">Android6.0权限管理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-01T02:06:53.000Z" itemprop="datePublished">2017-02-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android第三方库/">Android第三方库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/01/20/第三方库Glide/" class="title">第三方库Glide</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-01-20T03:59:53.000Z" itemprop="datePublished">2017-01-20</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Android对话框" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android对话框
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2017/02/03/Android对话框/" class="article-date">
+	  <time datetime="2017-02-03T01:50:14.000Z" itemprop="datePublished">2017-02-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/02/03/Android对话框/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,687(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h4 id="对话框是我们在开发者经常会用到的东西，他通常在进行一些不可逆操作时候用来提示用户。"><a href="#对话框是我们在开发者经常会用到的东西，他通常在进行一些不可逆操作时候用来提示用户。" class="headerlink" title="对话框是我们在开发者经常会用到的东西，他通常在进行一些不可逆操作时候用来提示用户。"></a>对话框是我们在开发者经常会用到的东西，他通常在进行一些不可逆操作时候用来提示用户。</h4><h5 id="1-普通对话框"><a href="#1-普通对话框" class="headerlink" title="1.普通对话框"></a>1.普通对话框</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">AlertDialog dialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>)</span><br><span class="line">        .setIcon(R.mipmap.icon)<span class="comment">//设置标题的图片</span></span><br><span class="line">        .setTitle(<span class="string">"我是对话框"</span>)<span class="comment">//设置对话框的标题</span></span><br><span class="line">        .setMessage(<span class="string">"我是对话框的内容"</span>)<span class="comment">//设置对话框的内容</span></span><br><span class="line">        <span class="comment">//设置对话框的按钮</span></span><br><span class="line">        .setNegativeButton(<span class="string">"取消"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"点击了取消按钮"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                    dialog.dismiss();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        .setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"点击了确定的按钮"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                dialog.dismiss();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).create();</span><br><span class="line">    dialog.show();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>AlertDialog类中有一个静态内部类Builder。所以可以看出对话框使用了一个建造者模式在调用函数的时候就可以一直直点点点链式调用。 需要注意的是：NegativeButton这个按钮是在对话框的左边,PositiveButton在对话框的右边;如果你还想再加一个按钮也是可以的只需要在调用.setNeutralButton(“第三个按钮”,listener)即可。</p>
+</blockquote>
+<p><center><img src="/2017/02/03/Android对话框/1.png"></center></p>
+
+<h5 id="2-列表对话框"><a href="#2-列表对话框" class="headerlink" title="2.列表对话框"></a>2.列表对话框</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String items[] = &#123;<span class="string">"我是Item一"</span>, <span class="string">"我是Item二"</span>, <span class="string">"我是Item三"</span>, <span class="string">"我是Item四"</span>&#125;;</span><br><span class="line">        AlertDialog dialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>)</span><br><span class="line">                .setIcon(R.mipmap.icon)<span class="comment">//设置标题的图片</span></span><br><span class="line">                .setTitle(<span class="string">"列表对话框"</span>)<span class="comment">//设置对话框的标题</span></span><br><span class="line">                .setItems(items, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                        Toast.makeText(MainActivity.<span class="keyword">this</span>, items[which], Toast.LENGTH_SHORT).show();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .setNegativeButton(<span class="string">"取消"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                        dialog.dismiss();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                        dialog.dismiss();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).create();</span><br><span class="line">        dialog.show();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>源码已经为我们预留好了设置方法，所以我们只需要调用.setItems()即可，第一个参数即要显示item的数组,第二个参数也就是点击item后的监听事件还是so easy的。</p>
+</blockquote>
+<p><center><img src="/2017/02/03/Android对话框/2.png"></center></p>
+
+<h5 id="3-单选列表对话框"><a href="#3-单选列表对话框" class="headerlink" title="3.单选列表对话框"></a>3.单选列表对话框</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String items[] = &#123;<span class="string">"我是Item一"</span>, <span class="string">"我是Item二"</span>, <span class="string">"我是Item三"</span>, <span class="string">"我是Item四"</span>&#125;;</span><br><span class="line">       AlertDialog dialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>)</span><br><span class="line">               .setIcon(R.mipmap.icon)<span class="comment">//设置标题的图片</span></span><br><span class="line">               .setTitle(<span class="string">"单选列表对话框"</span>)<span class="comment">//设置对话框的标题</span></span><br><span class="line">               .setSingleChoiceItems(items, <span class="number">1</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                   <span class="meta">@Override</span></span><br><span class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                       Toast.makeText(MainActivity.<span class="keyword">this</span>, items[which], Toast.LENGTH_SHORT).show();</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;)</span><br><span class="line">               .setNegativeButton(<span class="string">"取消"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                   <span class="meta">@Override</span></span><br><span class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                       dialog.dismiss();</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;)</span><br><span class="line">               .setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                   <span class="meta">@Override</span></span><br><span class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                       dialog.dismiss();</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;).create();</span><br><span class="line">       dialog.show();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.setSingleChoiceItems(items, 1, listener)第一个参数:设置单选的资源数组;第二个参数:设置默认选中哪一项。</p>
+</blockquote>
+<p><center><img src="/2017/02/03/Android对话框/3.png"></center></p>
+
+<h5 id="4-多选列表对话框"><a href="#4-多选列表对话框" class="headerlink" title="4.多选列表对话框"></a>4.多选列表对话框</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String items[] = &#123;<span class="string">"我是Item一"</span>, <span class="string">"我是Item二"</span>, <span class="string">"我是Item三"</span>, <span class="string">"我是Item四"</span>&#125;;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">boolean</span> checkedItems[] = &#123;<span class="keyword">true</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>&#125;;</span><br><span class="line">        AlertDialog dialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>)</span><br><span class="line">                .setIcon(R.mipmap.icon)<span class="comment">//设置标题的图片</span></span><br><span class="line">                .setTitle(<span class="string">"多选对话框"</span>)<span class="comment">//设置对话框的标题</span></span><br><span class="line">                .setMultiChoiceItems(items, checkedItems, <span class="keyword">new</span> DialogInterface.OnMultiChoiceClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which, <span class="keyword">boolean</span> isChecked)</span> </span>&#123;</span><br><span class="line">                        checkedItems[which] = isChecked;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .setNegativeButton(<span class="string">"取消"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                        dialog.dismiss();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; checkedItems.length; i++) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (checkedItems[i]) &#123;</span><br><span class="line">                                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"选中了"</span> + i, Toast.LENGTH_SHORT).show();</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        dialog.dismiss();</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;).create();</span><br><span class="line"></span><br><span class="line">        dialog.show();</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>.setMultiChoiceItems(items, checkedItems, listener)//第一个参数:设置单选的资源;第二个参数:设置默认选中哪几项（数组）;</p>
+</blockquote>
+<p><center><img src="/2017/02/03/Android对话框/4.png"></center></p>
+
+<h5 id="5-半自定义列表对话框"><a href="#5-半自定义列表对话框" class="headerlink" title="5.半自定义列表对话框"></a>5.半自定义列表对话框</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">View view = activity.getLayoutInflater().inflate(R.layout.layout2, <span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">final</span> EditText editText = view.findViewById(R.id.editText);</span><br><span class="line">        AlertDialog dialog = <span class="keyword">new</span> AlertDialog.Builder(activity)</span><br><span class="line">                .setIcon(R.mipmap.ic_launcher)<span class="comment">//设置标题的图片</span></span><br><span class="line">                .setTitle(<span class="string">"半自定义对话框"</span>)<span class="comment">//设置对话框的标题</span></span><br><span class="line">                .setView(view)</span><br><span class="line">                .setNegativeButton(<span class="string">"取消"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                        dialog.dismiss();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .setPositiveButton(<span class="string">"确定"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">                        String content = editText.getText().toString();</span><br><span class="line">                        Toast.makeText(activity, content, Toast.LENGTH_SHORT).show();</span><br><span class="line">                        dialog.dismiss();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;).create();</span><br><span class="line">        dialog.show();</span><br></pre></td></tr></table></figure>
+<p>布局<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/editText"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:ems</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:inputType</span>=<span class="string">"textPersonName"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"Name"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><center><img src="/2017/02/03/Android对话框/5.png"></center></p>
+
+<h5 id="6-完全自定义列表对话框"><a href="#6-完全自定义列表对话框" class="headerlink" title="6.完全自定义列表对话框"></a>6.完全自定义列表对话框</h5><p>首先我们需要自定义Dialog的style，让他自己本有的东西全部透明，然后在设置我们自己的内容就可以达到完全自定义的效果了。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--对话框的样式--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"NormalDialogStyle"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!--对话框背景 --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowBackground"</span>&gt;</span>@android:color/transparent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!--边框 --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowFrame"</span>&gt;</span>@null<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!--没有标题 --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!-- 是否浮现在Activity之上 --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsFloating"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!--背景透明 --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowIsTranslucent"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!-- 是否有覆盖 --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentOverlay"</span>&gt;</span>@null<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!--背景变暗--&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:backgroundDimEnabled"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Dialog dialog = <span class="keyword">new</span> Dialog(activity, R.style.NormalDialogStyle);</span><br><span class="line">        View view = View.inflate(activity, R.layout.dialog_normal, <span class="keyword">null</span>);</span><br><span class="line">        TextView cancel =  view.findViewById(R.id.cancel);</span><br><span class="line">        TextView confirm =  view.findViewById(R.id.confirm);</span><br><span class="line">        dialog.setContentView(view);</span><br><span class="line">        <span class="comment">//使得点击对话框外部不消失对话框</span></span><br><span class="line">        dialog.setCanceledOnTouchOutside(<span class="keyword">false</span>);</span><br><span class="line">        <span class="comment">//设置对话框的大小</span></span><br><span class="line">        view.setMinimumHeight(<span class="number">300</span>);</span><br><span class="line">        Window dialogWindow = dialog.getWindow();</span><br><span class="line">        WindowManager.LayoutParams lp = dialogWindow.getAttributes();</span><br><span class="line">        lp.width = <span class="number">500</span>;</span><br><span class="line">        lp.height = <span class="number">500</span>;</span><br><span class="line">		<span class="comment">//这里设置对话框的位置center是居中还可以设置bottom等</span></span><br><span class="line">        lp.gravity = Gravity.CENTER;</span><br><span class="line">        dialogWindow.setAttributes(lp);</span><br><span class="line">        cancel.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                dialog.dismiss();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        confirm.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                dialog.dismiss();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        dialog.show();</span><br></pre></td></tr></table></figure></p>
+<p>布局文件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/textView"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignParentTop</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"TextView"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/textView2"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignEnd</span>=<span class="string">"@+id/textView"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignRight</span>=<span class="string">"@+id/textView"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_below</span>=<span class="string">"@+id/textView"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"TextView"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignParentLeft</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_below</span>=<span class="string">"@+id/textView2"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/cancel"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Button"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/confirm"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Button"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>计算屏幕宽高的工具类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ScreenSizeUtils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ScreenSizeUtils instance = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> screenWidth, screenHeight;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ScreenSizeUtils <span class="title">getInstance</span><span class="params">(Context mContext)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (ScreenSizeUtils.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>)</span><br><span class="line">                    instance = <span class="keyword">new</span> ScreenSizeUtils(mContext);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">ScreenSizeUtils</span><span class="params">(Context mContext)</span> </span>&#123;</span><br><span class="line">        WindowManager manager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);</span><br><span class="line">        DisplayMetrics dm = <span class="keyword">new</span> DisplayMetrics();</span><br><span class="line">        manager.getDefaultDisplay().getMetrics(dm);</span><br><span class="line">        screenWidth = dm.widthPixels;<span class="comment">// 获取屏幕分辨率宽度</span></span><br><span class="line">        screenHeight = dm.heightPixels;<span class="comment">// 获取屏幕分辨率高度</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取屏幕宽度</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScreenWidth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> screenWidth;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取屏幕高度</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScreenHeight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> screenHeight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><center><img src="/2017/02/03/Android对话框/6.png"></center></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2017/02/03/Android对话框/" title="Android对话框" target="_blank" rel="external">https://zengwei123.github.io/2017/02/03/Android对话框/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2017/02/01/Android6.0权限管/" title="Android6.0权限管理"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
