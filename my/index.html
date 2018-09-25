@@ -2,37 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>2018全国法律职业资格考试成绩查询</title>
 </head>
 <body>
-    <div style="width: 660px;margin:auto;">
-        <h4 style="text-align: center">2018国家法律职业资格考试</h4>
-        <h4 style="text-align: center">成绩通知单</h4>
-        <ul style="list-style-type:none;">
-            <li>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<span style="margin-left: 30px"><b>李邱思君</b></span></li><br>
-            <li>证件号码：</li><br>
-            <li>准考证号：</li><br>
-        </ul>
-        <table style="width: 300px;margin-left: 40px" border="1px" cellspacing="0" cellpadding="0">
-            <thead>
-            <tr>
-                <th style="width: 100px;">试卷一</th>
-                <th style="width: 100px;">试卷二</th>
-                <th style="width: 100px;">总分</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr style="text-align: center">
-                <td style="width: 100px">97</td>
-                <td style="width: 100px">104</td>
-                <td style="width: 100px">201</td>
-            </tr>
-            </tbody>
-        </table><br>
-        <span style="margin-left: 40px"><b>注意事项：</b></span><br>
-        <span style="margin-left: 40px">1.&nbsp;&nbsp;&nbsp;本成绩通知书由本人自行下载打印，黑白即可，并保存备用。</span><br>
-        <span style="margin-left: 40px">2.&nbsp;&nbsp;&nbsp;应试人员如对成绩有异议，可以在考试成绩公布之日起 15日内向报名地司法行政机</span><br><span style="margin-left: 40px">关提出核查分数的书面申请。</span>
-        <br><span style="margin-left: 40px">3.&nbsp;&nbsp;&nbsp;本成绩通知书是申请授予法律资格证书的有效证件，请予妥善保管。</span><br>
+<h2 style="text-align: center">2018全国法律职业资格考试成绩查询</h2><br>
+    <div style="width: 300px;margin:auto;">
+        <input id="s1" type="text" style="width: 200px;float: right"><span style="width: 100px;float: right">准考证号：</span><br><br>
+        <input id="s2" type="text" style="width: 200px;float: right"><span style="width: 100px;float: right">姓名：</span><br><br>
+        <input id="s3" type="text" style="width: 200px;float: right"><span style="width: 100px;float: right">证件号：</span><br><br>
+        <span id="ab" style="width: 100px;float: right;text-align: center;background: #00b8d4;">8+8</span><input id="s4" type="text" style="width: 100px;float: right"><span style="width: 100px;float: right">验证码：</span><br><br>
+        <input id="s5" type="button" onclick="f()" style="width: 100px;margin-left: 100px" value="查询">
     </div>
+<script>
+    var a=Math.round(Math.random()*10);
+    var b=Math.round(Math.random()*10);
+    document.getElementById("ab").innerHTML=a+"+"+b;
+    function f() {
+        var s1=document.getElementById("s1").value;
+        var s2=document.getElementById("s2").value;
+        var s3=document.getElementById("s3").value;
+        var s4=document.getElementById("s4").value;
+        if(s4==(a+b)){
+            if(s1=="1"&&s2=="2"&&s3=="3"){
+                window.location.replace("query.html")
+            }else{
+                alert("查询为空");
+            }
+        }else{
+            location.reload();
+        }
+    }
+
+</script>
 </body>
 </html>
