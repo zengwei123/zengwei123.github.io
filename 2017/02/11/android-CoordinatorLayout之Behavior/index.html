@@ -21,18 +21,18 @@
   <meta name="description" content="1. 简单使用CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素  1.1 布局文件中使用12345678910111213141516">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android-CoordinatorLayout之Behavior">
-<meta property="og:url" content="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/index.html">
+<meta property="og:url" content="https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout之Behavior/index.html">
 <meta property="og:site_name" content="zengwei">
 <meta property="og:description" content="1. 简单使用CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素  1.1 布局文件中使用12345678910111213141516">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/1.gif">
-<meta property="og:updated_time" content="2018-09-28T06:53:40.217Z">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout之Behavior/1.gif">
+<meta property="og:updated_time" content="2018-09-28T07:03:01.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android-CoordinatorLayout之Behavior">
 <meta name="twitter:description" content="1. 简单使用CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素  1.1 布局文件中使用12345678910111213141516">
-<meta name="twitter:image" content="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/1.gif">
+<meta name="twitter:image" content="https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout之Behavior/1.gif">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout之Behavior/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -190,7 +190,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -206,36 +206,6 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/Android/">Android</a>
-              </p>
-              <p class="item-title">
-                <a href="/2018/09/11/android-CoordinatorLayout之Behavior/" class="title">android-CoordinatorLayout之Behavior</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2018-09-11T06:51:32.000Z" itemprop="datePublished">2018-09-11</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/Android/">Android</a>
-              </p>
-              <p class="item-title">
-                <a href="/2018/02/08/Android-CoordinatorLayout/" class="title">Android-CoordinatorLayout</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2018-02-08T02:38:25.000Z" itemprop="datePublished">2018-02-08</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
                 <a class="category-link" href="/categories/Api/">Api</a>
               </p>
               <p class="item-title">
@@ -243,6 +213,36 @@
               </p>
               <p class="item-date">
                 <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/11/android-CoordinatorLayout之Behavior/" class="title">android-CoordinatorLayout之Behavior</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-11T06:51:32.000Z" itemprop="datePublished">2017-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/08/Android-CoordinatorLayout/" class="title">Android-CoordinatorLayout</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-08T02:38:25.000Z" itemprop="datePublished">2017-02-08</time>
               </p>
             </div>
           </li>
@@ -305,8 +305,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2018/09/11/android-CoordinatorLayout之Behavior/" class="article-date">
-	  <time datetime="2018-09-11T06:51:32.000Z" itemprop="datePublished">2018-09-11</time>
+	<a href="/2017/02/11/android-CoordinatorLayout之Behavior/" class="article-date">
+	  <time datetime="2017-02-11T06:51:32.000Z" itemprop="datePublished">2017-02-11</time>
 	</a>
 </span>
         
@@ -319,7 +319,7 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/09/11/android-CoordinatorLayout之Behavior/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/02/11/android-CoordinatorLayout之Behavior/#comments" class="article-comment-link">评论</a></span>
         
 	
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,578(字)</span>
@@ -333,7 +333,7 @@
     <div class="article-entry markdown-body" itemprop="articleBody">
       
         <h3 id="1-简单使用"><a href="#1-简单使用" class="headerlink" title="1. 简单使用"></a>1. 简单使用</h3><p>CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素</p>
-<p></p><p><center><img src="/2018/09/11/android-CoordinatorLayout之Behavior/1.gif"></center></p><p></p>
+<p></p><p><center><img src="/2017/02/11/android-CoordinatorLayout之Behavior/1.gif"></center></p><p></p>
 <h3 id="1-1-布局文件中使用"><a href="#1-1-布局文件中使用" class="headerlink" title="1.1 布局文件中使用"></a>1.1 布局文件中使用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/title"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"#ff0000"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"Hello World"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"18sp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/behavior_sample_title"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">com.example.zengwei.coord.MoveView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"你好"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"#2b2b2b"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"#0188FB"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">"200dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"100dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>最关键的地方就在于app:layout_behavior，利用这个属性来确定的绑定的目标childView</p>
 <p>指定绑定目标有3种方式：</p>
@@ -364,7 +364,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/" title="android-CoordinatorLayout之Behavior" target="_blank" rel="external">https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/</a>
+      <a href="https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout之Behavior/" title="android-CoordinatorLayout之Behavior" target="_blank" rel="external">https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout之Behavior/</a>
     </li>
     
     
@@ -406,9 +406,13 @@
   
   <ul class="pager pull-left">
     
+    <li class="prev">
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
     
     <li class="next">
-      <a href="/2018/02/08/Android-CoordinatorLayout/" title="Android-CoordinatorLayout"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2017/02/08/Android-CoordinatorLayout/" title="Android-CoordinatorLayout"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
