@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>android-CoordinatorLayout之Behavior | zengwei</title>
+  <meta name="description" content="1. 简单使用CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素  1.1 布局文件中使用12345678910111213141516">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android-CoordinatorLayout之Behavior">
+<meta property="og:url" content="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/index.html">
+<meta property="og:site_name" content="zengwei">
+<meta property="og:description" content="1. 简单使用CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素  1.1 布局文件中使用12345678910111213141516">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/1.gif">
+<meta property="og:updated_time" content="2018-09-28T06:53:40.217Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android-CoordinatorLayout之Behavior">
+<meta name="twitter:description" content="1. 简单使用CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素  1.1 布局文件中使用12345678910111213141516">
+<meta name="twitter:image" content="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/1.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zengwei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ZengWei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">我要加鸡腿！！</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 长沙, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android第三方库/">Android第三方库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Api/">Api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Git/">GitHub-Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/09/11/android-CoordinatorLayout之Behavior/" class="title">android-CoordinatorLayout之Behavior</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-09-11T06:51:32.000Z" itemprop="datePublished">2018-09-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2018/02/08/Android-CoordinatorLayout/" class="title">Android-CoordinatorLayout</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-02-08T02:38:25.000Z" itemprop="datePublished">2018-02-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Api/">Api</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/08/06/Api/" class="title">Api总结（持续跟新）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/03/Android对话框/" class="title">Android对话框</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-03T01:50:14.000Z" itemprop="datePublished">2017-02-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/01/Android6.0权限管/" class="title">Android6.0权限管理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-01T02:06:53.000Z" itemprop="datePublished">2017-02-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-android-CoordinatorLayout之Behavior" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android-CoordinatorLayout之Behavior
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2018/09/11/android-CoordinatorLayout之Behavior/" class="article-date">
+	  <time datetime="2018-09-11T06:51:32.000Z" itemprop="datePublished">2018-09-11</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/09/11/android-CoordinatorLayout之Behavior/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,578(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h3 id="1-简单使用"><a href="#1-简单使用" class="headerlink" title="1. 简单使用"></a>1. 简单使用</h3><p>CoordinatorLayout作为一个中间桥梁性质的布局，协调着内部的childView。之前对CoordinatorLayout有点误解，以为需要配合AppBarLayout才有一些比较炫酷的特效，大错特错，Behavior是CoordinatorLayout能够有协调作用以及能支持各种炫酷特效的的关键因素</p>
+<p></p><p><center><img src="/2018/09/11/android-CoordinatorLayout之Behavior/1.gif"></center></p><p></p>
+<h3 id="1-1-布局文件中使用"><a href="#1-1-布局文件中使用" class="headerlink" title="1.1 布局文件中使用"></a>1.1 布局文件中使用</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/title"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"#ff0000"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"Hello World"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"18sp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/behavior_sample_title"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">com.example.zengwei.coord.MoveView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"你好"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">"#2b2b2b"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"#0188FB"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">"200dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"100dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"100dp"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最关键的地方就在于app:layout_behavior，利用这个属性来确定的绑定的目标childView</p>
+<p>指定绑定目标有3种方式：</p>
+<p>1.在xml布局通过app:layout_behavior<br>2.在Java代码中，child.getLayoutParams().setBehavior()来指定<br>3.在目标childView类上，通过@DefaultBehavior来指定</p>
+<h3 id="1-2-MoveView"><a href="#1-2-MoveView" class="headerlink" title="1.2 MoveView"></a>1.2 MoveView</h3><p>MoveView就是一个继承TextView的很简单的自定义View<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MoveView</span> <span class="keyword">extends</span> <span class="title">TextView</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> lastX, lastY;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MoveView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> action = event.getAction();</span><br><span class="line">        <span class="keyword">float</span> x = event.getRawX();</span><br><span class="line">        <span class="keyword">float</span> y = event.getRawY();</span><br><span class="line">        <span class="keyword">if</span> (action == MotionEvent.ACTION_MOVE) &#123;</span><br><span class="line">            CoordinatorLayout.MarginLayoutParams layoutParams = (CoordinatorLayout.MarginLayoutParams) getLayoutParams();</span><br><span class="line">            <span class="comment">//计算当前的左上角坐标</span></span><br><span class="line">            <span class="keyword">float</span> left = layoutParams.leftMargin + x - lastX;</span><br><span class="line">            <span class="keyword">float</span> top = layoutParams.topMargin + y - lastY;</span><br><span class="line">            <span class="comment">//设置坐标</span></span><br><span class="line">            layoutParams.leftMargin = (<span class="keyword">int</span>) left;</span><br><span class="line">            layoutParams.topMargin = (<span class="keyword">int</span>) top;</span><br><span class="line">            setLayoutParams(layoutParams);</span><br><span class="line">        &#125;</span><br><span class="line">        lastX = x;</span><br><span class="line">        lastY = y;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>主要就是重写onTouchEvent()来使MoveView可以根据手指滑动在屏幕改变位置</p>
+<h3 id="1-3-一个简单的自定义Behavior"><a href="#1-3-一个简单的自定义Behavior" class="headerlink" title="1.3 一个简单的自定义Behavior"></a>1.3 一个简单的自定义Behavior</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleTitleBehavior</span> <span class="keyword">extends</span> <span class="title">CoordinatorLayout</span>.<span class="title">Behavior</span>&lt;<span class="title">View</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// 列表顶部和title底部重合时，列表的滑动距离。</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> deltaY;</span><br><span class="line">    <span class="keyword">boolean</span> aBoolean=<span class="keyword">true</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SampleTitleBehavior</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SampleTitleBehavior</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用该Behavior的View要监听哪个类型的View的状态变化。</span></span><br><span class="line"><span class="comment">     * 其中参数parant代表CoordinatorLayout，child代表使用该Behavior的View，dependency代表要监听的View。</span></span><br><span class="line"><span class="comment">     * 这里要监听RecyclerView</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> parent</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> child</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dependency</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">layoutDependsOn</span><span class="params">(CoordinatorLayout parent, View child, View dependency)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dependency <span class="keyword">instanceof</span> MoveView;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 当被监听的View状态变化时会调用该方法，参数和上一个方法一致。</span></span><br><span class="line"><span class="comment">     * 所以我们重写该方法，当MoveView的位置变化时，进而改变title的位置。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> parent</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> child</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dependency</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onDependentViewChanged</span><span class="params">(CoordinatorLayout parent, View child, View dependency)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(aBoolean)&#123;</span><br><span class="line">                deltaY=dependency.getY();</span><br><span class="line">                aBoolean=<span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span>(deltaY-dependency.getY()&lt;=<span class="number">150</span>)&#123;</span><br><span class="line">            child.setY(dependency.getY()-deltaY);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>CoordinatorLayout.Behavior<textview>这里使用泛型将绑定的childView限制为了TextView，可以根据实际需求来指定类型，也可以直接指定为View</textview></p>
+<p>注意：<br>当在布局文件中使用了Behavior后，Behavior代码中确定的交互行为便直接奏效，初始化第一次加载CoordinatorLayout时，使用了Behavior的ChildView受到onDependentViewChanged()方法的影响，第一次加载的位置也会受到影响，导致和布局文件中指定的位置不相同</p>
+<p>官方有好几个非常好的学习资料，例如：<br>android.support.design.widget.AppBarLayout$ScrollingViewBehavior</p>
+<p>一个依赖AppBarLayout后，处理滑动事件的Behavior，对Behavior中的属性及方法有了大概了解后，可以学习具体细节的设计和优化</p>
+<h3 id="2-Behavior-行为"><a href="#2-Behavior-行为" class="headerlink" title="2. Behavior 行为"></a>2. Behavior 行为</h3><p>需要注意的是Behavior可以几乎包括所有的交互行为，配合ViewDragHelper应该能够实现出一些很炫酷的交互效果</p>
+<h3 id="2-1-常用的方法"><a href="#2-1-常用的方法" class="headerlink" title="2.1 常用的方法"></a>2.1 常用的方法</h3><p>构造方法有两个：<br>默认：public Behavior() {}<br>布局：public Behavior(Context context, AttributeSet attrs) {  }<br>两个构造方法也比较容易理解，一个是默认的空参的构造方法，一个是带有布局属性AttributeSet的方法，有了这个构造方法，可以直接在布局文件中使用</p>
+<p>根据Behavior的特性，可以将内部的方法分以下类：</p>
+<p>测量与布局：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">测量：<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onMeasureChild</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">布局：<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onLayoutChild</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>特定状态：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当Behavior添加到参数实例时，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAttachedToLayoutParams</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当Behavior与参数实例分离时，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDetachedFromLayoutParams</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当Behavior关联的对象想要定位到特定的矩形时，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onRequestChildRectangleOnScreen</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当一个ChildView设置为回避属性时，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getInsetDodgeRect</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当窗口发生改变时，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> WindowInsetsCompat <span class="title">onApplyWindowInsets</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要保存临时状态信息，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Parcelable <span class="title">onSaveInstanceState</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//需要恢复临时状态信息，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//作用未知</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScrimColor</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//作用未知</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getScrimOpacity</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>确定依赖与绑定对象：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据参数来确定依赖与绑定对象</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">layoutDependsOn</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当依赖对象发生改变时：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当依赖对象发生改变，包括位置，大小，颜色，进行回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onDependentViewChanged</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当依赖对象被移除时，进行回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDependentViewRemoved</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>事件相关：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//拦截事件，在CoordinatorLayout把事件分发到childView之前</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onInterceptTouchEvent</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//消费事件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>嵌套滑动：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//CoordinatorLayout中的滑动嵌套childView开始启动一次嵌套滚动时，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onStartNestedScroll</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//嵌套滑动结束时，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStopNestedScroll</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当一次嵌套滑动被CoordiantorLayout识别并确定时，进行回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNestedScrollAccepted</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//嵌套滚动正在进行中并且绑定目标childView已经开始滚动或者被CoordinatorLayout接受后试图滚动</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNestedScroll</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//嵌套滚动正在准备更新进度，并且是在绑定目标childView已经出现滚动距离之前，回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNestedPreScroll</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当嵌套滚动的childView正在开始fling或者一个动作确认为fling</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNestedFling</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当滑动嵌套childView检测到适当的条件，马上开始一次fling事件前回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNestedPreFling</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>暂时就这么分，分类并不算合理，也无所谓，目的是以后自己回头来看时，能比较清晰能快速定位方法是干嘛的<br>转：<a href="https://www.jianshu.com/p/9fdd271541d9" target="_blank" rel="noopener">https://www.jianshu.com/p/9fdd271541d9</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/" title="android-CoordinatorLayout之Behavior" target="_blank" rel="external">https://zengwei123.github.io/2018/09/11/android-CoordinatorLayout之Behavior/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2018/02/08/Android-CoordinatorLayout/" title="Android-CoordinatorLayout"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
