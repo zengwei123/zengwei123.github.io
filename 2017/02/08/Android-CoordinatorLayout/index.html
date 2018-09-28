@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Android-CoordinatorLayout | zengwei</title>
+  <meta name="description" content="CoordinatorLayout被称为联动布局，这是Design Support Library中最重要与最难的部分。首先我们要把CoordinatorLayout作为根布局,导入下面的依赖  compile ‘com.android.support:design:26.1.0’  1.有时候我们会看到一个底部有一个块，然后可以拖上来成为一个布局，类似于下面这种 要使用这种效果只要两个代码,第一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android-CoordinatorLayout">
+<meta property="og:url" content="https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/index.html">
+<meta property="og:site_name" content="zengwei">
+<meta property="og:description" content="CoordinatorLayout被称为联动布局，这是Design Support Library中最重要与最难的部分。首先我们要把CoordinatorLayout作为根布局,导入下面的依赖  compile ‘com.android.support:design:26.1.0’  1.有时候我们会看到一个底部有一个块，然后可以拖上来成为一个布局，类似于下面这种 要使用这种效果只要两个代码,第一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/2.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/1.gif">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/3.gif">
+<meta property="og:updated_time" content="2018-09-28T07:00:23.492Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android-CoordinatorLayout">
+<meta name="twitter:description" content="CoordinatorLayout被称为联动布局，这是Design Support Library中最重要与最难的部分。首先我们要把CoordinatorLayout作为根布局,导入下面的依赖  compile ‘com.android.support:design:26.1.0’  1.有时候我们会看到一个底部有一个块，然后可以拖上来成为一个布局，类似于下面这种 要使用这种效果只要两个代码,第一">
+<meta name="twitter:image" content="https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/2.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zengwei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ZengWei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">我要加鸡腿！！</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 长沙, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android第三方库/">Android第三方库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Api/">Api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Git/">GitHub-Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">二月 2012</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Api/">Api</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/08/06/Api/" class="title">Api总结（持续跟新）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/08/Android-CoordinatorLayout/" class="title">Android-CoordinatorLayout</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-08T02:38:25.000Z" itemprop="datePublished">2017-02-08</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/03/Android对话框/" class="title">Android对话框</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-03T01:50:14.000Z" itemprop="datePublished">2017-02-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/01/Android6.0权限管/" class="title">Android6.0权限管理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-01T02:06:53.000Z" itemprop="datePublished">2017-02-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/01/Android6.0权限管理/" class="title">Android6.0权限管理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-01T02:06:53.000Z" itemprop="datePublished">2017-02-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Android-CoordinatorLayout" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android-CoordinatorLayout
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2017/02/08/Android-CoordinatorLayout/" class="article-date">
+	  <time datetime="2017-02-08T02:38:25.000Z" itemprop="datePublished">2017-02-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/02/08/Android-CoordinatorLayout/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,679(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <h3 id="CoordinatorLayout被称为联动布局，这是Design-Support-Library中最重要与最难的部分。"><a href="#CoordinatorLayout被称为联动布局，这是Design-Support-Library中最重要与最难的部分。" class="headerlink" title="CoordinatorLayout被称为联动布局，这是Design Support Library中最重要与最难的部分。"></a>CoordinatorLayout被称为联动布局，这是Design Support Library中最重要与最难的部分。</h3><p>首先我们要把<code>CoordinatorLayout</code>作为根布局,导入下面的依赖</p>
+<blockquote>
+<h3 id="compile-‘com-android-support-design-26-1-0’"><a href="#compile-‘com-android-support-design-26-1-0’" class="headerlink" title="compile ‘com.android.support:design:26.1.0’"></a>compile ‘com.android.support:design:26.1.0’</h3></blockquote>
+<blockquote>
+<h3 id="1-有时候我们会看到一个底部有一个块，然后可以拖上来成为一个布局，类似于下面这种"><a href="#1-有时候我们会看到一个底部有一个块，然后可以拖上来成为一个布局，类似于下面这种" class="headerlink" title="1.有时候我们会看到一个底部有一个块，然后可以拖上来成为一个布局，类似于下面这种"></a>1.有时候我们会看到一个底部有一个块，然后可以拖上来成为一个布局，类似于下面这种</h3></blockquote>
+<p></p><p><center><img src="/2017/02/08/Android-CoordinatorLayout/2.gif"></center></p><br>要使用这种效果只要两个代码,第一个是设置露出的高度，第二个一定要这么写，然后你就可以拖动将布局拖出来了<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">app:behavior_peekHeight="40dp"   </span><br><span class="line">app:layout_behavior="@string/bottom_sheet_behavior"</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p></p>
+<p>想要改变脱出后头部的样式和布局，那么你就需要再代码里面设置了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> RelativeLayout rsb;</span><br><span class="line">    <span class="keyword">private</span> TextView text,text1;</span><br><span class="line">    <span class="keyword">private</span> BottomSheetBehavior behavior;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.layout);</span><br><span class="line">        <span class="comment">/**根布局**/</span></span><br><span class="line">        rsb=findViewById(R.id.rsb);</span><br><span class="line">        text=findViewById(R.id.text);</span><br><span class="line">        text1=findViewById(R.id.text1);</span><br><span class="line">        behavior= BottomSheetBehavior.from(rsb);</span><br><span class="line">        behavior.setBottomSheetCallback(<span class="keyword">new</span> BottomSheetBehavior.BottomSheetCallback() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChanged</span><span class="params">(@NonNull View bottomSheet, <span class="keyword">int</span> newState)</span> </span>&#123;</span><br><span class="line">                <span class="comment">/**滑动结束回调方法，BottomSheetBehavior状态的改变*/</span></span><br><span class="line">                <span class="keyword">if</span>(newState==BottomSheetBehavior.STATE_EXPANDED)&#123;</span><br><span class="line">                    <span class="comment">/**当结束后是滑动出来的**/</span></span><br><span class="line">                    text1.setVisibility(View.VISIBLE);</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(newState==BottomSheetBehavior.STATE_COLLAPSED)&#123;</span><br><span class="line">                    <span class="comment">/**当结束后是收缩进去的**/</span></span><br><span class="line">                    text.setVisibility(View.VISIBLE);</span><br><span class="line">                    bottomSheet.setAlpha(<span class="number">1f</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSlide</span><span class="params">(@NonNull View bottomSheet, <span class="keyword">float</span> slideOffset)</span> </span>&#123;</span><br><span class="line">                <span class="comment">/**滑动回调方法，slideOffset是所占高度的比例，可以用这个来做一些动画*/</span></span><br><span class="line">                bottomSheet.setAlpha(slideOffset);</span><br><span class="line">                <span class="keyword">if</span>(text1.getVisibility()==View.GONE)&#123;</span><br><span class="line">                    <span class="comment">/**滑动开始如果 点击收缩 按钮为隐藏**/</span></span><br><span class="line">                    text.setVisibility(View.GONE);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">/**滑动开始如果 点击收缩 按钮为显示**/</span></span><br><span class="line">                    text1.setVisibility(View.GONE);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面放出布局代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/coordinator"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/rsb"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:behavior_peekHeight</span>=<span class="string">"40dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/bottom_sheet_behavior"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/text"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"拉出"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:background</span>=<span class="string">"#52D3FF"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"40dp"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/text1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"点击收缩"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:background</span>=<span class="string">"#52D3FF"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:visibility</span>=<span class="string">"gone"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"40dp"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RelativeLayout</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:background</span>=<span class="string">"#ff0000"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"40dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<h4 id="2-看gif"><a href="#2-看gif" class="headerlink" title="2.看gif"></a>2.看gif</h4></blockquote>
+<p></p><p><center><img src="/2017/02/08/Android-CoordinatorLayout/1.gif"></center></p><br>想要实现这种效果也很简单，将<code>FloatingActionButton</code>放在<code>CoordinatorLayout</code>里面，代码中将<code>CoordinatorLayout</code>传给<code>Snackbar</code>就行了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">Snackbar.make(coordinatorLayout,<span class="string">"你好吗"</span>,Snackbar.LENGTH_LONG).show();</span><br><span class="line">..</span><br></pre></td></tr></table></figure><p></p>
+<blockquote>
+<h3 id="3-AppBarLayout子View的动作"><a href="#3-AppBarLayout子View的动作" class="headerlink" title="3.AppBarLayout子View的动作"></a>3.AppBarLayout子View的动作</h3><p>内部的子View通过在布局中加app:layout_scrollFlags设置执行的动作，那么app:layout_scrollFlags可以设置哪些动作呢？分别如下：<br>（1） scroll:值设为scroll的View会跟随滚动事件一起发生移动。<br>（2） enterAlways:值设为enterAlways的View,当ScrollView往下滚动时，该View会直接往下滚动。而不用考虑ScrollView是否在滚动。<br>（3） exitUntilCollapsed：值设为exitUntilCollapsed的View，当这个View要往上逐渐“消逝”时，会一直往上滑动，直到剩下的的高度达到它的最小高度后，再响应ScrollView的内部滑动事件。<br>（4） enterAlwaysCollapsed：是enterAlways的附加选项，一般跟enterAlways一起使用，它是指，View在往下“出现”的时候，首先是enterAlways效果，当View的高度达到最小高度时，View就暂时不去往下滚动，直到ScrollView滑动到顶部不再滑动时，View再继续往下滑动，直到滑到View的顶部结束。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"#ff0000"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:title</span>=<span class="string">"标题"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|enterAlwaysCollapsed|enterAlways"</span>   //改这里就行了，混合使用</span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:minHeight</span>=<span class="string">"50dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:gravity</span>=<span class="string">"bottom"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">android.support.v7.widget.Toolbar</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/recyle"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">android.support.v7.widget.RecyclerView</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<h3 id="4-实现下面这种效果"><a href="#4-实现下面这种效果" class="headerlink" title="4.实现下面这种效果"></a>4.实现下面这种效果</h3></blockquote>
+<p></p><p><center><img src="/2017/02/08/Android-CoordinatorLayout/3.gif"></center></p><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.CoordinatorLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/coordinator"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.AppBarLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/avps"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"#cccccc"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"200dp"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">android.support.design.widget.CollapsingToolbarLayout</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/avps1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_scrollFlags</span>=<span class="string">"scroll|exitUntilCollapsed"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RelativeLayout</span></span></span><br><span class="line"><span class="tag">                <span class="attr">app:layout_collapseMode</span>=<span class="string">"parallax"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:src</span>=<span class="string">"@drawable/as"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:scaleType</span>=<span class="string">"centerCrop"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_alignParentBottom</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:textSize</span>=<span class="string">"30sp"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:text</span>=<span class="string">"你自己想要的布局"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">app:layout_collapseMode</span>=<span class="string">"pin"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"50dp"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:text</span>=<span class="string">"返回"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:text</span>=<span class="string">"分享"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:gravity</span>=<span class="string">"right"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:paddingRight</span>=<span class="string">"15dp"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">android.support.v7.widget.Toolbar</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">android.support.design.widget.CollapsingToolbarLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.AppBarLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.v4.widget.NestedScrollView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_behavior</span>=<span class="string">"@string/appbar_scrolling_view_behavior"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textColor</span>=<span class="string">"#2b2b2b"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"a"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">android.support.v4.widget.NestedScrollView</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.FloatingActionButton</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/FloatingActionButton"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:rippleColor</span>=<span class="string">"#cccccc"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:backgroundTint</span>=<span class="string">"#56abe4"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_gravity</span>=<span class="string">"right|bottom"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginRight</span>=<span class="string">"15dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginBottom</span>=<span class="string">"15dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.CoordinatorLayout</span>&gt;</span></span><br></pre></td></tr></table></figure><p></p>
+<h3 id="监听事件"><a href="#监听事件" class="headerlink" title="监听事件,"></a>监听事件,</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AppBarStateChangeListener</span> <span class="keyword">implements</span> <span class="title">AppBarLayout</span>.<span class="title">OnOffsetChangedListener</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> State &#123;</span><br><span class="line">        EXPANDED,</span><br><span class="line">        COLLAPSED,</span><br><span class="line">        IDLE</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> State mCurrentState = State.IDLE;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">onOffsetChanged</span><span class="params">(AppBarLayout appBarLayout, <span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mCurrentState != State.EXPANDED) &#123;</span><br><span class="line">                onStateChanged(appBarLayout, State.EXPANDED);</span><br><span class="line">            &#125;</span><br><span class="line">            mCurrentState = State.EXPANDED;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Math.abs(i) &gt;= appBarLayout.getTotalScrollRange()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (mCurrentState != State.COLLAPSED) &#123;</span><br><span class="line">                onStateChanged(appBarLayout, State.COLLAPSED);</span><br><span class="line">            &#125;</span><br><span class="line">            mCurrentState = State.COLLAPSED;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (mCurrentState != State.IDLE) &#123;</span><br><span class="line">                onStateChanged(appBarLayout, State.IDLE);</span><br><span class="line">            &#125;</span><br><span class="line">            mCurrentState = State.IDLE;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">onStateChanged</span><span class="params">(AppBarLayout appBarLayout, State state)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------------------------</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Coord3</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> FloatingActionButton floatingActionButton;</span><br><span class="line">    <span class="keyword">private</span> CoordinatorLayout coordinatorLayout;</span><br><span class="line">    <span class="keyword">private</span> BottomSheetBehavior behavior;</span><br><span class="line">    <span class="keyword">private</span> AppBarLayout avps;</span><br><span class="line">    <span class="keyword">private</span> CollapsingToolbarLayout avps1;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> expendedtag=<span class="number">2</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.layout3);</span><br><span class="line">        floatingActionButton=findViewById(R.id.FloatingActionButton);</span><br><span class="line">        coordinatorLayout=findViewById(R.id.coordinator);</span><br><span class="line">        floatingActionButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">                Snackbar.make(coordinatorLayout,<span class="string">"你好吗"</span>,Snackbar.LENGTH_LONG).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        avps=findViewById(R.id.avps);</span><br><span class="line">        avps1=findViewById(R.id.avps1);</span><br><span class="line">        avps1.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">        avps.addOnOffsetChangedListener(<span class="keyword">new</span> AppBarStateChangeListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStateChanged</span><span class="params">(AppBarLayout appBarLayout, State state)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span>( state == State.EXPANDED ) &#123;</span><br><span class="line">                    <span class="comment">//展开状态</span></span><br><span class="line">                    Toast.makeText(Coord3.<span class="keyword">this</span>, <span class="string">"展开"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span>(state == State.COLLAPSED)&#123;</span><br><span class="line">                    <span class="comment">//折叠状态</span></span><br><span class="line">                    Toast.makeText(Coord3.<span class="keyword">this</span>, <span class="string">"折叠"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                    avps1.setContentScrimColor(Color.parseColor(<span class="string">"#777777"</span>));   <span class="comment">//设置这个可以展现出那种透明的感觉</span></span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="comment">//中间状态</span></span><br><span class="line">                    Toast.makeText(Coord3.<span class="keyword">this</span>, <span class="string">"中间"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你希望拖动过程中状态栏是透明的，可以在CollapsingToolbarLayout中加 app:statusBarScrim=”@android:color/transparent”，并且在onCreate中调用getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)将状态栏设置为透明就好啦~</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/" title="Android-CoordinatorLayout" target="_blank" rel="external">https://zengwei123.github.io/2017/02/08/Android-CoordinatorLayout/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2017/02/03/Android对话框/" title="Android对话框"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
