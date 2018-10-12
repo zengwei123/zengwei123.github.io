@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>https://zengwei123.github.io/2017/02/21/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93Gson/</loc>
+    <lastmod>2018-10-12T08:29:22.424Z</lastmod>
+    <data>
+        <display>
+        <title>第三方库Gson</title>
+        <pubTime>2017-02-21T08:26:48.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="第三方库" url="https://zengwei123.github.io/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://zengwei123.github.io/2017/01/20/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93Glide/</loc>
+    <lastmod>2018-10-12T08:27:41.752Z</lastmod>
+    <data>
+        <display>
+        <title>第三方库Glide</title>
+        <pubTime>2017-01-20T03:59:53.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="第三方库" url="https://zengwei123.github.io/categories/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://zengwei123.github.io/2017/02/14/Android-Snackbar/</loc>
     <lastmod>2018-09-29T03:10:41.655Z</lastmod>
     <data>
@@ -107,24 +143,6 @@
            
              
               <breadCrumb title="Android" url="https://zengwei123.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://zengwei123.github.io/2017/01/20/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93Glide/</loc>
-    <lastmod>2018-09-17T02:11:31.024Z</lastmod>
-    <data>
-        <display>
-        <title>第三方库Glide</title>
-        <pubTime>2017-01-20T03:59:53.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Android第三方库" url="https://zengwei123.github.io/categories/Android%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
           
         </display>
     </data>

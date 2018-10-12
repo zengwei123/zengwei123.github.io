@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  <meta name=referrer content=never>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>第三方库Gson | zengwei</title>
+  <meta name="description" content="JSON是一种文本形式的数据交换格式，它比XML更轻量、比二进制容易阅读和编写，调式也更加方便。而Gson就是一种解析JSON文本形式的库。  Gson能够将javaBean转成JSON格式，也能够将JSON转成JavaBean,下面我们来看Gson怎么使用的。 1.基本使用12345678910111213141516171819202122232425262728public class T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三方库Gson">
+<meta property="og:url" content="https://zengwei123.github.io/2017/02/21/第三方库Gson/index.html">
+<meta property="og:site_name" content="zengwei">
+<meta property="og:description" content="JSON是一种文本形式的数据交换格式，它比XML更轻量、比二进制容易阅读和编写，调式也更加方便。而Gson就是一种解析JSON文本形式的库。  Gson能够将javaBean转成JSON格式，也能够将JSON转成JavaBean,下面我们来看Gson怎么使用的。 1.基本使用12345678910111213141516171819202122232425262728public class T">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/21/第三方库Gson/1.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/21/第三方库Gson/2.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/21/第三方库Gson/3.png">
+<meta property="og:image" content="https://zengwei123.github.io/2017/02/21/第三方库Gson/4.png">
+<meta property="og:updated_time" content="2018-10-12T08:29:22.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第三方库Gson">
+<meta name="twitter:description" content="JSON是一种文本形式的数据交换格式，它比XML更轻量、比二进制容易阅读和编写，调式也更加方便。而Gson就是一种解析JSON文本形式的库。  Gson能够将javaBean转成JSON格式，也能够将JSON转成JavaBean,下面我们来看Gson怎么使用的。 1.基本使用12345678910111213141516171819202122232425262728public class T">
+<meta name="twitter:image" content="https://zengwei123.github.io/2017/02/21/第三方库Gson/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zengwei123.github.io/2017/02/21/第三方库Gson/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <!-- font-awesome CSS -->
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="/css/style.css">
+  
+    
+    
+
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zengwei123" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">ZengWei</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">我要加鸡腿！！</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 长沙, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Api/">Api</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub-Git/">GitHub-Git</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/第三方库/">第三方库</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Api/">Api</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/08/06/Api/" class="title">Api总结（持续跟新）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-08-06T04:46:49.000Z" itemprop="datePublished">2017-08-06</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/第三方库/">第三方库</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/21/第三方库Gson/" class="title">第三方库Gson</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-21T08:26:48.000Z" itemprop="datePublished">2017-02-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/14/Android-Snackbar/" class="title">Android-Snackbar</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-14T03:05:43.000Z" itemprop="datePublished">2017-02-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/11/android-CoordinatorLayout之Behavior/" class="title">android-CoordinatorLayout之Behavior</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-11T06:51:32.000Z" itemprop="datePublished">2017-02-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Android/">Android</a>
+              </p>
+              <p class="item-title">
+                <a href="/2017/02/08/Android-CoordinatorLayout/" class="title">Android-CoordinatorLayout</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2017-02-08T02:38:25.000Z" itemprop="datePublished">2017-02-08</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-第三方库Gson" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第三方库Gson
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2017/02/21/第三方库Gson/" class="article-date">
+	  <time datetime="2017-02-21T08:26:48.000Z" itemprop="datePublished">2017-02-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/第三方库/">第三方库</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/02/21/第三方库Gson/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,484(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>JSON是一种文本形式的数据交换格式，它比XML更轻量、比二进制容易阅读和编写，调式也更加方便。而Gson就是一种解析JSON文本形式的库。</p>
+</blockquote>
+<p>Gson能够将javaBean转成JSON格式，也能够将JSON转成JavaBean,下面我们来看Gson怎么使用的。</p>
+<h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String see;</span><br><span class="line">    <span class="keyword">private</span> String father;</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//省略其他toString、get、set、构造方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] s)</span></span>&#123;</span><br><span class="line">	<span class="comment">/**转json**/</span></span><br><span class="line">	Test test=<span class="keyword">new</span> Test(<span class="string">"大傻逼"</span>,<span class="number">11</span>,<span class="string">"男"</span>,<span class="string">"大蠢货"</span>);</span><br><span class="line">	<span class="comment">//主要下下面两行</span></span><br><span class="line">    Gson gson=<span class="keyword">new</span> Gson();   </span><br><span class="line">    String jsonData = gson.toJson(test);</span><br><span class="line">    System.out.println(jsonData);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * &#123;"name":"大傻","age":33,"see":"男","father":"大臭"&#125;</span></span><br><span class="line"><span class="comment">	 * 转javaBean</span></span><br><span class="line"><span class="comment">	 **/</span></span><br><span class="line">    String jsonData=<span class="string">"&#123;\"name\":\"大傻\",\"age\":33,\"see\":\"男\",\"father\":\"大臭\"&#125;"</span>;</span><br><span class="line">    Gson gson=<span class="keyword">new</span> Gson();</span><br><span class="line">    Test test = gson.fromJson(jsonData, Test.class);</span><br><span class="line">    System.out.println(test.toString());</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>上面就是一个普通的javaBean的序列化与反序列换功能，用到的是<strong>toJson()</strong>和<strong>fromJson()</strong>两个方法。有时候我们的对象并不是这样简单的，里面可能有集合有对象有数组，那么该如何使用？这里的化跟上面的使用方法是一样的。</p>
+<h3 id="2-Gson注解"><a href="#2-Gson注解" class="headerlink" title="2.Gson注解"></a>2.Gson注解</h3><p>主要有两个重要的注解<strong>@SerializedName</strong>和<strong>@Expose</strong>，前者主要是用来指定该字段在JSON中对应的字段名称，后者能够指定该字段是否能够序列化或者反序列化。</p>
+<p>1.首先来看看<strong>@SerializedName</strong>注解，这个注解可以将改变字段的名字，使用场景，比如：后台给了一串json数据，但是他的字段名跟你的字段名起的不一样，这样子就可以使用这个注解来进行解析，可以不用统一前后端的命名。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String occupation;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> wages;</span><br><span class="line">    <span class="keyword">private</span> String company;</span><br><span class="line">    <span class="meta">@SerializedName</span>(<span class="string">"测试"</span>) <span class="comment">//注解修改输出的字段名称</span></span><br><span class="line">    <span class="keyword">private</span> Test test;</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//省略其他toString、get、set、构造方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>下面序列化输出</p>
+<p></p><p><center><img src="/2017/02/21/第三方库Gson/1.png"></center></p><br>下面反序列化，如果后台给的数据是上面样的，但是我们不指定字段名，反序列化输出就是这样的。<p></p>
+<p></p><p><center><img src="/2017/02/21/第三方库Gson/2.png"></center></p><br>可以注意到test这个对象是空的，但是我们指定后呢就可以正常输出了<p></p>
+<p></p><p><center><img src="/2017/02/21/第三方库Gson/3.png"></center></p><br>这里，为POJO字段提供备选属性名<br><strong>SerializedName</strong>注解提供了两个属性，上面用到了其中一个，别外还有一个属性alternate，接收一个String数组。<br>注：alternate需要2.4版本<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SerializedName</span>(value=<span class="string">"测试"</span>,alternate=&#123;<span class="string">"a"</span>,<span class="string">"b"</span>&#125;)</span><br><span class="line">    <span class="keyword">private</span> Test test;</span><br></pre></td></tr></table></figure><p></p>
+<p>当上面的三个属性(测试、a、b)都中出现任意一个时均可以得到正确的结果。当多种情况同时出时，以最后一个出现的值为准。</p>
+<p>2.再来看看<strong>@Expose</strong>这个注解，有时候我们序列化或者反序列化的时候，有一个字段我不想看到他就可以用这个注解来指定,<strong>serialize</strong>用来指定序列化是否输出，<strong>deserialize</strong>是用来指定反序列化是否输出，true为输出，false为不输出<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Expose</span>(serialize =<span class="keyword">true</span>,deserialize =<span class="keyword">true</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Expose</span>(serialize =<span class="keyword">false</span>,deserialize =<span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="meta">@Expose</span>(serialize =<span class="keyword">true</span>,deserialize =<span class="keyword">true</span>)</span><br><span class="line">    <span class="keyword">private</span> String see;</span><br><span class="line">    <span class="meta">@Expose</span>(serialize =<span class="keyword">false</span>,deserialize =<span class="keyword">false</span>)</span><br><span class="line">    <span class="keyword">private</span> String father;</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//省略其他toString、get、set、构造方法</span></span><br><span class="line">&#125;</span><br><span class="line">.........................</span><br><span class="line"><span class="comment">//这种情况的话，Gson的使用方式就有点变化了</span></span><br><span class="line"> Gson gson=<span class="keyword">new</span> GsonBuilder().excludeFieldsWithoutExposeAnnotation().create(); <span class="comment">//需要这样来获取</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-Gson使用泛型"><a href="#3-Gson使用泛型" class="headerlink" title="3.Gson使用泛型"></a>3.Gson使用泛型</h3><p>当我们想用Gson来输出集合的时候，我们需要使用<strong>TypeToken</strong>来实现对泛型的支持<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line">...</span><br><span class="line">gson.toJson(arrayList, <span class="keyword">new</span> TypeToken&lt;ArrayList&lt;String&gt;&gt;() &#123;&#125;.getType());</span><br></pre></td></tr></table></figure></p>
+<p>我们在实际开发中是不可能只有一个Model的，会有多个，但是在使用序列化和反序列化的同时候不可能给每一个Model都写一方法。知道Gson可以支持泛型，那么我们就来进行一下封装。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TJson</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String state;   <span class="comment">//说明</span></span><br><span class="line">    <span class="keyword">private</span> String code;    <span class="comment">//状态码</span></span><br><span class="line">    <span class="keyword">private</span> T date;   <span class="comment">//这个就是我们实际的数据</span></span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//省略其他toString、get、set、构造方法</span></span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] s)</span></span>&#123;</span><br><span class="line">	<span class="comment">/**泛型封装**/</span></span><br><span class="line">    TJson&lt;Test&gt; testTJson=<span class="keyword">new</span> TJson&lt;Test&gt;(<span class="string">"ok_error"</span>,<span class="string">"0"</span>,<span class="keyword">new</span> Test(<span class="string">"大傻逼"</span>,<span class="number">11</span>,<span class="string">"男"</span>,<span class="string">"大蠢货"</span>));</span><br><span class="line">    Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line">    String s1=gson.toJson(testTJson, <span class="keyword">new</span> TypeToken&lt;TJson&lt;Test&gt;&gt;() &#123;&#125;.getType());</span><br><span class="line">    System.out.println(s1);</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>输出后就是下面这个样子</p>
+<p></p><p><center><img src="/2017/02/21/第三方库Gson/4.png"></center></p><br>贴一个Gson学习的帖子:<a href="https://www.jianshu.com/p/e740196225a4" target="_blank" rel="noopener">https://www.jianshu.com/p/e740196225a4</a><p></p>
+<p>贴一个封装<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GsonUtil</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Gson gson = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (gson == <span class="keyword">null</span>) &#123;</span><br><span class="line">            gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GsonUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转成json</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> object</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">GsonString</span><span class="params">(Object object)</span> </span>&#123;</span><br><span class="line">        String gsonString = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson != <span class="keyword">null</span>) &#123;</span><br><span class="line">            gsonString = gson.toJson(object);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> gsonString;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转成bean</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> gsonString</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cls</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">GsonToBean</span><span class="params">(String gsonString, Class&lt;T&gt; cls)</span> </span>&#123;</span><br><span class="line">        T t = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson != <span class="keyword">null</span>) &#123;</span><br><span class="line">            t = gson.fromJson(gsonString, cls);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转成list</span></span><br><span class="line"><span class="comment">     * 泛型在编译期类型被擦除导致报错</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> gsonString</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cls</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">GsonToList</span><span class="params">(String gsonString, Class&lt;T&gt; cls)</span> </span>&#123;</span><br><span class="line">        List&lt;T&gt; list = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson != <span class="keyword">null</span>) &#123;</span><br><span class="line">            list = gson.fromJson(gsonString, <span class="keyword">new</span> TypeToken&lt;List&lt;T&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转成list</span></span><br><span class="line"><span class="comment">     * 解决泛型问题</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> json</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cls</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> &lt;T&gt;</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">List&lt;T&gt; <span class="title">jsonToList</span><span class="params">(String json, Class&lt;T&gt; cls)</span> </span>&#123;</span><br><span class="line">        Gson gson = <span class="keyword">new</span> Gson();</span><br><span class="line">        List&lt;T&gt; list = <span class="keyword">new</span> ArrayList&lt;T&gt;();</span><br><span class="line">        JsonArray array = <span class="keyword">new</span> JsonParser().parse(json).getAsJsonArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">final</span> JsonElement elem : array)&#123;</span><br><span class="line">            list.add(gson.fromJson(elem, cls));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转成list中有map的</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> gsonString</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; List&lt;Map&lt;String, T&gt;&gt; GsonToListMaps(String gsonString) &#123;</span><br><span class="line">        List&lt;Map&lt;String, T&gt;&gt; list = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson != <span class="keyword">null</span>) &#123;</span><br><span class="line">            list = gson.fromJson(gsonString,</span><br><span class="line">                    <span class="keyword">new</span> TypeToken&lt;List&lt;Map&lt;String, T&gt;&gt;&gt;() &#123;</span><br><span class="line">                    &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转成map的</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> gsonString</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Map&lt;String, T&gt; <span class="title">GsonToMaps</span><span class="params">(String gsonString)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, T&gt; map = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (gson != <span class="keyword">null</span>) &#123;</span><br><span class="line">            map = gson.fromJson(gsonString, <span class="keyword">new</span> TypeToken&lt;Map&lt;String, T&gt;&gt;() &#123;</span><br><span class="line">            &#125;.getType());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2017/02/21/第三方库Gson/" title="第三方库Gson" target="_blank" rel="external">https://zengwei123.github.io/2017/02/21/第三方库Gson/</a>
+    </li>
+    
+    
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2017/08/06/Api/" title="Api总结（持续跟新）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2017/02/14/Android-Snackbar/" title="Android-Snackbar"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+  
+    
+    
+    
+        <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+    
+    
+    
+        
+
+
+    
+    
+        
+    
+    
+
+
+
+</body>
+</html>
