@@ -115,6 +115,29 @@
   </entry>
   
   <entry>
+    <title>Linux安装jdk</title>
+    <link href="https://zengwei123.github.io/2017/02/13/Linux%E5%AE%89%E8%A3%85jdk/"/>
+    <id>https://zengwei123.github.io/2017/02/13/Linux安装jdk/</id>
+    <published>2017-02-13T07:14:35.000Z</published>
+    <updated>2018-11-08T07:16:45.444Z</updated>
+    
+    <content type="html"><![CDATA[<p>云服务器，首先登录，再你购买的时候会需要你设置密码，如果没有设置，就到控制台去设置密码，然后重启服务器就行。<br>登录后这时候我们来安装java环境。<br>1、<strong>cd \usr</strong>到这个路径下，注意千万不要再tmp路径，再这个路径下全是临时文件，一但重启，全部gg<br>2、<strong>makdir java</strong>创建文件夹<br>3、<strong>cd java</strong>切换到这个路径下<br>4、下载jdk <strong>wget jdk下载链接</strong><br>5、解压<strong>jdk tar -zvxf jdk-8u191-linux-x64.tar.gz</strong><br>6、查看<strong>ls</strong>，会出现一个文件夹<strong>jdk1.8.0_191</strong><br>7、配置环境，输入命令<strong>vim /etc/profile</strong><br>8、分别输入：JAVA_HOME根据实际目录来<br>            JAVA_HOME=/usr/java/jdk1.8.0_191<br>            CLASSPATH=$JAVA_HOME/lib/<br>            PATH=$PATH:$JAVA_HOME/bin<br>            export PATH JAVA_HOME CLASSPATH<br>9、重启机器或执行命令<strong>source /etc/profile</strong><br>10、查看是否安装配置成功<strong>java -version</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;云服务器，首先登录，再你购买的时候会需要你设置密码，如果没有设置，就到控制台去设置密码，然后重启服务器就行。&lt;br&gt;登录后这时候我们来安装java环境。&lt;br&gt;1、&lt;strong&gt;cd \usr&lt;/strong&gt;到这个路径下，注意千万不要再tmp路径，再这个路径下全是临时文
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://zengwei123.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>android-CoordinatorLayout之Behavior</title>
     <link href="https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout%E4%B9%8BBehavior/"/>
     <id>https://zengwei123.github.io/2017/02/11/android-CoordinatorLayout之Behavior/</id>
@@ -461,29 +484,6 @@
       
         &lt;blockquote&gt;
 &lt;h4 id=&quot;一-Fragment简介：&quot;&gt;&lt;a href=&quot;#一-Fragment简介：&quot; class=&quot;headerlink&quot; title=&quot;一.Fragment简介：&quot;&gt;&lt;/a&gt;一.Fragment简介：&lt;/h4&gt;&lt;p&gt;Android在3.0中引
-      
-    
-    </summary>
-    
-      <category term="Android" scheme="https://zengwei123.github.io/categories/Android/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Android消息机制-Handler</title>
-    <link href="https://zengwei123.github.io/2016/10/13/Android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6-Handler/"/>
-    <id>https://zengwei123.github.io/2016/10/13/Android消息机制-Handler/</id>
-    <published>2016-10-13T06:53:50.000Z</published>
-    <updated>2018-08-13T10:24:03.406Z</updated>
-    
-    <content type="html"><![CDATA[<p> 安卓中的消息机制说的其实就不同线程间的通讯，就是Handler。<br>  <br><br> <strong>为什么安卓中要有消息机制？</strong><br> 因为在安卓中更新UI是必须在子线程中，UI控件部署线程安全的，如果多线程并发访问就会出现问题。<br>  <br><br> <strong>你可能要问为什么不给UI控件加上锁呢</strong>？<br> 这是因为上锁之后会让UI变得复杂同时效率变低，还会阻塞某些进程的执行，所以UI采用单线程模式，这对开发者也不是很麻烦，只要通过Handler就能够解决。<br> <br></p><h3 id="下面就是Handler的基本用法，在子线程中跟新UI"><a href="#下面就是Handler的基本用法，在子线程中跟新UI" class="headerlink" title="下面就是Handler的基本用法，在子线程中跟新UI"></a>下面就是Handler的基本用法，在子线程中跟新UI</h3><p> <br><center><img src="/2016/10/13/Android消息机制-Handler/GIF1.gif"></center><br><br> <br><center><img src="/2016/10/13/Android消息机制-Handler/1.png"></center><br><br> 这个就是Handler的基本用法。<br>  <br></p><h3 id="消息机制的分析"><a href="#消息机制的分析" class="headerlink" title="消息机制的分析"></a>消息机制的分析</h3><p>  安卓的消息机制就是Handler机制，在handler机制中有两个很重要的东西，一个是Looper、另一个是MessageQueue,这两个东西和Handler凑成了Android中的非常重要的消息机制。<br>  <br><br>  他的原理是这样的：<br>  1、Handler创建一个消息，将这个消息插入到MessageQueue中。<br>  2、Looper不断轮询MessageQueue的next方法。<br>  3、Looper发现有消息（Message）了,就调用回调方法handlerMessage。<br>  我们常常用Handler来进行更新UI但是这并不是说它只能够跟新UI，如同读取文件，网络请求等耗时操作都可以在Handler里面来进行的。<br><br><br>通过上面的原理我们了解需要有一个消息队列MessageQueue，那么这个消息队列是从哪里来的呢？这里我们就要看到Looper，这个类的构造方法中创建了MessageQueue,然后将当前线程的对象保存起来。<br> <br><center><img src="/2016/10/13/Android消息机制-Handler/2.png"></center><br><br> 而我们的Handler的创建也不能离开Looper,如果new一个Handler但是他没有Looper的话就会报错，可能你这里你就有疑问了，我们在上面的更新UI的实例中并没有看到哪里有Looper,<strong>这是因为我们的UI线程在创建的时候就会创建一个Looper</strong>,当我们如果在子线程new一个Handle就会出现保存，所以我们要主动去创建一个Lopper。<br> <br><br> Lopper的几个方法<br> 1、Looper.prepare():为当前线程创建一个Looper<br> 2、Looper.loop():开启消息轮询<br> 3、Looper.myLooper.quit():直接退出Looper<br> 4、Looper.myLooper.quitSafely():设定一个标记，只有当目前已有的消息处理完才会执行退出操作。<br> 当Looper退出之后，Handler就无法发送消息，当Looper退出后，Handler就无法发送消息，send出去的消息会返回false；当我们在子线程中创建了Looper并且所有的消息都处理完毕的时候，要记得调用quit方法，不让这个Looper就一直处于阻塞状态一直那么等待下去，同时主线程的Looper是无法退出的。<br>  <br><br> 我们看看Looper的loop()方法的源码<br> <br><center><img src="/2016/10/13/Android消息机制-Handler/3.png"></center><br><br> 通过代码我们知道：looper方法是一个死循环，唯一跳出的循环的方式是MessageQueue的next方法返回null，但是基本上是不可能的。如果我们不手动调用quit或者quitSafely方法的话，MessageQueue的next方法是不可能返回null的。因为当MessageQueue没有消息时，next方法会一直阻塞在那里，因为MessageQueue的next方法阻塞了，就导致Looper的loop方法也一直在阻塞了。这里我们那一分为二的谈，loop轮询不到消息：那么处于阻塞状态，然后就没有然后了，除了又轮询到了新的消息loop轮到了新的消息：Looper就会处理消息1、msg.target.dispatchMessage(msg)，这里的 msg.targe就是指Handler对象2、一圈下来，Handler发送的消息有交给了自己的dispatchMessage方法来处理了。（这个dispatchMessage方法不是Handler自己调用时，是与Handler相相关的Looper简介调用的），这样下来，就成功地将逻辑切换到指定的线程当中去了<br>  <br><br>  Handler的主要工作就是接受和发送<br>  下面是发送的方法，主要有两种post,send;<br>   <br><center><img src="/2016/10/13/Android消息机制-Handler/4.png"></center><br><br><br><center><img src="/2016/10/13/Android消息机制-Handler/5.png"></center><br><br>而我们接收的方法：<br>dispatchMessage方法<br>dispatchMessage会判断三种情况</p><p>1、如果是post发送来的message，那么就让这个message所持有的Runnable执行run方法，非常简单。<br>Message的Callback 是一个Runnable对象，Handler的post的重载的函数不管参数多少，肯定都是有Runnable的。</p><pre><code>private static void handleCallback(Message message) {    message.callback.run();}</code></pre><p>2、如果是利用Handler(Callback callback) 构造函数实例化的Handler，也就是构造函数里面传入了一个CallBack的对象，那么就执行这个Callback的handlerMessage。<br>利用这个接口和Handler的一个构造函数，我们可以这么创建Handler handler=new Handler(callback)来创建Handler;备注写明了这个接口的作用：可以创建一个Handler的实例但是不需要派生Handler的子类。对比我们日常中最经常做的，就是派生一个Handler的子类，复写handleMessage方法，而通过上面的代码，我们有了一种新的创建Handler方式，那就是不派生子类，而是通过Callback来实现。</p><p>这种方式非常少用。</p><p>看一下Handler里面的Callback这个接口的设计<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callback</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>3、如果是send方法发送的，那么就执行handleMessage，这个方法我们非常熟悉了，google的给的备注的也说了，子类必须实现方法以接受这些Message。这也就是我们最常见的最常用的方式了。</p><pre><code class="java"><span class="comment">/**</span><span class="comment"> * Subclasses must implement this to receive messages.</span><span class="comment"> */</span><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>{}</code></pre><blockquote><p>参考：<a href="https://www.jianshu.com/p/9e4d1fab0f36" target="_blank" rel="noopener">https://www.jianshu.com/p/9e4d1fab0f36</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; 安卓中的消息机制说的其实就不同线程间的通讯，就是Handler。&lt;br&gt;  &lt;br&gt;&lt;br&gt; &lt;strong&gt;为什么安卓中要有消息机制？&lt;/strong&gt;&lt;br&gt; 因为在安卓中更新UI是必须在子线程中，UI控件部署线程安全的，如果多线程并发访问就会出现问题。&lt;br&gt;  &lt;
       
     
     </summary>
