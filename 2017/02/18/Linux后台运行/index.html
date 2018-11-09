@@ -17,19 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>归档 | zengwei</title>
-  <meta name="description" content="曾伟 个人博客 java Android">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zengwei">
-<meta property="og:url" content="https://zengwei123.github.io/archives/page/3/index.html">
+  <title>Linux后台运行 | zengwei</title>
+  <meta name="description" content="当我们用远程登陆Linux的显示出的黑窗口，然后通过各种手段好不容易将程序跑起来。关闭窗口后，程序也带着关闭了。这时就需要了解一下怎么在Linux后台运行程序了，很简单你只需要几条命令，就可以做到了。 正文关于Linux后台运行实现。有两种方式，下面就来看看吧  运行环境:Centos 7.2 *64  第一种:nohup快速上手 nohup 你的运行程序命令 &amp;amp; ，然后按下Enter就可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux后台运行">
+<meta property="og:url" content="https://zengwei123.github.io/2017/02/18/Linux后台运行/index.html">
 <meta property="og:site_name" content="zengwei">
-<meta property="og:description" content="曾伟 个人博客 java Android">
+<meta property="og:description" content="当我们用远程登陆Linux的显示出的黑窗口，然后通过各种手段好不容易将程序跑起来。关闭窗口后，程序也带着关闭了。这时就需要了解一下怎么在Linux后台运行程序了，很简单你只需要几条命令，就可以做到了。 正文关于Linux后台运行实现。有两种方式，下面就来看看吧  运行环境:Centos 7.2 *64  第一种:nohup快速上手 nohup 你的运行程序命令 &amp;amp; ，然后按下Enter就可">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-09T08:35:05.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zengwei">
-<meta name="twitter:description" content="曾伟 个人博客 java Android">
+<meta name="twitter:title" content="Linux后台运行">
+<meta name="twitter:description" content="当我们用远程登陆Linux的显示出的黑窗口，然后通过各种手段好不容易将程序跑起来。关闭窗口后，程序也带着关闭了。这时就需要了解一下怎么在Linux后台运行程序了，很简单你只需要几条命令，就可以做到了。 正文关于Linux后台运行实现。有两种方式，下面就来看看吧  运行环境:Centos 7.2 *64  第一种:nohup快速上手 nohup 你的运行程序命令 &amp;amp; ，然后按下Enter就可">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://zengwei123.github.io/archives/page/3/index.html">
+  <link rel="canonical" href="https://zengwei123.github.io/2017/02/18/Linux后台运行/index.html">
   
     <link rel="alternate" href="/atom.xml" title="zengwei" type="application/atom+xml">
   
@@ -286,144 +287,188 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档</h1>
-	      <p class="text-muted">共 8 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-Linux后台运行" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux后台运行
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2016" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2016
-            </a>
-            <!-- <a href="/archives/2016" class="archive-year">2016</a> -->
-          </h3>
-        </div>
-        <div id="collapse2016" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2016">
-        <div class="panel-body">
-          <div class="collection">
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2017/02/18/Linux后台运行/" class="article-date">
+	  <time datetime="2017-02-18T08:32:48.000Z" itemprop="datePublished">2017-02-18</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/工具/">工具</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2017/02/18/Linux后台运行/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 556(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry markdown-body" itemprop="articleBody">
+      
+        <p>当我们用远程登陆Linux的显示出的黑窗口，然后通过各种手段好不容易将程序跑起来。关闭窗口后，程序也带着关闭了。这时就需要了解一下怎么在Linux后台运行程序了，很简单你只需要几条命令，就可以做到了。</p>
+<p>正文<br>关于Linux后台运行实现。有两种方式，下面就来看看吧</p>
+<blockquote>
+<p>运行环境:Centos 7.2 *64</p>
+</blockquote>
+<p>第一种:nohup<br>快速上手<strong> nohup 你的运行程序命令 &amp; </strong>，然后按下<strong>Enter</strong>就可以了。</p>
+<p>比如我要运行<strong>demo.py</strong>脚本。那么我就这样:<strong>nohup python demo.py &amp;</strong>执行这条命令就已经完成了后台运行，关于程序的输出，你可以在你文件的同级目录下发现<strong>nohup.out</strong>文件，打开就是你运行程序的输出数据。</p>
+<p>有关更多的**nohup命令使用方法可以百度学习</p>
+<p>第二种:screen<br>使用<strong>scrren</strong>命令，更加纯粹暴力，它的原理是在后台运行一个黑窗口，这个窗口不是远程的看见的黑窗口，在它的黑窗口中，你可以运行任何你想运行的后台程序。</p>
+<p><strong>screen -S   name </strong></p>
+<p>创建一个新窗口，名字为name</p>
+<p>输入这条命令后，你正常的执行你需要的运行的程序，比如我要执行demo.py。</p>
+<p><strong>python demo.py</strong></p>
+<p>重点来了：当你程序成功运行好后，按下：<strong>ctrl+a+d</strong></p>
+<p>然后就完事了。</p>
+<p>下面时是常用的screen命令:<br>screen -S name 新建窗口<br>ctrl+a+d：挂起当前窗口<br>screen -r name 重新连接name窗口<br>screen -ls 查看当前有多少个窗口在后台运行及他们的状态<br>screen -d name 挂起窗口<br>有关更多的screen命令使用方法可以百度学习</p>
+<p>补充</p>
+<h2 id="后台运行后可以通过ps-aux-来查看后台所有的运行程序，找到你程序的PID，然后在根据PID来停止该程序，具体的命令为-kill-s-9-你程序的PID"><a href="#后台运行后可以通过ps-aux-来查看后台所有的运行程序，找到你程序的PID，然后在根据PID来停止该程序，具体的命令为-kill-s-9-你程序的PID" class="headerlink" title="后台运行后可以通过ps -aux 来查看后台所有的运行程序，找到你程序的PID，然后在根据PID来停止该程序，具体的命令为:kill -s 9 你程序的PID"></a>后台运行后可以通过ps -aux 来查看后台所有的运行程序，找到你程序的PID，然后在根据PID来停止该程序，具体的命令为:kill -s 9 你程序的PID</h2><p>作者：Wyndem<br>来源：CSDN<br>原文：<a href="https://blog.csdn.net/qq_31403321/article/details/83575882" target="_blank" rel="noopener">https://blog.csdn.net/qq_31403321/article/details/83575882</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zengwei123.github.io/2017/02/18/Linux后台运行/" title="Linux后台运行" target="_blank" rel="external">https://zengwei123.github.io/2017/02/18/Linux后台运行/</a>
+    </li>
     
     
-<a href="/2016/10/18/Android-Fragment/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-10-18T08:09:07.000Z" itemprop="datePublished">2016-10-18</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Android随笔-Fragment
-</a>
+  </ul>
+</blockquote>
 
 
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zengwei123" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zengwei123" target="_blank"><span class="text-dark">ZengWei</span><small class="ml-1x">我要加鸡腿！！</small></a></h3>
+        <div>有工作找我啊。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
-    
-    
-<a href="/2016/10/13/Android消息机制-Handler/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-10-13T06:53:50.000Z" itemprop="datePublished">2016-10-13</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Android消息机制-Handler
-</a>
-
-
-  
-    
-    
-    
-<a href="/2016/10/07/Android如何在子线程中更新UI/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-10-07T01:27:16.000Z" itemprop="datePublished">2016-10-07</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Android-如何在子线程中更新UI
-</a>
-
-
-  
-    
-    
-    
-<a href="/2016/09/26/Android侧滑布局-DrawerLayout/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-09-26T03:54:14.000Z" itemprop="datePublished">2016-09-26</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Android侧滑布局-DrawerLayout
-</a>
-
-
-  
-    
-    
-    
-<a href="/2016/09/19/Android四大组件之Service/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-09-19T02:58:12.000Z" itemprop="datePublished">2016-09-19</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Android四大组件之Service
-</a>
-
-
-  
-    
-    
-    
-<a href="/2016/09/15/Android四大组件之Activity/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-09-15T01:09:23.000Z" itemprop="datePublished">2016-09-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Android四大组件之Activity
-</a>
-
-
-  
-    
-    
-    
-<a href="/2016/09/04/hexo常用命令/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-09-04T08:25:04.000Z" itemprop="datePublished">2016-09-04</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Hexo常用命令
-</a>
-
-
-  
-    
-    
-    
-<a href="/2016/09/02/hexo搭建博客/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2016-09-02T15:15:04.000Z" itemprop="datePublished">2016-09-02</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Hexo搭建博客
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev">
-                <a href="/archives/page/2/">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next disabled">
-                <a href="javascript:;">
-                    下一页
-                    <i class="icon icon-angle-right"></i>                    
-                </a>
-            </li>
-            
-        </ul>
-        <div class="total-article bar-right">Page 3 of 3</div>
+    <li class="prev">
+      <a href="/2017/02/21/第三方库Gson/" title="第三方库Gson"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2017/02/14/Android-Snackbar/" title="Android-Snackbar"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    
- 	
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -465,6 +510,12 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
     
     
     
+        
+
+
+    
+    
+        
     
     
 
